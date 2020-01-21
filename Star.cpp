@@ -46,7 +46,7 @@ namespace SDLFramework
 
 	void Star::Update() 
 	{
-		mFlickerTimer += mTimer->DeltaTime();
+		mFlickerTimer += mTimer->GetDeltaTime();
 		if (mFlickerTimer >= mFlickerSpeed) 
 		{
 			mVisible = !mVisible;

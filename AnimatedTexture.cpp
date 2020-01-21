@@ -42,7 +42,7 @@ namespace SDLFramework
 	{
 		if (!mAnimationDone) 
 		{
-			mAnimationTimer += mTimer->DeltaTime();
+			mAnimationTimer += mTimer->GetDeltaTime();
 
 			if (mAnimationTimer >= mAnimationSpeed)
 			{

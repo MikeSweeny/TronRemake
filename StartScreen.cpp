@@ -135,7 +135,7 @@ void StartScreen::Update()
 {
 	if (!mAnimationDone) 
 	{
-		mAnimationTimer += mTimer->DeltaTime();
+		mAnimationTimer += mTimer->GetDeltaTime();
 		Position(Lerp(mAnimationStartPos, mAnimationEndPos, mAnimationTimer / mAnimationTotalTime));
 
 		if (mInput->KeyPressed(SDL_SCANCODE_DOWN) || mInput->KeyPressed(SDL_SCANCODE_UP)) 

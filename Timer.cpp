@@ -3,12 +3,27 @@ namespace SDLFramework
 {
 	Timer* Timer::sInstance = nullptr;
 
-	Timer* Timer::Instance() 
+	Timer::Timer()
+	{
+		Reset();
+		mTimeScale = 1.0f;
+	}
+
+	Timer::~Timer()
+	{
+
+	}
+
+	void Timer::SetInstance() 
 	{
 		if (sInstance == nullptr) 
 		{
 			sInstance = new Timer();
 		}
+	}
+
+	Timer* Timer::GetInstance()
+	{
 		return sInstance;
 	}
 
@@ -25,17 +40,17 @@ namespace SDLFramework
 		mDeltaTime = 0.0f;
 	}
 
-	float Timer::DeltaTime() 
+	float Timer::GetDeltaTime() 
 	{
 		return mDeltaTime;
 	}
 
-	void Timer::TimeScale(float ts) 
+	void Timer::SetTimeScale(float ts) 
 	{
 		mTimeScale = ts;
 	}
 
-	float Timer::TimeScale() 
+	float Timer::GetTimeScale() 
 	{
 		return mTimeScale;
 	}
@@ -44,16 +59,5 @@ namespace SDLFramework
 	{
 		mElapsedTicks = SDL_GetTicks() - mStartTicks;
 		mDeltaTime = mElapsedTicks * 0.001f; // convert to seconds
-	}
-
-	Timer::Timer()
-	{
-		Reset();
-		mTimeScale = 1.0f;
-	}
-
-	Timer::~Timer()
-	{
-
 	}
 }

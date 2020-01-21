@@ -34,7 +34,7 @@ namespace SDLFramework
 					break;
 				}
 			}
-			if (mTimer->DeltaTime() >= 1.0f / FRAME_RATE)
+			if (mTimer->GetDeltaTime() >= 1.0f / FRAME_RATE)
 			{
 				Update();
 				LateUpdate();
@@ -105,41 +105,41 @@ namespace SDLFramework
 	{
 		if (mInputManager->KeyDown(SDL_SCANCODE_W)) //Forward and Back
 		{
-			mTex->Translate(Vector2(0, -80.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTex->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_S))
 		{
-			mTex->Translate(Vector2(0, 80.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTex->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_A)) //Left and Right
 		{
-			mTex->Translate(Vector2(-80.0f, 0) * mTimer->DeltaTime(), GameEntity::World);
+			mTex->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_D))
 		{
-			mTex->Translate(Vector2(80.0f, 0) * mTimer->DeltaTime(), GameEntity::World);
+			mTex->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_Q)) //Rotate Left and Right
 		{
-			mTex->Rotate((-25) * mTimer->DeltaTime());
+			mTex->Rotate((-25) * mTimer->GetDeltaTime());
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_E))
 		{
-			mTex->Rotate((25) * mTimer->DeltaTime());
+			mTex->Rotate((25) * mTimer->GetDeltaTime());
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_Z)) //Scale Up and Down
 		{
 			Vector2 tempScale = mTex->Scale();
 			tempScale += Vector2(0.1f, 0.1f);
 			mTex->Scale(tempScale);
-			mTex->Translate(Vector2(-120.0f, -120.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTex->Translate(Vector2(-120.0f, -120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_C))
 		{
 			Vector2 tempScale = mTex->Scale();
 			tempScale -= Vector2(0.1f, 0.1f);
 			mTex->Scale(tempScale);
-			mTex->Translate(Vector2(120.0f, 120.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTex->Translate(Vector2(120.0f, 120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 	}
 
@@ -147,41 +147,41 @@ namespace SDLFramework
 	{
 		if (mInputManager->KeyDown(SDL_SCANCODE_I)) //Forward and Back
 		{
-			mTexTwo->Translate(Vector2(0, -80.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTexTwo->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_K))
 		{
-			mTexTwo->Translate(Vector2(0, 80.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTexTwo->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_J)) //Left and Right
 		{
-			mTexTwo->Translate(Vector2(-80.0f, 0) * mTimer->DeltaTime(), GameEntity::World);
+			mTexTwo->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_L))
 		{
-			mTexTwo->Translate(Vector2(80.0f, 0) * mTimer->DeltaTime(), GameEntity::World);
+			mTexTwo->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_U)) //Rotate Left and Right
 		{
-			mTexTwo->Rotate((-25) * mTimer->DeltaTime());
+			mTexTwo->Rotate((-25) * mTimer->GetDeltaTime());
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_O))
 		{
-			mTexTwo->Rotate((25) * mTimer->DeltaTime());
+			mTexTwo->Rotate((25) * mTimer->GetDeltaTime());
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_M)) //Scale Up and Down
 		{
 			Vector2 tempScale = mTexTwo->Scale();
 			tempScale += Vector2(0.1f, 0.1f);
 			mTexTwo->Scale(tempScale);
-			mTexTwo->Translate(Vector2(-55.0f, -55.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTexTwo->Translate(Vector2(-55.0f, -55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_PERIOD))
 		{
 			Vector2 tempScale = mTexTwo->Scale();
 			tempScale -= Vector2(0.1f, 0.1f);
 			mTexTwo->Scale(tempScale);
-			mTexTwo->Translate(Vector2(55.0f, 55.0f) * mTimer->DeltaTime(), GameEntity::World);
+			mTexTwo->Translate(Vector2(55.0f, 55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 	}
 
