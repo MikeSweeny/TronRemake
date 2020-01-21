@@ -6,18 +6,21 @@ namespace SDLFramework
 {
 	class Timer
 	{
-	private:                     // Attributes
+	// ************* Attributes ************* //
+	private:
 		static Timer* sInstance;
 		unsigned int mStartTicks;
 		unsigned int mElapsedTicks;
 		float mDeltaTime;
 		float mTimeScale;
 
-	public:                      // Attributes
+	public:
 
-	private:                     // Functions
 
-	public:                      // Functions
+	// ************* Functions ************* //
+	private:
+
+	public:
 		Timer();
 		~Timer();
 
@@ -31,7 +34,9 @@ namespace SDLFramework
 		void Reset();
 		void Update();
 
-	protected:                   // Functions & Attributes
+
+	// ************* Protected ************* //
+	protected:
 
 
 	};
