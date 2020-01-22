@@ -1,26 +1,19 @@
 #include "ScreenManager.h"
+#include "GameScreenHud.h"
 
 ScreenManager* ScreenManager::sInstance = nullptr;
 
 ScreenManager::ScreenManager() 
 {
 	mInput = InputManager::Instance();
-	mBackgroundStars = BackgroundStars::Instance();
-	mStartScreen = new StartScreen();
-	mPlayScreen = new PlayScreen();
 	mMainMenu = new MainMenu();
+	mGameHud = new GameScreenHud();
 	mCurrentScreen = START;
 }
 
 ScreenManager::~ScreenManager() 
 {
 	mInput = nullptr;
-	BackgroundStars::Release();
-	mBackgroundStars = nullptr;
-	delete mStartScreen;
-	mStartScreen = nullptr;
-	delete mPlayScreen;
-	mPlayScreen = nullptr;
 	delete mMainMenu;
 	mMainMenu = nullptr;
 }
@@ -42,15 +35,14 @@ void ScreenManager::Release()
 
 void ScreenManager::Update() 
 {
-	mBackgroundStars->Update();
 	switch (mCurrentScreen) 
 	{
 	case START:
-		mStartScreen->Update();
+		mMainMenu->Update();
+
 		if (mInput->KeyPressed(SDL_SCANCODE_RETURN)) 
 		{
 			mCurrentScreen = PLAY;
-			mStartScreen->ResetAnimation();
 		}
 		if (mInput->KeyPressed(SDL_SCANCODE_M))
 		{
@@ -58,14 +50,13 @@ void ScreenManager::Update()
 		}
 		break;
 	case PLAY:
-		mPlayScreen->Update();
 		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE)) 
 		{
 			mCurrentScreen = START;
 		}
 		break;
 	case MAIN:
-		mMainMenu->Update();
+		mGameHud->Update();
 		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE))
 		{
 			mCurrentScreen = START;
@@ -76,17 +67,15 @@ void ScreenManager::Update()
 
 void ScreenManager::Render() 
 {
-	mBackgroundStars->Render();
 	switch (mCurrentScreen) 
 	{
 	case START:
-		mStartScreen->Render();
+		mMainMenu->Render();
 		break;
 	case PLAY:
-		mPlayScreen->Render();
 		break;
 	case MAIN:
-		mMainMenu->Render();
+		mGameHud->Render();
 		break;
 	}
 }

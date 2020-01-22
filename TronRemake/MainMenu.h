@@ -19,12 +19,7 @@ private:
 	float mAnimationTotalTime;
 	float mAnimationTimer;
 	bool mAnimationDone;
-	int mSelectedMode;
-	// Top Bar
-	// Player Select
-	Texture* mCursor;
-	Vector2 mCursorStartPos;
-	Vector2 mCursorOffset;
+
 	// Animated Thingy
 	GameEntity* mAnimatedRainbow;
 	static const int rowSize = 6;
@@ -34,9 +29,19 @@ private:
 	Texture* aFrameThreeRow[rowSize];
 	Texture* aFrameFourRow[rowSize];
 	Texture* rows[rowCount];
+
+	// Play Mode Entities
+	GameEntity* mPlayModes;
+	Texture* mOnePlayerMode;
+	Texture* mTwoPlayerMode;
+	Texture* mCursor;
+
+	Vector2 mCursorStartPos;
+	Vector2 mCursorOffset;
+	int mSelectedMode;
+
+
 	// Slow-Type Acknowledgements
-
-
 
 	// ************* Functions ************* //
 public:
