@@ -95,7 +95,6 @@ namespace SDLFramework
 		mStars->Render();
 		mTex->Render();
 		mTexTwo->Render();
-		mFontTexture->Render();
 		mGraphics->Render();
 	}
 
@@ -209,8 +208,6 @@ namespace SDLFramework
 		mTexTwo = new Texture("SpriteSheet.png");
 		mTexTwo = new Texture("SpriteSheet.png", 184, 76, 22, 22);
 		mTexTwo->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.75f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
-		mFontTexture = new Texture("Hello World!", "ARCADE.TTF", 72, { 255, 0, 0 });
-		mFontTexture->Position(Vector2(400, 200));
 
 		mInputManager = InputManager::Instance();
 		mAudioManager = AudioManager::Instance();

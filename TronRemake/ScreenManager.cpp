@@ -8,7 +8,8 @@ ScreenManager::ScreenManager()
 	mBackgroundStars = BackgroundStars::Instance();
 	mStartScreen = new StartScreen();
 	mPlayScreen = new PlayScreen();
-	mCurrentScreen = Start;
+	mMainMenu = new MainMenu();
+	mCurrentScreen = START;
 }
 
 ScreenManager::~ScreenManager() 
@@ -20,6 +21,8 @@ ScreenManager::~ScreenManager()
 	mStartScreen = nullptr;
 	delete mPlayScreen;
 	mPlayScreen = nullptr;
+	delete mMainMenu;
+	mMainMenu = nullptr;
 }
 
 ScreenManager* ScreenManager::Instance() 
@@ -42,19 +45,30 @@ void ScreenManager::Update()
 	mBackgroundStars->Update();
 	switch (mCurrentScreen) 
 	{
-	case Start:
+	case START:
 		mStartScreen->Update();
 		if (mInput->KeyPressed(SDL_SCANCODE_RETURN)) 
 		{
-			mCurrentScreen = Play;
+			mCurrentScreen = PLAY;
 			mStartScreen->ResetAnimation();
 		}
+		if (mInput->KeyPressed(SDL_SCANCODE_M))
+		{
+			mCurrentScreen = MAIN;
+		}
 		break;
-	case Play:
+	case PLAY:
 		mPlayScreen->Update();
 		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE)) 
 		{
-			mCurrentScreen = Start;
+			mCurrentScreen = START;
+		}
+		break;
+	case MAIN:
+		mMainMenu->Update();
+		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE))
+		{
+			mCurrentScreen = START;
 		}
 		break;
 	}
@@ -65,11 +79,14 @@ void ScreenManager::Render()
 	mBackgroundStars->Render();
 	switch (mCurrentScreen) 
 	{
-	case Start:
+	case START:
 		mStartScreen->Render();
 		break;
-	case Play:
+	case PLAY:
 		mPlayScreen->Render();
+		break;
+	case MAIN:
+		mMainMenu->Render();
 		break;
 	}
 }

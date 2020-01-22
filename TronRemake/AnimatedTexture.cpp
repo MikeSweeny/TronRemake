@@ -68,7 +68,6 @@ namespace SDLFramework
 				mSourceRect.y = mStartY + (int)(mAnimationTimer / mTimePerFrame) * mHeight;
 			}
 		}
-		std::cout << "x = " << mSourceRect.x << " y = " << mSourceRect.y;
 	}
 
 

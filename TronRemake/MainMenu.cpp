@@ -7,10 +7,13 @@ MainMenu::MainMenu()
 	mAnimatedRainbow = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.4f);
 	mAnimatedRainbow->Parent(this);
 
+	SetFrameSprites();
+
 	float spriteStart = -64;
 	float spriteGap = 32;
 	for (int i = 0; i < rowSize; i++)
 	{
+		aFrameOneRow[i]->Parent(mAnimatedRainbow);
 		aFrameOneRow[i]->Position(spriteStart + (spriteGap * i), 0);
 	}
 }

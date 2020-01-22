@@ -42,13 +42,12 @@ private:
 public:
 	MainMenu();
 	~MainMenu();
-
+	void Update() override;
+	void Render() override;
 
 private:
 	int SelectedMode();
 	void ChangeSelectedMode(int change);
-	void Update() override;
-	void Render() override;
 
 	// Animated rainbow functions
 	void SetFrameSprites();
