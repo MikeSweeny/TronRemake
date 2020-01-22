@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Managers">
       <UniqueIdentifier>{3c09a00c-c40c-4e49-8e63-e59749e66055}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TRON">
+      <UniqueIdentifier>{8dd5b4b1-e07e-434f-8cfc-c7892ee98a9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TRON">
+      <UniqueIdentifier>{b605da28-3785-490f-8f2c-fe2af2c018a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -96,6 +102,9 @@
     <ClCompile Include="PlaySideBar.cpp">
       <Filter>Source Files\Galaga</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -154,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="PlaySideBar.h">
       <Filter>Header Files\Galaga</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

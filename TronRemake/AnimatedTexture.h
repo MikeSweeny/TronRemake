@@ -7,11 +7,17 @@ namespace SDLFramework
 {
 	class AnimatedTexture :	public Texture 
 	{
+		
 	// ************* Attributes ************* //
-	private:
-
+	public:
 		enum WrapMode { Once = 0, Loop = 1 };
 		enum AnimDir { Horizontal = 0, Vertical = 1 };
+		AnimatedTexture(std::string filename, int x, int y, int w, int h, int frameCount, float animationSpeed, AnimDir animationDir, bool managed = false);
+		~AnimatedTexture();
+
+		void Update();
+
+	private:
 
 		Timer* mTimer;
 		int mStartX;
@@ -25,13 +31,6 @@ namespace SDLFramework
 		WrapMode mWrapMode;
 		AnimDir mAnimationDirection;
 		bool mAnimationDone;
-
-
-	public:
-		AnimatedTexture(std::string filename, int x, int y, int w, int h, int frameCount, float animationSpeed, AnimDir animationDir, bool managed = false);
-		~AnimatedTexture();
-
-		void Update();
 
 	// ************* Functions ************* //
 	private:

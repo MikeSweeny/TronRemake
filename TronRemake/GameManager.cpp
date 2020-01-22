@@ -3,6 +3,7 @@
 namespace SDLFramework 
 {
 	GameManager* GameManager::sInstance = nullptr;
+	
 	GameManager* GameManager::Instance()
 	{
 		if (sInstance == nullptr) 
@@ -48,8 +49,6 @@ namespace SDLFramework
 	{
 		mInputManager->Update();
 		mScreenManager->Update();
-		mStars->Update();
-		//mStartScreen->Update();
 
 		PlayerOneInputUpdate();
 		PlayerTwoInputUpdate();
@@ -94,7 +93,6 @@ namespace SDLFramework
 		mGraphics->ClearBackBuffer();
 		mScreenManager->Render();
 		mStars->Render();
-		//mStartScreen->Render();
 		mTex->Render();
 		mTexTwo->Render();
 		mFontTexture->Render();
