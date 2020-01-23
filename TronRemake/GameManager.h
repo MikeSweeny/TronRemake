@@ -40,10 +40,6 @@ namespace SDLFramework
 		InputManager* mInputManager;
 		AudioManager* mAudioManager;
 
-		AnimatedTexture* mTex;
-		Texture* mTexTwo;
-		Texture* mFontTexture;
-
 		const float scaleIncrement = 2.0f;
 		void PlayerOneInputUpdate();
 		void PlayerTwoInputUpdate();

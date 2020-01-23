@@ -30,7 +30,7 @@ MainMenu::MainMenu()
 
 	// Animated Rainbow
 
-	mAnimatedSection = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.5f);
+	mAnimatedSection = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.6f);
 	mAnimatedSection->Parent(this);
 
 	lastChange = 0;
@@ -180,7 +180,7 @@ void MainMenu::Render()
 {
 	mOnePlayerMode->Render();
 	mTwoPlayerMode->Render();
-	mCursor->Render();
+	mCursor->Render(); 
 
 	for (int i = 0; i < gridHeight; i++)
 	{
@@ -192,7 +192,6 @@ void MainMenu::Render()
 			}
 		}
 	}
-
 
 	if (currentTime >= lastChange + changeIncrement)
 	{

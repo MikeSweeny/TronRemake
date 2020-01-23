@@ -52,8 +52,6 @@ namespace SDLFramework
 
 		PlayerOneInputUpdate();
 		PlayerTwoInputUpdate();
-
-		mTex->Update();
 		
 		if (mInputManager->KeyDown(SDL_SCANCODE_1))
 		{
@@ -92,8 +90,6 @@ namespace SDLFramework
 	{
 		mGraphics->ClearBackBuffer();
 		mScreenManager->Render();
-		mTex->Render();
-		mTexTwo->Render();
 		mGraphics->Render();
 	}
 
@@ -101,41 +97,41 @@ namespace SDLFramework
 	{
 		if (mInputManager->KeyDown(SDL_SCANCODE_W)) //Forward and Back
 		{
-			mTex->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_S))
 		{
-			mTex->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_A)) //Left and Right
 		{
-			mTex->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_D))
 		{
-			mTex->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_Q)) //Rotate Left and Right
 		{
-			mTex->Rotate((-25) * mTimer->GetDeltaTime());
+			//->Rotate((-25) * mTimer->GetDeltaTime());
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_E))
 		{
-			mTex->Rotate((25) * mTimer->GetDeltaTime());
+			//->Rotate((25) * mTimer->GetDeltaTime());
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_Z)) //Scale Up and Down
 		{
-			Vector2 tempScale = mTex->Scale();
-			tempScale += Vector2(0.1f, 0.1f);
-			mTex->Scale(tempScale);
-			mTex->Translate(Vector2(-120.0f, -120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//Vector2 tempScale = mTex->Scale();
+			//tempScale += Vector2(0.1f, 0.1f);
+			//mTex->Scale(tempScale);
+			//mTex->Translate(Vector2(-120.0f, -120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_C))
 		{
-			Vector2 tempScale = mTex->Scale();
-			tempScale -= Vector2(0.1f, 0.1f);
-			mTex->Scale(tempScale);
-			mTex->Translate(Vector2(120.0f, 120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//Vector2 tempScale = mTex->Scale();
+			//tempScale -= Vector2(0.1f, 0.1f);
+			//mTex->Scale(tempScale);
+			//mTex->Translate(Vector2(120.0f, 120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 	}
 
@@ -143,41 +139,41 @@ namespace SDLFramework
 	{
 		if (mInputManager->KeyDown(SDL_SCANCODE_I)) //Forward and Back
 		{
-			mTexTwo->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_K))
 		{
-			mTexTwo->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_J)) //Left and Right
 		{
-			mTexTwo->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_L))
 		{
-			mTexTwo->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
+			//->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_U)) //Rotate Left and Right
 		{
-			mTexTwo->Rotate((-25) * mTimer->GetDeltaTime());
+			//->Rotate((-25) * mTimer->GetDeltaTime());
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_O))
 		{
-			mTexTwo->Rotate((25) * mTimer->GetDeltaTime());
+			//->Rotate((25) * mTimer->GetDeltaTime());
 		}
 		if (mInputManager->KeyDown(SDL_SCANCODE_M)) //Scale Up and Down
 		{
-			Vector2 tempScale = mTexTwo->Scale();
-			tempScale += Vector2(0.1f, 0.1f);
-			mTexTwo->Scale(tempScale);
-			mTexTwo->Translate(Vector2(-55.0f, -55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//Vector2 tempScale = mTexTwo->Scale();
+			//tempScale += Vector2(0.1f, 0.1f);
+			//mTexTwo->Scale(tempScale);
+			//mTexTwo->Translate(Vector2(-55.0f, -55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 		else if (mInputManager->KeyDown(SDL_SCANCODE_PERIOD))
 		{
-			Vector2 tempScale = mTexTwo->Scale();
-			tempScale -= Vector2(0.1f, 0.1f);
-			mTexTwo->Scale(tempScale);
-			mTexTwo->Translate(Vector2(55.0f, 55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+			//Vector2 tempScale = mTexTwo->Scale();
+			//tempScale -= Vector2(0.1f, 0.1f);
+			//mTexTwo->Scale(tempScale);
+			//mTexTwo->Translate(Vector2(55.0f, 55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
 		}
 	}
 
@@ -194,19 +190,19 @@ namespace SDLFramework
 		}
 		mAssetManager = AssetManager::Instance();
 
-		mTex = new AnimatedTexture("SpriteSheet.png", // filename
-			204, // x clip
-			45, // y clip
-			40, // clip w
-			38, // clip h
-			4, // total frames
-			0.5f, // animation length in second
-			AnimatedTexture::Horizontal); //frame layout
+		//mTex = new AnimatedTexture("SpriteSheet.png", // filename
+		//	204, // x clip
+		//	45, // y clip
+		//	40, // clip w
+		//	38, // clip h
+		//	4, // total frames
+		//	0.5f, // animation length in second
+		//	AnimatedTexture::Horizontal); //frame layout
 
-		mTex->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.25f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
-		mTexTwo = new Texture("SpriteSheet.png");
-		mTexTwo = new Texture("SpriteSheet.png", 184, 76, 22, 22);
-		mTexTwo->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.75f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
+		//mTex->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.25f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
+		//mTexTwo = new Texture("SpriteSheet.png");
+		//mTexTwo = new Texture("SpriteSheet.png", 184, 76, 22, 22);
+		//mTexTwo->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.75f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
 
 		mInputManager = InputManager::Instance();
 		mAudioManager = AudioManager::Instance();
@@ -222,10 +218,6 @@ namespace SDLFramework
 		delete mScreenManager;
 		mScreenManager = nullptr;
 
-		delete mTex;
-		mTex = nullptr;
-		delete mTexTwo;
-		mTexTwo = nullptr;
 		GraphicsManager::Release();
 		mGraphics = nullptr;
 		Timer::Release();
@@ -234,8 +226,6 @@ namespace SDLFramework
 		mAssetManager = nullptr;
 		InputManager::Release();
 		mInputManager = nullptr;
-		delete mFontTexture;
-		mFontTexture = nullptr;
 
 		AudioManager::Release();
 		mAudioManager = nullptr;

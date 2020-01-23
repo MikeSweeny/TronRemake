@@ -100,8 +100,6 @@ namespace SDLFramework
 			std::cerr << "Unable to create renderer! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
-		// temporary background colour change
-		SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 		if (TTF_Init() == -1) 
 		{
 			std::cerr << "Unable to initialized SDL_ttf! TTF Error: " << TTF_GetError
