@@ -92,7 +92,6 @@ namespace SDLFramework
 	{
 		mGraphics->ClearBackBuffer();
 		mScreenManager->Render();
-		mStars->Render();
 		mTex->Render();
 		mTexTwo->Render();
 		mGraphics->Render();
@@ -213,21 +212,15 @@ namespace SDLFramework
 		mAudioManager = AudioManager::Instance();
 
 		mAudioManager->PlayMusic("SFX/478313__skibkamusic__skibka-music-theoretical-perspectives.wav", 0);
-		//mStartScreen = new StartScreen();
 
-		mStars = BackgroundStars::Instance();
 		mScreenManager = ScreenManager::Instance();
 	}
 
 	GameManager::~GameManager() 
 	{
 		// release modules
-		//delete mStartScreen;
-		//mStartScreen = nullptr;
 		delete mScreenManager;
 		mScreenManager = nullptr;
-		BackgroundStars::Release();
-		mStars = nullptr;
 
 		delete mTex;
 		mTex = nullptr;

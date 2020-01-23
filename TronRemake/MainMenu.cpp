@@ -5,7 +5,31 @@ MainMenu::MainMenu()
 	mTimer = Timer::GetInstance();
 	mInput = InputManager::Instance();
 
-	// Animated Rainbow thingy
+
+	
+
+	// Main Menu game select Stuff
+	mPlayModes = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
+	mPlayModes->Parent(this);
+
+	mOnePlayerMode = new Texture("1 Player ", "Computerfont.ttf", 32, { 0, 68, 240 });
+	mTwoPlayerMode = new Texture("2 Players", "Computerfont.ttf", 32, { 0, 68, 240 });
+	mOnePlayerMode->Parent(mPlayModes);
+	mTwoPlayerMode->Parent(mPlayModes);
+	mOnePlayerMode->Position(0.0f, -35.0f);
+	mTwoPlayerMode->Position(0.0f, 35.0f);
+
+
+	mCursor = new Texture("Cursor.png");
+	mCursor->Parent(mPlayModes);
+	mCursor->Position(-175.0f, -35.0f);
+	mCursorStartPos = mCursor->Position(Local);
+	mCursorOffset = Vector2(0.0f, 70.0f);
+
+	mSelectedMode = 0;
+
+	// Animated Rainbow
+
 	mAnimatedSection = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.4f);
 	mAnimatedSection->Parent(this);
 
@@ -87,6 +111,16 @@ MainMenu::MainMenu()
 MainMenu::~MainMenu()
 {
 
+	// play mode entities
+	delete mPlayModes;
+	mPlayModes = nullptr;
+	delete mOnePlayerMode;
+	mOnePlayerMode = nullptr;
+	delete mTwoPlayerMode;
+	mTwoPlayerMode = nullptr;
+	delete mCursor;
+	mCursor = nullptr;
+
 }
 
 int MainMenu::SelectedMode()
@@ -120,6 +154,25 @@ void MainMenu::Update()
 				aPyramidBuild[i][j]->Update();
 			}
 		}
+	}
+
+	if (mInput->KeyPressed(SDL_SCANCODE_DOWN) || mInput->KeyPressed(SDL_SCANCODE_UP))
+	{
+		mAnimationTimer = mAnimationTotalTime;
+	}
+
+	if (mAnimationTimer >= mAnimationTotalTime)
+	{
+		mAnimationDone = true;
+	}
+
+	if (mInput->KeyPressed(SDL_SCANCODE_DOWN))
+	{
+		ChangeSelectedMode(1);
+	}
+	else if (mInput->KeyPressed(SDL_SCANCODE_UP))
+	{
+		ChangeSelectedMode(-1);
 	}
 }
 
@@ -283,6 +336,10 @@ void MainMenu::SetFrameTwoSprites(Texture* row[], float rootX, float rootY)
 		row[i]->Parent(mAnimatedSection);
 		row[i]->Position(spriteStart + (spriteGap * i) + adjustedX + rootX, adjustedY + rootY);
 	}
+
+	mOnePlayerMode->Render();
+	mTwoPlayerMode->Render();
+	mCursor->Render();
 }
 
 void MainMenu::SetFrameThreeSprites(Texture* row[], float rootX, float rootY)

@@ -1,8 +1,7 @@
 #ifndef __SCREENMANAGER_H
 #define __SCREENMANAGER_H
-#include "StartScreen.h"
-#include "PlayScreen.h"
 #include "MainMenu.h"
+#include "GameScreenHud.h"
 
 class ScreenManager 
 {
@@ -11,12 +10,9 @@ private:
 	static ScreenManager* sInstance;
 	enum Screens { MAIN, START, PLAY };
 	Screens mCurrentScreen;
-
-	PlayScreen* mPlayScreen;
 	InputManager* mInput;
-	BackgroundStars* mBackgroundStars;
-	StartScreen* mStartScreen;
 	MainMenu* mMainMenu;
+	GameScreenHud* mGameHud;
 
 public:
 	static ScreenManager* Instance();

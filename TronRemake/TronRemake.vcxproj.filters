@@ -60,24 +60,6 @@
     <ClCompile Include="AnimatedTexture.cpp">
       <Filter>Source Files\Textures</Filter>
     </ClCompile>
-    <ClCompile Include="StartScreen.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
-    <ClCompile Include="Random.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
-    <ClCompile Include="Star.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
-    <ClCompile Include="StarLayer.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
-    <ClCompile Include="BackgroundStars.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
-    <ClCompile Include="ScoreBoard.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
@@ -96,13 +78,10 @@
     <ClCompile Include="ScreenManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="PlayScreen.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
-    <ClCompile Include="PlaySideBar.cpp">
-      <Filter>Source Files\Galaga</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenHud.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,24 +101,6 @@
     <ClInclude Include="AnimatedTexture.h">
       <Filter>Header Files\Textures</Filter>
     </ClInclude>
-    <ClInclude Include="StartScreen.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
-    <ClInclude Include="Random.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
-    <ClInclude Include="Star.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
-    <ClInclude Include="StarLayer.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
-    <ClInclude Include="BackgroundStars.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
-    <ClInclude Include="ScoreBoard.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -158,13 +119,10 @@
     <ClInclude Include="ScreenManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="PlayScreen.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
-    <ClInclude Include="PlaySideBar.h">
-      <Filter>Header Files\Galaga</Filter>
-    </ClInclude>
     <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\TRON</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenHud.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,7 +5,6 @@
 #include "Timer.h"
 #include "InputManager.h"
 #include "AudioManager.h"
-#include "StartScreen.h"
 #include "ScreenManager.h"
 
 namespace SDLFramework 
@@ -48,9 +47,6 @@ namespace SDLFramework
 		const float scaleIncrement = 2.0f;
 		void PlayerOneInputUpdate();
 		void PlayerTwoInputUpdate();
-
-		StartScreen* mStartScreen;
-		BackgroundStars* mStars;
 
 		ScreenManager* mScreenManager;
 	};

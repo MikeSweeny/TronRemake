@@ -140,21 +140,14 @@ xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
     <ClCompile Include="AnimatedTexture.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioManager.cpp" />
-    <ClCompile Include="BackgroundStars.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameScreenHud.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="PlayScreen.cpp" />
-    <ClCompile Include="PlaySideBar.cpp" />
-    <ClCompile Include="Random.cpp" />
-    <ClCompile Include="ScoreBoard.cpp" />
     <ClCompile Include="ScreenManager.cpp" />
-    <ClCompile Include="Star.cpp" />
-    <ClCompile Include="StarLayer.cpp" />
-    <ClCompile Include="StartScreen.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
@@ -162,21 +155,14 @@ xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
     <ClInclude Include="AnimatedTexture.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioManager.h" />
-    <ClInclude Include="BackgroundStars.h" />
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameScreenHud.h" />
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MathHelper.h" />
-    <ClInclude Include="PlayScreen.h" />
-    <ClInclude Include="PlaySideBar.h" />
-    <ClInclude Include="Random.h" />
-    <ClInclude Include="ScoreBoard.h" />
     <ClInclude Include="ScreenManager.h" />
-    <ClInclude Include="Star.h" />
-    <ClInclude Include="StarLayer.h" />
-    <ClInclude Include="StartScreen.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
