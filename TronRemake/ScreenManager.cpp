@@ -1,5 +1,6 @@
 #include "ScreenManager.h"
-#include "GameScreenHud.h"
+#include "OnePlayerGame.h"
+#include "TwoPlayerGame.h"
 
 ScreenManager* ScreenManager::sInstance = nullptr;
 
@@ -7,12 +8,17 @@ ScreenManager::ScreenManager()
 {
 	mInput = InputManager::Instance();
 	mMainMenu = new MainMenu();
-	mGameHud = new GameScreenHud();
+	mOnePlayerGame = new OnePlayerGame();
+	mTwoPlayerGame = new TwoPlayerGame();
 	mCurrentScreen = START;
 }
 
 ScreenManager::~ScreenManager() 
 {
+	delete mOnePlayerGame;
+	mOnePlayerGame = nullptr;
+	delete mTwoPlayerGame;
+	mTwoPlayerGame = nullptr;
 	mInput = nullptr;
 	delete mMainMenu;
 	mMainMenu = nullptr;
@@ -36,31 +42,40 @@ void ScreenManager::Release()
 void ScreenManager::Update() 
 {
 	switch (mCurrentScreen) 
+
 	{
+
 	case START:
 		mMainMenu->Update();
 
 		if (mInput->KeyPressed(SDL_SCANCODE_RETURN)) 
 		{
-			mCurrentScreen = PLAY;
-		}
-		if (mInput->KeyPressed(SDL_SCANCODE_M))
-		{
-			mCurrentScreen = MAIN;
+			if(mMainMenu->mSelectedMode == 0)
+				mCurrentScreen = ONEPLAYER;
+			if (mMainMenu->mSelectedMode == 1)
+				mCurrentScreen = TWOPLAYER;
 		}
 		break;
-	case PLAY:
+
+	case ONEPLAYER:
+
+		mOnePlayerGame->Update();
 		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE)) 
 		{
 			mCurrentScreen = START;
 		}
+
 		break;
-	case MAIN:
-		mGameHud->Update();
+
+	case TWOPLAYER:
+
+		mTwoPlayerGame->Update();
+
 		if (mInput->KeyPressed(SDL_SCANCODE_ESCAPE))
 		{
 			mCurrentScreen = START;
 		}
+
 		break;
 	}
 }
@@ -69,14 +84,17 @@ void ScreenManager::Render()
 {
 	switch (mCurrentScreen) 
 	{
+
 	case START:
 		mMainMenu->Render();
 		break;
-	case PLAY:
+	case ONEPLAYER:
+		mOnePlayerGame->Render();
 		break;
-	case MAIN:
-		mGameHud->Render();
+	case TWOPLAYER:
+		mTwoPlayerGame->Render();
 		break;
+
 	}
 }
 

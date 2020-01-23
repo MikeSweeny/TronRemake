@@ -10,6 +10,7 @@ class MainMenu : public GameEntity
 
 	// ************* Attributes ************* //
 public:
+	int mSelectedMode;
 
 
 
@@ -87,7 +88,6 @@ private:
 
 	Vector2 mCursorStartPos;
 	Vector2 mCursorOffset;
-	int mSelectedMode;
 
 
 	// Slow-Type Acknowledgements

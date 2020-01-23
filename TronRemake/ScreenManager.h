@@ -1,18 +1,20 @@
 #ifndef __SCREENMANAGER_H
 #define __SCREENMANAGER_H
 #include "MainMenu.h"
-#include "GameScreenHud.h"
+#include "OnePlayerGame.h"
+#include "TwoPlayerGame.h"
 
 class ScreenManager 
 {
 
 private:
 	static ScreenManager* sInstance;
-	enum Screens { MAIN, START, PLAY };
+	enum Screens { TWOPLAYER, START, ONEPLAYER };
 	Screens mCurrentScreen;
 	InputManager* mInput;
 	MainMenu* mMainMenu;
-	GameScreenHud* mGameHud;
+	OnePlayerGame* mOnePlayerGame;
+	TwoPlayerGame* mTwoPlayerGame;
 
 public:
 	static ScreenManager* Instance();

@@ -1,7 +1,7 @@
-#ifndef __GAMEHUD_H
-#define __GAMEHUD_H
+#ifndef __TWOPLAYERGAME_H
+#define __TWOPLAYERGAME_H
 #include "MainMenu.h"
-class GameScreenHud
+class TwoPlayerGame
 {
 private:
 	GameEntity* mGameHud;
@@ -20,11 +20,12 @@ private:
 	Texture* mP2Lives2;
 	Texture* mP2Lives3;
 public:
-	GameScreenHud();
-	~GameScreenHud();
+	TwoPlayerGame();
+	~TwoPlayerGame();
 	void Render();
 	void Update();
-
+	void LoseLife();
+	void UpdateScore();
 };
 
 #endif

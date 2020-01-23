@@ -1,6 +1,6 @@
-#include "GameScreenHud.h"
+#include "TwoPlayerGame.h"
 
-GameScreenHud::GameScreenHud()
+TwoPlayerGame::TwoPlayerGame()
 {
 	mGameHud = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
 
@@ -51,7 +51,7 @@ GameScreenHud::GameScreenHud()
 
 }
 
-GameScreenHud::~GameScreenHud()
+TwoPlayerGame::~TwoPlayerGame()
 {
 	delete mHiScoreAmt;
 	mHiScoreAmt = nullptr;
@@ -80,12 +80,26 @@ GameScreenHud::~GameScreenHud()
 
 }
 
-void GameScreenHud::Update()
+void TwoPlayerGame::Update()
 {
+	//UpdateScore();
+}
+
+void TwoPlayerGame::LoseLife()
+{
+	//If the player hits a players wall
+	// check which player hit a wall
+	// remove a life counter from that player
+	// reset the players to starting points
+
+}
+void TwoPlayerGame::UpdateScore()
+{
+	// this checks if something will change the score, and will set the  text string in the mScore texture to the current players score
 
 }
 
-void GameScreenHud::Render()
+void TwoPlayerGame::Render()
 {
 	mScoreAmt->Render();
 	mHiScoreAmt->Render();
