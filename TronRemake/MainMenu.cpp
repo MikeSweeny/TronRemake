@@ -14,13 +14,13 @@ MainMenu::MainMenu()
 	PlayerTwoSubBar = new GameEntity(150.0f, 80.0f);
 	HighScoreSubBar = new GameEntity(150.0f, 80.0f);
 
-	VSPlayerOneWins = new Texture("PLAYER 1 WINS", "Computerfont.ttf", 20, { 200, 0, 0 });
-	VSPlayerTwoWins = new Texture("PLAYER 2 WINS", "Computerfont.ttf", 20, { 200, 0, 0 });
-	OnePlayerHighScore = new Texture("HIGHSCORE", "Computerfont.ttf", 20, { 200, 0, 0 });
+	VSPlayerOneWins = new Texture("PLAYER 1 WINS", "Computerfont.ttf", 32, { 0, 68, 240 });
+	VSPlayerTwoWins = new Texture("PLAYER 2 WINS", "Computerfont.ttf", 32, { 0, 68, 240 });
+	OnePlayerHighScore = new Texture("HIGHSCORE", "Computerfont.ttf", 32, { 0, 68, 240 });
 	
-	P1Wins = new Texture("000" /* Player 1 win int */, "Computerfont.ttf", 20, { 200, 0, 0 });
-	P2Wins = new Texture("000" /* Player 2 win int */, "Computerfont.ttf", 20, { 200, 0, 0 });
-	HighScoreValue = new Texture("000" /* 1 Player high score */, "Computerfont.ttf", 20, { 200, 0, 0 });
+	P1Wins = new Texture("000" /* Player 1 win int */, "Computerfont.ttf", 32, { 0, 68, 240 });
+	P2Wins = new Texture("000" /* Player 2 win int */, "Computerfont.ttf", 32, { 0, 68, 240 });
+	HighScoreValue = new Texture("000" /* 1 Player high score */, "Computerfont.ttf", 32, { 0, 68, 240 });
 
 	StartScreenTopBanner->Parent(this);
 
