@@ -1,2 +1,0 @@
-# TronRemake
- Remaking TRON, kinda.
