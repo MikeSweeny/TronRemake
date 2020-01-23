@@ -25,12 +25,6 @@
     <Filter Include="Source Files\Textures">
       <UniqueIdentifier>{fd0802e9-1750-4d72-9ff7-66fadc729a2d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Galaga">
-      <UniqueIdentifier>{99c5c64d-848d-4fd0-b4eb-2b722b78d623}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Galaga">
-      <UniqueIdentifier>{333c061f-b59f-4025-b8d6-537e353e9a5c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Managers">
       <UniqueIdentifier>{cb43e318-46f8-4b65-a9ca-37ebabf6d090}</UniqueIdentifier>
     </Filter>
