@@ -27,11 +27,13 @@ namespace SDLFramework
 
 	SDL_Texture* GraphicsManager::LoadTexture(std::string path)
 	{
+		//path = "D:\\GitHub\\GraphicsProgramming\\TronRemake\\Debug\\Assets/TronSpriteSheet"
+		//path = "D:\\GitHub\\GraphicsProgramming\\TronRemake\\Debug\\Assets/SpriteSheet.png"
 		SDL_Texture* tex = nullptr;
 		SDL_Surface* surface = IMG_Load(path.c_str());
 		if (surface == nullptr) 
 		{
-			std::cerr << "Unable to load " << path << ". IMG Error: " << IMG_GetError() << std::endl;
+			std::cerr << "Unable to load " << path << ". IMG Error: " << IMG_GetError() << "   Make sure your file has a filetype (.png) in its' constructor" << std::endl;
 			return nullptr;
 		}
 		tex = SDL_CreateTextureFromSurface(mRenderer, surface);
