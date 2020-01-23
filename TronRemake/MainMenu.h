@@ -20,6 +20,20 @@ private:
 	float mAnimationTimer;
 	bool mAnimationDone;
 
+	// Top Bar Score Thingy
+	GameEntity* StartScreenTopBanner;
+	GameEntity* PlayerOneSubBar;
+	GameEntity* PlayerTwoSubBar;
+	GameEntity* HighScoreSubBar;
+
+	Texture* VSPlayerOneWins;
+	Texture* VSPlayerTwoWins;
+	Texture* OnePlayerHighScore;
+
+	Texture* P1Wins;
+	Texture* P2Wins;
+	Texture* HighScoreValue;
+
 	// Animated Thingy
 
 
