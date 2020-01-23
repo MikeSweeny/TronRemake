@@ -1,54 +1,12 @@
 #include "MainMenu.h"
 
-
 MainMenu::MainMenu()
 {
 	mTimer = Timer::GetInstance();
 	mInput = InputManager::Instance();
 
-	// Main Menu Top Banner High Scores
 
-	int SCREEN_WIDTH = 1024;
-
-	StartScreenTopBanner = new GameEntity(SCREEN_WIDTH * 0.5, 80.0f);
-	PlayerOneSubBar = new GameEntity(150.0f, 80.0f);
-	PlayerTwoSubBar = new GameEntity(150.0f, 80.0f);
-	HighScoreSubBar = new GameEntity(150.0f, 80.0f);
 	
-	VSPlayerOneWins = new Texture("PLAYER 1 WINS", "emulogic.ttf", 20, { 200, 0, 0 });
-	VSPlayerTwoWins = new Texture("PLAYER 2 WINS", "emulogic.ttf", 20, { 200, 0, 0 });
-	OnePlayerHighScore = new Texture("HIGHSCORE", "emulogic.ttf", 20, { 200, 0, 0 });
-
-	StartScreenTopBanner->Parent(this);
-
-	PlayerOneSubBar->Parent(StartScreenTopBanner);
-	PlayerTwoSubBar->Parent(StartScreenTopBanner);
-	HighScoreSubBar->Parent(StartScreenTopBanner);
-
-	VSPlayerOneWins->Parent(PlayerOneSubBar);
-	VSPlayerTwoWins->Parent(PlayerTwoSubBar);
-	P1Wins->Parent(PlayerOneSubBar);
-	P2Wins->Parent(PlayerTwoSubBar);
-
-	OnePlayerHighScore->Parent(HighScoreSubBar);
-	HighScoreValue->Parent(HighScoreSubBar);
-
-	P1Wins = new Texture("000" /* Player 1 win int */ , "emulogic.ttf", 20, { 200, 0, 0 });
-	P2Wins = new Texture("000" /* Player 2 win int */ , "emulogic.ttf", 20, { 200, 0, 0 });
-	HighScoreValue = new Texture("000" /* 1 Player high score */ , "emulogic.ttf", 20, { 200, 0, 0 });
-
-	PlayerOneSubBar->Position(-SCREEN_WIDTH * 0.3f, 0.0f);
-	PlayerTwoSubBar->Position(0.0f, 0.0f);
-	HighScoreSubBar->Position(SCREEN_WIDTH * 0.3f, 0.0f);
-
-	VSPlayerOneWins->Position(0.0f, 0.0f);
-	VSPlayerTwoWins->Position(0.0f, 0.0f);
-
-	P1Wins->Position(0.0f, 50.0f);
-	P2Wins->Position(0.0f, 50.0f);
-
-	OnePlayerHighScore->Position(0.0f, 0.0f);
-	HighScoreValue->Position(0.0f, 50.0f);
 
 	// Main Menu game select Stuff
 	mPlayModes = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
@@ -152,31 +110,6 @@ MainMenu::MainMenu()
 
 MainMenu::~MainMenu()
 {
-	//Top Banner Entities
-
-	delete StartScreenTopBanner;
-	StartScreenTopBanner = nullptr;
-
-	delete PlayerOneSubBar;
-	PlayerOneSubBar = nullptr;
-	delete PlayerTwoSubBar;
-	PlayerTwoSubBar = nullptr;
-	delete HighScoreSubBar;
-	HighScoreSubBar = nullptr;
-
-	delete VSPlayerOneWins;
-	VSPlayerOneWins = nullptr;
-	delete VSPlayerTwoWins;
-	VSPlayerTwoWins = nullptr;
-	delete OnePlayerHighScore;
-	OnePlayerHighScore = nullptr;
-
-	delete P1Wins;
-	P1Wins = nullptr;
-	delete P2Wins;
-	P2Wins = nullptr;
-	delete HighScoreValue;
-	HighScoreValue = nullptr;
 
 	// play mode entities
 	delete mPlayModes;
