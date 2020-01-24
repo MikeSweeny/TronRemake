@@ -75,7 +75,10 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
-    <ClCompile Include="GameScreenHud.cpp">
+    <ClCompile Include="TwoPlayerGame.cpp">
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
+    <ClCompile Include="OnePlayerGame.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,7 +119,10 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
-    <ClInclude Include="GameScreenHud.h">
+    <ClInclude Include="TwoPlayerGame.h">
+      <Filter>Header Files\TRON</Filter>
+    </ClInclude>
+    <ClInclude Include="OnePlayerGame.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>
