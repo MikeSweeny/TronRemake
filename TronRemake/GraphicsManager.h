@@ -15,7 +15,7 @@ namespace SDLFramework
 	public:
 		static const short SCREEN_WIDTH = 1024;
 		static const short SCREEN_HEIGHT = 896;
-		const char* WINDOW_TITLE = "Galaga";
+		const char* WINDOW_TITLE = "TRON";
 
 		static GraphicsManager* Instance();
 		static void Release();

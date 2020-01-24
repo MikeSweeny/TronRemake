@@ -2,7 +2,7 @@
 
 OnePlayerGame::OnePlayerGame()
 {
-	mOnePlayerGame = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
+	mOnePlayerGameScreen = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
 
 	mScore = new Texture("HISCORE", "Computerfont.ttf", 32, { 0, 68, 240 });
 	mScoreAmt = new Texture("0", "Computerfont.ttf", 32, { 0, 68, 240 });
@@ -11,12 +11,12 @@ OnePlayerGame::OnePlayerGame()
 	mLives2 = new Texture("&", "Computerfont.ttf", 32, { 0, 68, 240 });
 	mLives3 = new Texture("&", "Computerfont.ttf", 32, { 0, 68, 240 });
 
-	mScore->Parent(mOnePlayerGame);
-	mScoreAmt->Parent(mOnePlayerGame);
-	mHiScoreAmt->Parent(mOnePlayerGame);
-	mLives1->Parent(mOnePlayerGame);
-	mLives2->Parent(mOnePlayerGame);
-	mLives3->Parent(mOnePlayerGame);
+	mScore->Parent(mOnePlayerGameScreen);
+	mScoreAmt->Parent(mOnePlayerGameScreen);
+	mHiScoreAmt->Parent(mOnePlayerGameScreen);
+	mLives1->Parent(mOnePlayerGameScreen);
+	mLives2->Parent(mOnePlayerGameScreen);
+	mLives3->Parent(mOnePlayerGameScreen);
 
 
 	mScore->Position(45.0f, -300.0f);
@@ -26,6 +26,14 @@ OnePlayerGame::OnePlayerGame()
 	mLives2->Position(-125.0f, -300.0f);
 	mLives3->Position(-105.0f, -300.0f);
 
+	// Play Area
+	imageSize = 810;
+	mPlayArea = new GameEntity(0, 0);
+	mPlayArea->Parent(this);
+
+	backGround = new Texture("lightBikeBG.png");
+	backGround->Parent(mPlayArea);
+	backGround->Position((imageSize / 2) + 107, (imageSize / 2) + 70);
 }
 
 OnePlayerGame::~OnePlayerGame()
@@ -78,4 +86,6 @@ void OnePlayerGame::Render()
 	mLives1->Render();
 	mLives2->Render();
 	mLives3->Render();
+
+	backGround->Render();
 }

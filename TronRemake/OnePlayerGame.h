@@ -8,7 +8,7 @@ class OnePlayerGame : public GameEntity
 {
 
 private:
-	GameEntity* mOnePlayerGame;
+	GameEntity* mOnePlayerGameScreen;
 
 	Texture* mScoreAmt;
 	Texture* mHiScoreAmt;
@@ -16,6 +16,12 @@ private:
 	Texture* mLives1;
 	Texture* mLives2;
 	Texture* mLives3;
+
+	// play area
+	float imageSize;
+	GameEntity* mPlayArea;
+	Texture* backGround;
+
 public:
 	OnePlayerGame();
 	~OnePlayerGame();
