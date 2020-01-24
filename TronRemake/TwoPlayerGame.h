@@ -1,7 +1,10 @@
 #ifndef __TWOPLAYERGAME_H
 #define __TWOPLAYERGAME_H
 #include "MainMenu.h"
-class TwoPlayerGame
+
+using namespace SDLFramework;
+
+class TwoPlayerGame : public GameEntity
 {
 private:
 	GameEntity* mGameHud;

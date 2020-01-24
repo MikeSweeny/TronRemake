@@ -1,7 +1,10 @@
 #ifndef __ONEPLAYER_H
 #define __ONEPLAYER_H
 #include "MainMenu.h"
-class OnePlayerGame
+
+using namespace SDLFramework;
+
+class OnePlayerGame : public GameEntity
 {
 
 private:

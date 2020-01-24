@@ -7,9 +7,7 @@ MainMenu::MainMenu()
 
 	// Main Menu Top Banner High Scores
 
-	int SCREEN_WIDTH = 1024;
-
-	StartScreenTopBanner = new GameEntity(SCREEN_WIDTH * 0.5, 80.0f);
+	StartScreenTopBanner = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5, 40.0f);
 	PlayerOneSubBar = new GameEntity(150.0f, 80.0f);
 	PlayerTwoSubBar = new GameEntity(150.0f, 80.0f);
 	HighScoreSubBar = new GameEntity(150.0f, 80.0f);
@@ -38,9 +36,9 @@ MainMenu::MainMenu()
 
 	
 
-	PlayerOneSubBar->Position(-SCREEN_WIDTH * 0.3f, 0.0f);
+	PlayerOneSubBar->Position(GraphicsManager::SCREEN_WIDTH * -0.3f, 0.0f);
 	PlayerTwoSubBar->Position(0.0f, 0.0f);
-	HighScoreSubBar->Position(SCREEN_WIDTH * 0.3f, 0.0f);
+	HighScoreSubBar->Position(GraphicsManager::SCREEN_WIDTH * 0.3f, 0.0f);
 
 	VSPlayerOneWins->Position(0.0f, 0.0f);
 	VSPlayerTwoWins->Position(0.0f, 0.0f);
@@ -53,7 +51,7 @@ MainMenu::MainMenu()
 	
 
 	// Main Menu game select Stuff
-	mPlayModes = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
+	mPlayModes = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.25f);
 	mPlayModes->Parent(this);
 
 	mOnePlayerMode = new Texture("1 Player ", "Computerfont.ttf", 32, { 0, 68, 240 });
@@ -74,7 +72,7 @@ MainMenu::MainMenu()
 
 	// Animated Rainbow
 
-	mAnimatedSection = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.6f);
+	mAnimatedSection = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.55f);
 	mAnimatedSection->Parent(this);
 
 	lastChange = 0;
@@ -149,6 +147,32 @@ MainMenu::MainMenu()
 			}
 		}
 	}
+	
+	// Slow type text section
+	slowTypeText0 = new Texture("©", "Computerfont.ttf", 96, { 0, 68, 240 });
+	slowTypeText1 = new Texture("COPYRIGHT MCMLKKKI", "Computerfont.ttf", 32, { 0, 68, 240 });
+	slowTypeText2 = new Texture("WALT DISNEY PRODUCTIONS", "Computerfont.ttf", 32, { 0, 68, 240 });
+	slowTypeText3 = new Texture("©", "Computerfont.ttf", 96, { 0, 68, 240 });
+	slowTypeText4 = new Texture("COPYRIGHT MCMKKKII", "Computerfont.ttf", 32, { 0, 68, 240 });
+	slowTypeText5 = new Texture("BALLY MIDWAY MFG CO", "Computerfont.ttf", 32, { 0, 68, 240 });
+	slowTypeText6 = new Texture("ALL RIGHTS RESERVED", "Computerfont.ttf", 32, { 0, 68, 240 });
+
+	slowTypeText0->Parent(this);
+	slowTypeText1->Parent(this);
+	slowTypeText2->Parent(this);
+	slowTypeText3->Parent(this);
+	slowTypeText4->Parent(this);
+	slowTypeText5->Parent(this);
+	slowTypeText6->Parent(this);
+
+	slowTypeText0->Position(GraphicsManager::SCREEN_WIDTH * 0.325f, GraphicsManager::SCREEN_HEIGHT * 0.77f);
+	slowTypeText1->Position(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.75f);
+	slowTypeText2->Position(GraphicsManager::SCREEN_WIDTH * 0.538f, GraphicsManager::SCREEN_HEIGHT * 0.8f);
+	slowTypeText3->Position(GraphicsManager::SCREEN_WIDTH * 0.325f, GraphicsManager::SCREEN_HEIGHT * 0.87f);
+	slowTypeText4->Position(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.85f);
+	slowTypeText5->Position(GraphicsManager::SCREEN_WIDTH * 0.518f, GraphicsManager::SCREEN_HEIGHT * 0.9f);
+	slowTypeText6->Position(GraphicsManager::SCREEN_WIDTH * 0.505f, GraphicsManager::SCREEN_HEIGHT * 0.95f);
+
 
 }
 
@@ -256,10 +280,17 @@ void MainMenu::Render()
 	P2Wins->Render();
 	HighScoreValue->Render();
 
-
 	mOnePlayerMode->Render();
 	mTwoPlayerMode->Render();
 	mCursor->Render(); 
+
+	slowTypeText0->Render();
+	slowTypeText1->Render();
+	slowTypeText2->Render();
+	slowTypeText3->Render();
+	slowTypeText4->Render();
+	slowTypeText5->Render();
+	slowTypeText6->Render();
 
 	for (int i = 0; i < gridHeight; i++)
 	{

@@ -35,9 +35,16 @@ private:
 	Texture* P2Wins;
 	Texture* HighScoreValue;
 
-	// Animated Thingy
+	// Play Mode Entities
+	GameEntity* mPlayModes;
+	Texture* mOnePlayerMode;
+	Texture* mTwoPlayerMode;
+	Texture* mCursor;
 
+	Vector2 mCursorStartPos;
+	Vector2 mCursorOffset;
 
+	// Animated Pyramid
 	const static int gridHeight = 4;
 	const static int gridWidth = 7;
 	int aPyramidLayout[gridHeight][gridWidth] = {0, 0, 0, 3, 0, 0, 0,
@@ -46,7 +53,7 @@ private:
 											     1, 0, 2, 0, 2, 0, 4};
 	AnimatedTexture* aPyramidBuild[gridHeight][gridWidth];
 
-	// Animated "Rainbow"
+	// Animated Rainbow
 	GameEntity* mAnimatedSection;
 	static const int rowSize = 6;
 	static const int rowCount = 3;
@@ -80,18 +87,14 @@ private:
 	Texture* aFrameFourRow5[rowSize];
 	Texture* rows[rowCount];
 
-	// Play Mode Entities
-	GameEntity* mPlayModes;
-	Texture* mOnePlayerMode;
-	Texture* mTwoPlayerMode;
-	Texture* mCursor;
-
-	Vector2 mCursorStartPos;
-	Vector2 mCursorOffset;
-
-
 	// Slow-Type Acknowledgements
-
+	Texture* slowTypeText0;
+	Texture* slowTypeText1;
+	Texture* slowTypeText2;
+	Texture* slowTypeText3;
+	Texture* slowTypeText4;
+	Texture* slowTypeText5;
+	Texture* slowTypeText6;
 	// ************* Functions ************* //
 public:
 	MainMenu();
