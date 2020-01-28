@@ -82,7 +82,7 @@
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
     <ClCompile Include="Bike.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\TRON</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +132,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bike.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -27,8 +27,7 @@ public:
 	~OnePlayerGame();
 	void Render();
 	void Update();
-	void LoseLife();
-	void GainLife();
+	void UpdateLives();
 	void UpdateScore();
 
 };

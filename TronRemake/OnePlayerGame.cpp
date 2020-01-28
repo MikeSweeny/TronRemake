@@ -58,18 +58,10 @@ void OnePlayerGame::Update()
 	//UpdateScore();
 }
 
-void OnePlayerGame::LoseLife()
+void OnePlayerGame::UpdateLives()
 {
-	//If the player hits the enemy
-	// remove a life counter
-	// I think we just set the text to a null value, then in the gain life function set it back
-}
+	// Just a simple function to update the UI for Lives, same as the UpdateScore Function
 
-void OnePlayerGame::GainLife()
-{
-	// if player gains a life
-	// add life counter
-	//Set the null vaule of the text back to the character we have for a life counter
 }
 
 void OnePlayerGame::UpdateScore()

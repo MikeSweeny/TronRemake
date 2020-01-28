@@ -88,7 +88,6 @@ void TwoPlayerGame::Update()
 void TwoPlayerGame::LoseLife()
 {
 	//If the player hits a players wall
-	// check which player hit a wall
 	// remove a life counter from that player
 	// reset the players to starting points
 
