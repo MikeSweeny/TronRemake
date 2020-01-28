@@ -1,6 +1,5 @@
 #ifndef __BIKE_H
 #define __BIKE_H
-#include "Texture.h"
 #include "Types.h"
 #include "InputManager.h"
 #include "AudioManager.h"
@@ -16,11 +15,11 @@ private:
 	Direction currentDirection;
 	Direction previousDirection;
 	float timeBetweenDirections;
+
 	Timer* mTimer;
 	InputManager* mInput;
 	AudioManager* mAudio;
 	
-
 	int mScore;
 	int mLives;
 

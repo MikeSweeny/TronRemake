@@ -3,10 +3,42 @@
 
 void Bike::HandleMovement()
 {
+	if (mInput->KeyDown(SDL_SCANCODE_RIGHT))
+	{
+		previousDirection = currentDirection;
+		currentDirection = Direction::RIGHT;
+	}
+	else if (mInput->KeyDown(SDL_SCANCODE_LEFT)) 
+	{ 
+		previousDirection = currentDirection;
+		currentDirection = Direction::LEFT;
+	}
+	else if (mInput->KeyDown(SDL_SCANCODE_UP))
+	{
+		previousDirection = currentDirection;
+		currentDirection = Direction::UP;
+	}
+	else if (mInput->KeyDown(SDL_SCANCODE_DOWN))
+	{
+		previousDirection = currentDirection;
+		currentDirection = Direction::DOWN;
+	}
+
+	Vector2 pos = Position(Local);    
+	if (pos.x < mScreenBounds.x)
+	{ 
+		pos.x = mScreenBounds.x;
+	}
+	else if (pos.x > mScreenBounds.y)
+	{ 
+		pos.x = mScreenBounds.y;
+	}
+	Position(pos);
 }
 
 Bike::Bike()
 {
+	currentDirection = UP; 
 	mInput = InputManager::Instance();
 	mAudio = AudioManager::Instance();
 
@@ -73,10 +105,32 @@ void Bike::HitWall()
 
 void Bike::Update()
 {
-
+	if (mAnimating)
+	{ 
+		mDeathAnimation->Update();        
+		//mAnimating = mDeathAnimation->IsAnimating(); 
+	}
+	else
+	{
+		if (Active())
+		{ 
+			HandleMovement(); 
+		} 
+	}
 }
 
 void Bike::Render()
 {
-
+	if (mAnimating)
+	{ 
+		mDeathAnimation->Update();       
+		//mAnimating = mDeathAnimation->IsAnimating(); 
+	}
+	else
+	{ 
+		if (Active())
+		{ 
+			HandleMovement(); 
+		} 
+	}
 }
