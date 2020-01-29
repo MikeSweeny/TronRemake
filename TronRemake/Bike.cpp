@@ -158,18 +158,25 @@ void Bike::HandleMovement()
 	if (tempPos.x > mScreenBounds.x)
 	{ 
 		tempPos.x = mScreenBounds.x;
+		HitWall();
 	}
 	else if (tempPos.x < -mScreenBounds.x)
 	{ 
 		tempPos.x = -mScreenBounds.x;
+		HitWall();
+
 	}
 	if (tempPos.y < -mScreenBounds.y)
 	{
 		tempPos.y = -mScreenBounds.y;
+		HitWall();
+
 	}
 	else if (tempPos.y > mScreenBounds.y)
 	{
 		tempPos.y = mScreenBounds.y;
+		HitWall();
+
 	}
 	mBike->Position(tempPos);
 }
@@ -193,9 +200,9 @@ Bike::Bike()
 	mGridSize = 30.0f;
 	mScreenBounds = Vector2(405.0f, 405.0f);
 
-	//mDeathAnimation = new AnimatedTexture("PlayerDeath.png", 0, 0, 128, 128, 4, 1.0f, AnimatedTexture::Horizontal);
-	//mDeathAnimation->Parent(this);
-	//mDeathAnimation->Position(Vec2_Zero);
+	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 1.0f, AnimatedTexture::Horizontal);
+	mDeathAnimation->Parent(this);
+	mDeathAnimation->Position(100.0f, 100.0f);
 }
 
 Bike::~Bike()
@@ -261,7 +268,7 @@ void Bike::Render()
 {
 	if (mAnimating)
 	{ 
-		mDeathAnimation->Render();       
+       		mDeathAnimation->Render();       
 		//mAnimating = mDeathAnimation->IsAnimating(); 
 	}
 	else
