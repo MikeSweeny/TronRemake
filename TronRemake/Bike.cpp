@@ -1,5 +1,9 @@
 #include "Bike.h"
 
+void Bike::HandleMovement()
+{
+	
+}
 
 Bike::Bike()
 {
@@ -8,6 +12,12 @@ Bike::Bike()
 	//mDeathAnimation = new AnimatedTexture("PlayerDeath.png", 0, 0, 128, 128, 4, 1.0f, AnimatedTexture::Horizontal);
 	//mDeathAnimation->Parent(this);
 	//mDeathAnimation->Position(Vec2_Zero);
+	mVisible = false;
+	mAnimating = false;
+
+	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 1.0f, AnimatedTexture::Horizontal);
+	mDeathAnimation->Parent(this);
+
 }
 
 Bike::~Bike()
@@ -36,11 +46,6 @@ void Bike::Update()
 	}
 }
 
-void Bike::HandleMovement()
-{
-
-}
-
 void Bike::Visible(bool visible)
 {
 	mVisible = visible;
@@ -59,16 +64,20 @@ int Bike::Lives()
 
 void Bike::HitWall()
 {
+  	mDeathAnimation->Position(mBike->Position(Space::Local));
+
 	mLives -= 1;
 	mAnimating = true;
+
 	//mDeathAnimation->ResetAnimation();
+
 }
 
 void Bike::Render()
 {
 	if (mAnimating)
 	{ 
-		mDeathAnimation->Render();       
+       		mDeathAnimation->Render();       
 		//mAnimating = mDeathAnimation->IsAnimating(); 
 	}
 	else
