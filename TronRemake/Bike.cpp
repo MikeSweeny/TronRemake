@@ -202,7 +202,7 @@ Bike::Bike()
 
 	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 1.0f, AnimatedTexture::Horizontal);
 	mDeathAnimation->Parent(this);
-	mDeathAnimation->Position(100.0f, 100.0f);
+
 }
 
 Bike::~Bike()
@@ -243,9 +243,13 @@ void Bike::AddScore(int change)
 
 void Bike::HitWall()
 {
+  	mDeathAnimation->Position(mBike->Position(Space::Local));
+
 	mLives -= 1;
 	mAnimating = true;
+
 	//mDeathAnimation->ResetAnimation();
+
 }
 
 void Bike::Update()
