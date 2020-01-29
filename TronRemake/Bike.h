@@ -14,6 +14,7 @@ class Bike : public GameEntity
 private:
 	Direction currentDirection;
 	Direction previousDirection;
+	Direction queuedDirection;
 	float timeBetweenDirections;
 
 	Timer* mTimer;
@@ -26,8 +27,12 @@ private:
 	Texture* mBike;
 	AnimatedTexture* mDeathAnimation;
 
+	float mBaseSpeed;
 	float mMoveSpeed;
 	Vector2 mScreenBounds;
+	bool mNewDirection;
+	int mGridSize;
+	bool mBoosted;
 
 public:
 	bool mVisible; // to hide he avatars before we start a game

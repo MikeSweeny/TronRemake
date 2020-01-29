@@ -3,37 +3,175 @@
 
 void Bike::HandleMovement()
 {
-	if (mInput->KeyDown(SDL_SCANCODE_RIGHT))
+	Vector2 tempPos = mBike->Position(Local);
+	int checkY = tempPos.y;
+	int checkX = tempPos.x;
+
+	if (mInput->KeyDown(SDL_SCANCODE_SPACE))
 	{
-		previousDirection = currentDirection;
-		currentDirection = Direction::RIGHT;
+		mMoveSpeed = mBaseSpeed * 4;
+		mBoosted = true;
 	}
-	else if (mInput->KeyDown(SDL_SCANCODE_LEFT)) 
-	{ 
-		previousDirection = currentDirection;
-		currentDirection = Direction::LEFT;
-	}
-	else if (mInput->KeyDown(SDL_SCANCODE_UP))
+	else
 	{
-		previousDirection = currentDirection;
-		currentDirection = Direction::UP;
-	}
-	else if (mInput->KeyDown(SDL_SCANCODE_DOWN))
-	{
-		previousDirection = currentDirection;
-		currentDirection = Direction::DOWN;
+		mMoveSpeed = mBaseSpeed;
+		mBoosted = false;
 	}
 
-	Vector2 pos = Position(Local);    
-	if (pos.x < mScreenBounds.x)
-	{ 
-		pos.x = mScreenBounds.x;
+	if (!mBoosted)
+	{
+		if (mInput->KeyDown(SDL_SCANCODE_RIGHT))
+		{
+			if (checkY % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::RIGHT;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::RIGHT;
+			}
+		}
+		else if (mInput->KeyDown(SDL_SCANCODE_LEFT)) 
+		{
+			if (checkY % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::LEFT;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::LEFT;
+			}
+		}
+		else if (mInput->KeyDown(SDL_SCANCODE_UP))
+		{
+			if (checkX % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::UP;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::UP;
+			}
+		}
+		else if (mInput->KeyDown(SDL_SCANCODE_DOWN))
+		{
+			if (checkX % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::DOWN;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::DOWN;
+			}
+		}
+
+		switch (queuedDirection)
+		{
+		case UP:
+			if (checkX % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::UP;
+				queuedDirection = currentDirection;
+				mNewDirection = true;
+			}
+			break;
+		case RIGHT:
+			if (checkY % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::RIGHT;
+				queuedDirection = currentDirection;
+				mNewDirection = true;
+			}
+			break;
+		case DOWN:
+			if (checkX % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::DOWN;
+				queuedDirection = currentDirection;
+				mNewDirection = true;
+			}
+			break;
+		case LEFT:
+			if (checkY % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::LEFT;
+				queuedDirection = currentDirection;
+				mNewDirection = true;
+			}
+			break;
+		default:
+			break;
+		}
 	}
-	else if (pos.x > mScreenBounds.y)
-	{ 
-		pos.x = mScreenBounds.y;
+
+	switch (currentDirection)
+	{
+	case Direction::UP:
+		if (mNewDirection)
+		{
+			mBike->Rotation(0);
+			mNewDirection = false;
+		}
+		tempPos.y -= mMoveSpeed;
+		break;
+	case Direction::RIGHT:
+		if (mNewDirection)
+		{
+			mBike->Rotation(90);
+			mNewDirection = false;
+		}
+		tempPos.x += mMoveSpeed;
+		break;
+	case Direction::DOWN:
+		if (mNewDirection)
+		{
+			mBike->Rotation(180);
+			mNewDirection = false;
+		}
+		tempPos.y += mMoveSpeed;
+		break;
+	case Direction::LEFT:
+		if (mNewDirection)
+		{
+			mBike->Rotation(270);
+			mNewDirection = false;
+		}
+		tempPos.x -= mMoveSpeed;
+		break;
+	default:
+		break;
 	}
-	Position(pos);
+	//std::cout << "x: " << mBike->Position().x << "   y: " << mBike->Position().y << std::endl;
+	//std::cout << "Tx: " << tempPos.x << "   Ty: " << tempPos.y << std::endl;
+	if (tempPos.x > mScreenBounds.x)
+	{ 
+		tempPos.x = mScreenBounds.x;
+	}
+	else if (tempPos.x < -mScreenBounds.x)
+	{ 
+		tempPos.x = -mScreenBounds.x;
+	}
+	if (tempPos.y < -mScreenBounds.y)
+	{
+		tempPos.y = -mScreenBounds.y;
+	}
+	else if (tempPos.y > mScreenBounds.y)
+	{
+		tempPos.y = mScreenBounds.y;
+	}
+	mBike->Position(tempPos);
 }
 
 Bike::Bike()
@@ -48,12 +186,12 @@ Bike::Bike()
 	mScore = 0;
 	mLives = 3;
 
-	mBike = new Texture("TronSpriteSheet.png", 0, 0, 60, 64);
+	mBike = new Texture("BikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
-	mBike->Position(Vec2_Zero);
 
-	mMoveSpeed = 100.0f;
-	mScreenBounds = Vector2(0.0f, 800.0f);
+	mBaseSpeed = 1.0f;
+	mGridSize = 30.0f;
+	mScreenBounds = Vector2(405.0f, 405.0f);
 
 	//mDeathAnimation = new AnimatedTexture("PlayerDeath.png", 0, 0, 128, 128, 4, 1.0f, AnimatedTexture::Horizontal);
 	//mDeathAnimation->Parent(this);
@@ -123,14 +261,14 @@ void Bike::Render()
 {
 	if (mAnimating)
 	{ 
-		mDeathAnimation->Update();       
+		mDeathAnimation->Render();       
 		//mAnimating = mDeathAnimation->IsAnimating(); 
 	}
 	else
 	{ 
-		if (Active())
+		if (mVisible)
 		{ 
-			HandleMovement(); 
+			mBike->Render();
 		} 
 	}
 }

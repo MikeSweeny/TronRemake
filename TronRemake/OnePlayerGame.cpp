@@ -28,12 +28,19 @@ OnePlayerGame::OnePlayerGame()
 
 	// Play Area
 	imageSize = 810;
-	mPlayArea = new GameEntity(0, 0);
+	mPlayArea = new GameEntity(107, 70);
 	mPlayArea->Parent(this);
 
 	backGround = new Texture("lightBikeBG.png");
 	backGround->Parent(mPlayArea);
-	backGround->Position((imageSize / 2) + 107, (imageSize / 2) + 70);
+	backGround->Position((imageSize / 2), (imageSize / 2));
+
+	// Bikes
+	playerBike = new Bike();
+	playerBike->Visible(true);
+	playerBike->Parent(mPlayArea);
+	playerBike->Position(405, 405);
+	playerBike->Active(true);
 }
 
 OnePlayerGame::~OnePlayerGame()
@@ -55,6 +62,8 @@ OnePlayerGame::~OnePlayerGame()
 
 void OnePlayerGame::Update()
 {
+	//std::cout << "x: " << playerBike->Position().x << "   y: " << playerBike->Position().y << std::endl;
+	playerBike->Update();
 	//UpdateScore();
 }
 
@@ -80,4 +89,5 @@ void OnePlayerGame::Render()
 	mLives3->Render();
 
 	backGround->Render();
+	playerBike->Render();
 }

@@ -1,6 +1,7 @@
 #ifndef __ONEPLAYER_H
 #define __ONEPLAYER_H
 #include "MainMenu.h"
+#include "Bike.h"
 
 using namespace SDLFramework;
 
@@ -21,6 +22,10 @@ private:
 	float imageSize;
 	GameEntity* mPlayArea;
 	Texture* backGround;
+	float mGameBounds = 810;
+
+	// Player Bike
+	Bike* playerBike;
 
 public:
 	OnePlayerGame();
