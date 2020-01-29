@@ -1,7 +1,7 @@
 #ifndef __ONEPLAYER_H
 #define __ONEPLAYER_H
 #include "MainMenu.h"
-#include "Bike.h"
+#include "PlayerBike.h"
 
 using namespace SDLFramework;
 
@@ -25,7 +25,7 @@ private:
 	float mGameBounds = 810;
 
 	// Player Bike
-	Bike* playerBike;
+	PlayerBike* playerBike;
 
 public:
 	OnePlayerGame();

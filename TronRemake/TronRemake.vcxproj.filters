@@ -84,6 +84,9 @@
     <ClCompile Include="Bike.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerBike.cpp">
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bike.h">
+      <Filter>Header Files\TRON</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBike.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>
