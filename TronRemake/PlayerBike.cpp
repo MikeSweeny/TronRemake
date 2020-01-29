@@ -11,7 +11,7 @@ PlayerBike::PlayerBike()
 	mBike->Parent(this);
 
 	mScore = 0;
-	mLives = 3;
+	mLives = 1;
 }
 
 PlayerBike::~PlayerBike()
@@ -21,6 +21,7 @@ PlayerBike::~PlayerBike()
 
 void PlayerBike::Update()
 {
+	base::Update();
 	HandleMovement();
 }
 
@@ -180,18 +181,22 @@ void PlayerBike::HandleMovement()
 	if (tempPos.x > mScreenBounds.x)
 	{
 		tempPos.x = mScreenBounds.x;
+		HitWall();
 	}
 	else if (tempPos.x < -mScreenBounds.x)
 	{
 		tempPos.x = -mScreenBounds.x;
+		HitWall();
 	}
 	if (tempPos.y < -mScreenBounds.y)
 	{
 		tempPos.y = -mScreenBounds.y;
+		HitWall();
 	}
 	else if (tempPos.y > mScreenBounds.y)
 	{
 		tempPos.y = mScreenBounds.y;
+		HitWall();
 	}
 	mBike->Position(tempPos);
 }

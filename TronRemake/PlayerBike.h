@@ -8,6 +8,7 @@ class PlayerBike : public Bike
 
 private:
 
+	typedef Bike base;
 	InputManager* mInput;
 	int mScore;
 	bool mBoosted;
@@ -19,7 +20,7 @@ public:
 	~PlayerBike();
 	void Update();
 	void AddScore(int change);
-	void HandleMovement();
+	void HandleMovement() override;
 };
 
 

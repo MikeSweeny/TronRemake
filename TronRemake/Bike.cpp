@@ -15,9 +15,8 @@ Bike::Bike()
 	mVisible = false;
 	mAnimating = false;
 
-	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 1.0f, AnimatedTexture::Horizontal);
+	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 0.3f, AnimatedTexture::Horizontal);
 	mDeathAnimation->Parent(this);
-
 }
 
 Bike::~Bike()
@@ -34,7 +33,7 @@ void Bike::Update()
 {
 	if (mAnimating)
 	{ 
-		mDeathAnimation->Update();        
+  		mDeathAnimation->Update();        
 		//mAnimating = mDeathAnimation->IsAnimating(); 
 	}
 	else
@@ -64,11 +63,9 @@ int Bike::Lives()
 
 void Bike::HitWall()
 {
-  	mDeathAnimation->Position(mBike->Position(Space::Local));
-
 	mLives -= 1;
+  	mDeathAnimation->Position(mBike->Position(Space::Local));
 	mAnimating = true;
-
 	//mDeathAnimation->ResetAnimation();
 
 }
@@ -77,7 +74,7 @@ void Bike::Render()
 {
 	if (mAnimating)
 	{ 
-       		mDeathAnimation->Render();       
+       	mDeathAnimation->Render();       
 		//mAnimating = mDeathAnimation->IsAnimating(); 
 	}
 	else
