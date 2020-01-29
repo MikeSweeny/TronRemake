@@ -12,27 +12,11 @@ class Bike : public GameEntity
 {
 	// ************* Attributes ************* //
 private:
-	Direction currentDirection;
-	Direction previousDirection;
-	Direction queuedDirection;
-	float timeBetweenDirections;
 
 	Timer* mTimer;
-	InputManager* mInput;
 	AudioManager* mAudio;
-	
-	int mScore;
-	int mLives;
 
-	Texture* mBike;
-	AnimatedTexture* mDeathAnimation;
 
-	float mBaseSpeed;
-	float mMoveSpeed;
-	Vector2 mScreenBounds;
-	bool mNewDirection;
-	int mGridSize;
-	bool mBoosted;
 
 public:
 	bool mVisible; // to hide he avatars before we start a game
@@ -41,7 +25,6 @@ public:
 	// ************* Functions ************* //
 private:
 
-	void HandleMovement();
 
 public:
 	Bike();
@@ -50,10 +33,8 @@ public:
 	void Visible(bool visible);
 	bool isAnimating();
 
-	int Score();
 	int Lives();
 
-	void AddScore(int change);
 
 	void HitWall();
 
@@ -63,6 +44,24 @@ public:
 	// ************* Protected ************* //
 protected:
 
+	int mGridSize = 30.0f;
+	float mBaseSpeed = 1.0f;
+	Vector2 mScreenBounds = Vector2(405.0f, 405.0f);
+	AnimatedTexture* mDeathAnimation;
+
+	Texture* mBike;
+	int mLives;
+	bool mNewDirection;
+	int checkY;
+	int checkX;
+	float mMoveSpeed;
+	Direction currentDirection;
+	Direction previousDirection;
+	Direction queuedDirection;
+	float timeBetweenDirections;
+
+	void SetSprite(std::string sheet, int x, int y, int h, int w);
+	void virtual HandleMovement();
 
 };
 
