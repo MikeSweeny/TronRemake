@@ -16,11 +16,14 @@ private:
 	int path;
 	int previouspath;
 
+	bool Bvalidpath;
+
 	typedef Bike base;
 	int mAIScore;
 
 
 	int RandomPath();
+	void ValidPath(int path);
 
 	int AIScore();
 

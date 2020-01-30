@@ -12,6 +12,9 @@ AIBike::AIBike()
 	path = 2;
 	previouspath = 2;
 
+	Bvalidpath = false;
+
+
 	currentDirection = DOWN;
 	mVisible = false;
 	mAnimating = false;
@@ -54,17 +57,27 @@ void AIBike::HandleMovement()
 	
 	currenttime += mTimer->GetDeltaTime();
 	
-	if (currenttime >= 3.0f)
+	if (currenttime >= 1.5f)
 	{
-		path = RandomPath();
-		
-		if (path == previouspath)
+		do
 		{
-			path = path + 1;
-		}
+			path = RandomPath();
+			ValidPath(path);
+		
+		} while (!Bvalidpath);
+		if (path == 0)
+			std::cout << "Forward" << std::endl;
+		if (path == 1)
+			std::cout << "Right" << std::endl;
+		if (path == 2)
+			std::cout << "Down" << std::endl;
+		if (path == 3)
+			std::cout << "Left" << std::endl;
+
 
 		previouspath = path;
 
+		Bvalidpath = false;
 		currenttime = 0;
 	}
 	
@@ -76,6 +89,7 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::RIGHT;
 			mNewDirection = true;
+			path = -1;
 		}
 		else
 		{
@@ -89,6 +103,8 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::LEFT;
 			mNewDirection = true;
+			path = -1;
+
 		}
 		else
 		{
@@ -102,6 +118,8 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::UP;
 			mNewDirection = true;
+			path = -1;
+
 		}
 		else
 		{
@@ -115,6 +133,8 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::DOWN;
 			mNewDirection = true;
+			path = -1;
+
 		}
 		else
 		{
@@ -123,7 +143,6 @@ void AIBike::HandleMovement()
 	}
 
 	
-
 	switch (currentDirection)
 	{
 	case Direction::UP:
@@ -261,6 +280,32 @@ int AIBike::RandomPath()
 	}
 
 	return newpath;
+}
+
+void AIBike::ValidPath(int path)
+{
+	if (previouspath == 0 && path == 2 )
+	{
+		Bvalidpath = false;
+		
+	}
+	else if (previouspath == 1 && path == 3)
+	{
+		Bvalidpath = false;
+	}
+	else if (previouspath == 2 && path == 0)
+	{
+		Bvalidpath = false;
+	}
+	else if (previouspath == 3 && path == 1)
+	{
+		Bvalidpath = false;
+	}
+	else
+	{
+		Bvalidpath = true;
+	}
+
 }
 
 void AIBike::PlaceTrail()
