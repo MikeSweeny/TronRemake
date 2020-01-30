@@ -17,6 +17,7 @@ private:
 	GameEntity* mPlayArea;
 	Texture* backGround;
 	float mGameBounds = 810;
+	Vector2* startPos = new Vector2(405, 765);
 
 	// Player Bike
 	PlayerBike* playerBike;

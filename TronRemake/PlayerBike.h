@@ -19,12 +19,13 @@ private:
 	void HandleCollisions();
 		
 public:
-	PlayerBike();
+	PlayerBike(Vector2 startPos);
 	~PlayerBike();
 	void Update();
 	void AddScore(int change);
 	void HandleMovement() override;
 	void PlaceTrail();
+	void SetupPlayer() override;
 };
 
 
