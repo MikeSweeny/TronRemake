@@ -14,6 +14,7 @@ AIBike::AIBike()
 
 
 	currentDirection = DOWN;
+	queuedDirection = DOWN;
 	mVisible = false;
 	mAnimating = false;
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
@@ -54,7 +55,7 @@ void AIBike::HandleMovement()
 	
 	currenttime += mTimer->GetDeltaTime();
 	
-	if (currenttime >= 1.5f)
+	if (currenttime >= ChangePathInterval())
 	{
 		do
 		{
@@ -253,28 +254,18 @@ void AIBike::SetupPlayer()
 {
 }
 
+float AIBike::ChangePathInterval()
+{
+	srand(time(0));
+	float interval = rand() % 1 + 0.5f;
+
+	return interval;
+}
+
 int AIBike::RandomPath()
 {
-	int randomNum = rand() % 100;
-	int newpath = 0;
-
-	if (randomNum <= 24)
-	{
-		newpath = 0;
-		
-	}
-	else if (randomNum > 24 && randomNum <= 49)
-	{
-		newpath = 1;
-	}
-	else if (randomNum > 49 && randomNum <= 74)
-	{
-		newpath = 2;
-	}
-	else if (randomNum < 74)
-	{
-		newpath = 3;
-	}
+	srand(time(0));
+	int newpath = rand() % 4;
 
 	return newpath;
 }

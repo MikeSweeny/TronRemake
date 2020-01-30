@@ -3,6 +3,8 @@
 #include "Bike.h"
 #include "Timer.h"
 #include <cstdlib>
+#include <stdlib.h>
+#include <time.h>
 
 
 class AIBike : public Bike
@@ -19,7 +21,7 @@ private:
 	typedef Bike base;
 	int mAIScore;
 
-
+	float ChangePathInterval();
 	int RandomPath();
 	bool ValidPath(int path);
 
