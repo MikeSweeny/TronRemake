@@ -16,7 +16,7 @@ public:
 	void SetSheetName(std::string name);
 	std::vector<Texture*> mPool;
 
-	bool CheckCollisions(Vector2 pos1);
+	bool CheckCollisions(Vector2 pos1, Vector2 pos2);
 
 private:
 	int mPoolSize = 50;

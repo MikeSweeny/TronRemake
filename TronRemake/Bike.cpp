@@ -100,26 +100,37 @@ void Bike::HandleCollisions()
 	switch (currentDirection)
 	{
 	case UP:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.y -= 13;
+		frontOfBike = mBike->Parent()->Position(Local);
+		frontOfBike2 = frontOfBike;
+		frontOfBike.y -= 16;
+		frontOfBike2.y -= 13;
 		break;
 	case RIGHT:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.x += 13;
+		frontOfBike = mBike->Parent()->Position(Local);
+		frontOfBike2 = frontOfBike;
+		frontOfBike.x += 16;
+		frontOfBike2.x += 13;
 		break;
 	case DOWN:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.y += 13;
+		frontOfBike = mBike->Parent()->Position(Local);
+		frontOfBike2 = frontOfBike;
+		frontOfBike.y += 16;
+		frontOfBike2.y += 13;
 		break;
 	case LEFT:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.x -= 13;
+		frontOfBike = mBike->Parent()->Position(Local);
+		frontOfBike2 = frontOfBike;
+		frontOfBike.x -= 16;
+		frontOfBike2.x -= 13;
 		break;
 	default:
 		break;
 	}
-	if (mTrail->CheckCollisions(frontOfBike))
+
+	if (mTrail->CheckCollisions(frontOfBike, frontOfBike2))
 	{
 		HitWall();
 	}
+	std::cout << "BikeX: " << this->Position(Local).x << "  BikeY: " << this->Position(Local).y << std::endl;
+	std::cout << "FrontX: " << frontOfBike.x << "  FrontY: " << frontOfBike.y << std::endl << std::endl;
 }

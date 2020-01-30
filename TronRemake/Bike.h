@@ -46,7 +46,7 @@ protected:
 	AnimatedTexture* mDeathAnimation;
 
 	Trail* mTrail;
-	int mTrailSize = 4;
+	int mTrailSize = 6;
 	Texture* mBike;
 	int mLives;
 	bool mNewDirection;
@@ -59,6 +59,7 @@ protected:
 	float timeBetweenDirections;
 	Vector2 mStartPos;
 	Vector2 frontOfBike;
+	Vector2 frontOfBike2;
 
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
 	void virtual HandleMovement() = 0;

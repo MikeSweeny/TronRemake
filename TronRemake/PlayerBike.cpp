@@ -3,7 +3,6 @@
 
 PlayerBike::PlayerBike()
 {
-	//mStartPos = startPos;
 	mInput = InputManager::Instance();
 	currentDirection = UP;
 	mVisible = false;
@@ -210,18 +209,17 @@ void PlayerBike::HandleMovement()
 	}
 
 	this->Position(tempPos);
-	std::cout << "x: " << this->Position(Local).x << "   y: " << this->Position(Local).y << std::endl;
 }
 
 
 void PlayerBike::PlaceTrail()
 {
-	mTrail->PlaceTrail(mBike->Position(World));
+	mTrail->PlaceTrail(this->Position());
 }
 
 void PlayerBike::SetupPlayer()
 {
-	mBike->Position(mStartPos);
+	Position(mStartPos);
 	mAnimating = false;
 }
 
