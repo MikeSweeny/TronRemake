@@ -4,7 +4,7 @@
 #include "InputManager.h"
 #include "AudioManager.h"
 #include "AnimatedTexture.h"
-
+#include "Trail.h"
 
 using namespace SDLFramework;
 
@@ -49,6 +49,8 @@ protected:
 	Vector2 mScreenBounds = Vector2(405.0f, 405.0f);
 	AnimatedTexture* mDeathAnimation;
 
+	Trail* mTrail;
+	int mTrailSize = 4;
 	Texture* mBike;
 	int mLives;
 	bool mNewDirection;

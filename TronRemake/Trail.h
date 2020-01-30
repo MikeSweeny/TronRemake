@@ -5,18 +5,19 @@
 
 using namespace SDLFramework;
 
-class Trail : GameEntity
+class Trail : public GameEntity
 {
 public:
 	Trail();
+	Trail(std::string sheetName);
 	~Trail();
 	void Render();
 	void PlaceTrail(Vector2 pos);
 	void SetSheetName(std::string name);
+	std::vector<Texture*> mPool;
+	bool CheckCollisions()
 
 private:
-	Texture* trailBlock;
-	std::vector<Texture*> pool;
 	int mPoolSize = 50;
 	std::string mSheetName;
 

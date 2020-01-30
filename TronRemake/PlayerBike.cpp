@@ -7,9 +7,11 @@ PlayerBike::PlayerBike()
 	currentDirection = UP;
 	mVisible = false;
 	mAnimating = false;
-	SetSprite("BikeSheet.png", 0, 0, 32, 32);
+	SetSprite("bikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
+	mTrail = new Trail("bikeSheet.png");
+	mTrail->Parent(this->Parent());
 	mScore = 0;
 	mLives = 1;
 }
@@ -23,6 +25,7 @@ void PlayerBike::Update()
 {
 	base::Update();
 	HandleMovement();
+	std::cout << "posX: " << mTrail->mPool[0]->Position().x << "   posY: " << mTrail->mPool[0]->Position().y << std::endl;
 }
 
 void PlayerBike::HandleMovement()
@@ -198,7 +201,19 @@ void PlayerBike::HandleMovement()
 		tempPos.y = mScreenBounds.y;
 		HitWall();
 	}
+
+	if (checkX % mTrailSize == 0 || checkY % mTrailSize)
+	{
+		PlaceTrail();
+	}
+
 	mBike->Position(tempPos);
+}
+
+
+void PlayerBike::PlaceTrail()
+{
+	mTrail->PlaceTrail(mBike->Position(World));
 }
 
 void PlayerBike::AddScore(int change)
