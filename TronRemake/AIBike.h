@@ -1,6 +1,7 @@
 #ifndef __AIBIKE_H
 #define __AIBIKE_H
 #include "Bike.h"
+#include "Timer.h"
 #include <cstdlib>
 
 
@@ -8,9 +9,11 @@ class AIBike : public Bike
 {
 
 private:
+	Timer* mTimer;
 
 	typedef Bike base;
 	int mAIScore;
+
 
 	int RandomPath();
 

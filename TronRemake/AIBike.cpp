@@ -4,6 +4,8 @@
 
 AIBike::AIBike()
 {
+	mTimer = Timer::GetInstance();
+
 	currentDirection = DOWN;
 	mVisible = false;
 	mAnimating = false;
@@ -37,13 +39,33 @@ void AIBike::HandleMovement()
 {
 	mMoveSpeed = mBaseSpeed;
 	
+	int path = 2;
+	int previouspath = 0;
 
 	Vector2 tempPos = mBike->Position(Local);
 	checkY = tempPos.y;
 	checkX = tempPos.x;
 
+	int currenttime = mTimer->GetDeltaTime();
 	
-	if (RandomPath() == 1)
+	if (currenttime < 3)
+	{
+		RandomPath();
+
+		path = RandomPath();
+		
+		if (path == previouspath)
+		{
+			path = path + 1;
+		}
+
+		previouspath = path;
+
+		currenttime = 0;
+	}
+	
+
+	if (path == 1)
 	{
 		if (checkY % mGridSize == 0)
 		{
@@ -56,7 +78,7 @@ void AIBike::HandleMovement()
 			queuedDirection = Direction::RIGHT;
 		}
 	}
-	else if (RandomPath() == 3)
+	else if (path == 3)
 	{
 		if (checkY % mGridSize == 0)
 		{
@@ -69,7 +91,7 @@ void AIBike::HandleMovement()
 			queuedDirection = Direction::LEFT;
 		}
 	}
-	else if (RandomPath() == 0)
+	else if (path == 0)
 	{
 		if (checkX % mGridSize == 0)
 		{
@@ -82,7 +104,7 @@ void AIBike::HandleMovement()
 			queuedDirection = Direction::UP;
 		}
 	}
-	else if (RandomPath() == 2)
+	else if (path == 2)
 	{
 		if (checkX % mGridSize == 0)
 		{
@@ -95,6 +117,7 @@ void AIBike::HandleMovement()
 			queuedDirection = Direction::DOWN;
 		}
 	}
+
 	
 
 	switch (currentDirection)
@@ -212,26 +235,28 @@ void AIBike::SetupPlayer()
 
 int AIBike::RandomPath()
 {
-	int path = rand() % 100;
+	int randomNum = rand() % 100;
+	int newpath = 0;
 
-	if (path <= 24)
+	if (randomNum <= 24)
 	{
-		path = 0;
+		newpath = 0;
+		
 	}
-	else if (path > 24 && path <= 49)
+	else if (randomNum > 24 && randomNum <= 49)
 	{
-		path = 1;
+		newpath = 1;
 	}
-	else if (path > 49 && path <= 74)
+	else if (randomNum > 49 && randomNum <= 74)
 	{
-		path = 2;
+		newpath = 2;
 	}
-	else if (path < 74)
+	else if (randomNum < 74)
 	{
-		path = 3;
+		newpath = 3;
 	}
 
-	return path;
+	return newpath;
 }
 
 void AIBike::PlaceTrail()
