@@ -6,6 +6,9 @@ AIBike::AIBike()
 {
 	mTimer = Timer::GetInstance();
 
+	path = 2;
+	previouspath = 2;
+
 	currentDirection = DOWN;
 	mVisible = false;
 	mAnimating = false;
@@ -39,8 +42,7 @@ void AIBike::HandleMovement()
 {
 	mMoveSpeed = mBaseSpeed;
 	
-	int path = 2;
-	int previouspath = 0;
+	
 
 	Vector2 tempPos = mBike->Position(Local);
 	checkY = tempPos.y;
@@ -50,8 +52,6 @@ void AIBike::HandleMovement()
 	
 	if (currenttime < 3)
 	{
-		RandomPath();
-
 		path = RandomPath();
 		
 		if (path == previouspath)

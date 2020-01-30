@@ -11,6 +11,9 @@ class AIBike : public Bike
 private:
 	Timer* mTimer;
 
+	int path;
+	int previouspath;
+
 	typedef Bike base;
 	int mAIScore;
 
