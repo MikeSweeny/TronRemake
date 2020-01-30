@@ -10,6 +10,8 @@ AIBike::AIBike()
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
+	mTrail = new Trail("bikeSheet.png");
+	mTrail->Parent(this->Parent());
 	mAIScore = 0;
 	mLives = 1;
 }
@@ -195,6 +197,12 @@ void AIBike::HandleMovement()
 		tempPos.y = mScreenBounds.y;
 		HitWall();
 	}
+
+	if (checkX % mTrailSize == 0 || checkY % mTrailSize)
+	{
+		PlaceTrail();
+	}
+
 	mBike->Position(tempPos);
 }
 
@@ -224,6 +232,11 @@ int AIBike::RandomPath()
 	}
 
 	return path;
+}
+
+void AIBike::PlaceTrail()
+{
+	mTrail->PlaceTrail(mBike->Position(World));
 }
 
 int AIBike::AIScore()
