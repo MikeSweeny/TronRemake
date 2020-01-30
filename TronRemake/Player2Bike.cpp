@@ -1,9 +1,40 @@
 #include "Player2Bike.h"
 
+//void Player2Bike::HandleCollisions()
+//{
+//	switch (currentDirection)
+//	{
+//	case UP:
+//		frontOfBike = mBike->Position(World);
+//		frontOfBike.y -= 13;
+//		break;
+//	case RIGHT:
+//		frontOfBike = mBike->Position(World);
+//		frontOfBike.x += 13;
+//		break;
+//	case DOWN:
+//		frontOfBike = mBike->Position(World);
+//		frontOfBike.y += 13;
+//		break;
+//	case LEFT:
+//		frontOfBike = mBike->Position(World);
+//		frontOfBike.x -= 13;
+//		break;
+//	default:
+//		break;
+//	}
+//	if (mTrail->CheckCollisions(frontOfBike))
+//	{
+//		HitWall();
+//	}
+//
+//}
+
 Player2Bike::Player2Bike()
 {
 	mInput = InputManager::Instance();
-	currentDirection = UP;
+	currentDirection = Direction::DOWN;
+	queuedDirection = Direction::DOWN;
 	mVisible = false;
 	mAnimating = false;
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
@@ -20,8 +51,19 @@ Player2Bike::~Player2Bike()
 }
 void Player2Bike::Update()
 {
-	base::Update();
-	HandleP2Movement();
+	if (mAnimating)
+	{
+		mDeathAnimation->Update();
+		//mAnimating = mDeathAnimation->IsAnimating(); 
+	}
+	else
+	{
+		if (Active())
+		{
+			HandleP2Movement();
+		}
+	}
+
 	std::cout << "posX: " << mTrail->mPool[0]->Position().x << "   posY: " << mTrail->mPool[0]->Position().y << std::endl;
 
 }
@@ -33,7 +75,7 @@ void Player2Bike::HandleP2Movement()
 {
 	if (mInput->KeyDown(SDL_SCANCODE_SPACE))
 	{
-		mMoveSpeed = mBaseSpeed * 4;
+		mMoveSpeed = mBaseSpeed * 2;
 		mBoosted = true;
 	}
 	else
@@ -209,7 +251,6 @@ void Player2Bike::HandleP2Movement()
 	}
 
 	mBike->Position(tempPos);
-
 }
 void Player2Bike::PlaceTrail()
 {
