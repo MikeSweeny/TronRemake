@@ -1,8 +1,10 @@
 #include "Trail.h"
 
-Trail::Trail()
+Trail::Trail() {}
+
+Trail::Trail(std::string sheetName)
 {
-	trailBlock = new Texture(mSheetName, 14, 25, 4, 4);
+	SetSheetName(sheetName);
 	AddToPool(mPoolSize);
 }
 
@@ -13,15 +15,17 @@ Trail::~Trail()
 
 void Trail::Render()
 {
-	for (int i = 0; i < pool.size - 1; i++)
+	for (int i = 0; i < mPool.size() - 1; i++)
 	{
-		pool[i]->Render();
+		mPool[i]->Render();
 	}
 }
 
 void Trail::PlaceTrail(Vector2 pos)
 {
-	GetTileFromPool()->Position(pos);
+	Texture* newTrail = GetTileFromPool();
+	newTrail->Position(pos);
+	//std::cout << "x: " << newTrail->Position().x << "    y: " << newTrail->Position().y << std::endl;
 }
 
 void Trail::SetSheetName(std::string name)
@@ -34,22 +38,26 @@ void Trail::AddToPool(int mPoolSize)
 	for (int i = 0; i < mPoolSize; i++)
 	{
 		Texture* temp = new Texture(mSheetName, 14, 25, 4, 4);
-		pool.push_back(temp);
+		temp->Position(-100, -100);
+		temp->isActive = false;
+		mPool.push_back(temp);
 	}
 }
 
 Texture* Trail::GetTileFromPool()
 {
-	for (int i = 0; i < pool.size - 1; i++)
+	for (int i = 0; i < mPool.size() - 1; i++)
 	{
-		if (!pool[i]->isActive)
+		if (!mPool[i]->isActive)
 		{
-			return pool[i];
+			mPool[i]->isActive = true;
+			return mPool[i];
 		}
 		else
 		{
-			AddToPool(1);
-			return pool[i];
+			break;
 		}
 	}
+	AddToPool(1);
+	return mPool[mPool.size() - 1];
 }

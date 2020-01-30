@@ -5,7 +5,6 @@
 #include "ScoreHud.h"
 #include "PlayerBike.h"
 
-
 using namespace SDLFramework;
 
 class OnePlayerGame : public GameEntity

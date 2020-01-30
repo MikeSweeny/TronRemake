@@ -91,6 +91,9 @@
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
     <ClCompile Include="AIBike.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreHud.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,6 +153,9 @@
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
     <ClInclude Include="AIBike.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreHud.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>

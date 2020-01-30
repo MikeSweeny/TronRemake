@@ -82,6 +82,7 @@ void Bike::Render()
 		if (mVisible)
 		{ 
 			mBike->Render();
+			mTrail->Render();
 		} 
 	}
 }
