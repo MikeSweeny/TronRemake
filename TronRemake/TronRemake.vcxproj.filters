@@ -90,6 +90,9 @@
     <ClCompile Include="Trail.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
+    <ClCompile Include="AIBike.cpp">
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -144,6 +147,9 @@
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
     <ClInclude Include="Trail.h">
+      <Filter>Header Files\TRON</Filter>
+    </ClInclude>
+    <ClInclude Include="AIBike.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
   </ItemGroup>
