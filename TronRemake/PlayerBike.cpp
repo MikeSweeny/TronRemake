@@ -1,9 +1,9 @@
 #include "PlayerBike.h"
 
 
-PlayerBike::PlayerBike(Vector2 startPos)
+PlayerBike::PlayerBike()
 {
-	mStartPos = startPos;
+	//mStartPos = startPos;
 	mInput = InputManager::Instance();
 	currentDirection = UP;
 	mVisible = false;

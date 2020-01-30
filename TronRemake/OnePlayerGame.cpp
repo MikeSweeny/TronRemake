@@ -19,7 +19,7 @@ OnePlayerGame::OnePlayerGame()
 	backGround->Position((imageSize / 2), (imageSize / 2));
 
 	// Bikes
-	playerBike = new PlayerBike(*startPos);
+	playerBike = new PlayerBike();
 	playerBike->Visible(true);
 	playerBike->Parent(mPlayArea);
 	playerBike->Position(*startPos);

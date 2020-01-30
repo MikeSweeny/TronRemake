@@ -19,7 +19,7 @@ private:
 	void HandleCollisions();
 		
 public:
-	PlayerBike(Vector2 startPos);
+	PlayerBike();
 	~PlayerBike();
 	void Update();
 	void AddScore(int change);

@@ -70,7 +70,7 @@ void Bike::HitWall()
   	mDeathAnimation->Position(mBike->Position(Space::Local));
 	mAnimating = true;
 	//mDeathAnimation->ResetAnimation();
-	SetupPlayer();
+	//SetupPlayer();
 }
 
 void Bike::Render()
@@ -85,7 +85,10 @@ void Bike::Render()
 		if (mVisible)
 		{ 
 			mBike->Render();
-			mTrail->Render();
+			if (mTrail)
+			{
+				mTrail->Render();
+			}
 		} 
 	}
 }
