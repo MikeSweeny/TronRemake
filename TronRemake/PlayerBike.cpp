@@ -3,6 +3,7 @@
 
 PlayerBike::PlayerBike()
 {
+	//mStartPos = startPos;
 	mInput = InputManager::Instance();
 	currentDirection = UP;
 	mVisible = false;
@@ -13,7 +14,8 @@ PlayerBike::PlayerBike()
 	mTrail = new Trail("bikeSheet.png");
 	mTrail->Parent(this->Parent());
 	mScore = 0;
-	mLives = 1;
+	mLives = 3;
+	SetupPlayer();
 }
 
 PlayerBike::~PlayerBike()
@@ -214,6 +216,12 @@ void PlayerBike::HandleMovement()
 void PlayerBike::PlaceTrail()
 {
 	mTrail->PlaceTrail(mBike->Position(World));
+}
+
+void PlayerBike::SetupPlayer()
+{
+	mBike->Position(mStartPos);
+	mAnimating = false;
 }
 
 void PlayerBike::AddScore(int change)

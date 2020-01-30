@@ -23,6 +23,7 @@ public:
 	void AddScore(int change);
 
 	void HandleMovement() override;
+	void SetupPlayer() override;
 
 	
 };

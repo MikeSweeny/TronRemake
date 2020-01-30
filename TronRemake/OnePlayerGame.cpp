@@ -22,7 +22,7 @@ OnePlayerGame::OnePlayerGame()
 	playerBike = new PlayerBike();
 	playerBike->Visible(true);
 	playerBike->Parent(mPlayArea);
-	playerBike->Position(405, 405);
+	playerBike->Position(*startPos);
 	playerBike->Active(true);
 
 	aiBike = new AIBike();

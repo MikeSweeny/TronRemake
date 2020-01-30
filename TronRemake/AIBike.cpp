@@ -198,6 +198,10 @@ void AIBike::HandleMovement()
 	mBike->Position(tempPos);
 }
 
+void AIBike::SetupPlayer()
+{
+}
+
 int AIBike::RandomPath()
 {
 	int path = rand() % 100;

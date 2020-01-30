@@ -20,6 +20,7 @@ public:
 	void AddScore(int change);
 	void HandleP2Movement();
 	void PlaceTrail();
+	void SetupPlayer() override;
 
 
 };

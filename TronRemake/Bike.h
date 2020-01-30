@@ -57,9 +57,11 @@ protected:
 	Direction previousDirection;
 	Direction queuedDirection;
 	float timeBetweenDirections;
+	Vector2 mStartPos;
 
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
 	void virtual HandleMovement();
+	void virtual SetupPlayer() = 0;
 
 };
 
