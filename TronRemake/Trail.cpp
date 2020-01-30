@@ -33,6 +33,19 @@ void Trail::SetSheetName(std::string name)
 	mSheetName = name;
 }
 
+bool Trail::CheckCollisions(Vector2 pos1)
+{
+	for (int i = 0; i < mPool.size() - 1; i++)
+	{
+		if ((pos1.x > mPool[i]->Position().x && pos1.x < mPool[i]->Position().x + 6) &&
+			(pos1.y > mPool[i]->Position().y && pos1.y < mPool[i]->Position().y + 6)) 
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 void Trail::AddToPool(int mPoolSize)
 {
 	for (int i = 0; i < mPoolSize; i++)

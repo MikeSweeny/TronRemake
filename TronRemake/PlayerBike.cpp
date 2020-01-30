@@ -24,15 +24,15 @@ PlayerBike::~PlayerBike()
 void PlayerBike::Update()
 {
 	base::Update();
+	HandleCollisions();
 	HandleMovement();
-	std::cout << "posX: " << mTrail->mPool[0]->Position().x << "   posY: " << mTrail->mPool[0]->Position().y << std::endl;
 }
 
 void PlayerBike::HandleMovement()
 {
 	if (mInput->KeyDown(SDL_SCANCODE_SPACE))
 	{
-		mMoveSpeed = mBaseSpeed * 4;
+		mMoveSpeed = mBaseSpeed * 2;
 		mBoosted = true;
 	}
 	else
@@ -224,4 +224,33 @@ void PlayerBike::AddScore(int change)
 int PlayerBike::Score()
 {
 	return mScore;
+}
+
+void PlayerBike::HandleCollisions()
+{
+	switch (currentDirection)
+	{
+	case UP:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.y -= 13;
+		break;
+	case RIGHT:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.x += 13;
+		break;
+	case DOWN:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.y += 13;
+		break;
+	case LEFT:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.x -= 13;
+		break;
+	default:
+		break;
+	}
+	if (mTrail->CheckCollisions(frontOfBike))
+	{
+		HitWall();
+	}
 }

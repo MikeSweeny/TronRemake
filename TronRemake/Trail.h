@@ -15,7 +15,7 @@ public:
 	void PlaceTrail(Vector2 pos);
 	void SetSheetName(std::string name);
 	std::vector<Texture*> mPool;
-	bool CheckCollisions()
+	bool CheckCollisions(Vector2 pos1);
 
 private:
 	int mPoolSize = 50;
