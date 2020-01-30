@@ -5,6 +5,9 @@
 AIBike::AIBike()
 {
 	mTimer = Timer::GetInstance();
+	
+	currenttime = 0;
+
 
 	path = 2;
 	previouspath = 2;
@@ -48,9 +51,10 @@ void AIBike::HandleMovement()
 	checkY = tempPos.y;
 	checkX = tempPos.x;
 
-	int currenttime = mTimer->GetDeltaTime();
 	
-	if (currenttime < 3)
+	currenttime += mTimer->GetDeltaTime();
+	
+	if (currenttime >= 3.0f)
 	{
 		path = RandomPath();
 		

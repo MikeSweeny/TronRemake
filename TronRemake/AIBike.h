@@ -11,6 +11,8 @@ class AIBike : public Bike
 private:
 	Timer* mTimer;
 
+	float currenttime;
+
 	int path;
 	int previouspath;
 
