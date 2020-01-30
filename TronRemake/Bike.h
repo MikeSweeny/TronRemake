@@ -58,9 +58,11 @@ protected:
 	Direction queuedDirection;
 	float timeBetweenDirections;
 	Vector2 mStartPos;
+	Vector2 frontOfBike;
 
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
-	void virtual HandleMovement();
+	void virtual HandleMovement() = 0;
+	void HandleCollisions();
 	void virtual SetupPlayer() = 0;
 
 };

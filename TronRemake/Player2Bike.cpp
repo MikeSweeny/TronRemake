@@ -1,35 +1,5 @@
 #include "Player2Bike.h"
 
-//void Player2Bike::HandleCollisions()
-//{
-//	switch (currentDirection)
-//	{
-//	case UP:
-//		frontOfBike = mBike->Position(World);
-//		frontOfBike.y -= 13;
-//		break;
-//	case RIGHT:
-//		frontOfBike = mBike->Position(World);
-//		frontOfBike.x += 13;
-//		break;
-//	case DOWN:
-//		frontOfBike = mBike->Position(World);
-//		frontOfBike.y += 13;
-//		break;
-//	case LEFT:
-//		frontOfBike = mBike->Position(World);
-//		frontOfBike.x -= 13;
-//		break;
-//	default:
-//		break;
-//	}
-//	if (mTrail->CheckCollisions(frontOfBike))
-//	{
-//		HitWall();
-//	}
-//
-//}
-
 Player2Bike::Player2Bike()
 {
 	mInput = InputManager::Instance();
@@ -51,27 +21,28 @@ Player2Bike::~Player2Bike()
 }
 void Player2Bike::Update()
 {
-	if (mAnimating)
-	{
-		mDeathAnimation->Update();
-		//mAnimating = mDeathAnimation->IsAnimating(); 
-	}
-	else
-	{
-		if (Active())
-		{
-			HandleP2Movement();
-		}
-	}
-
-	std::cout << "posX: " << mTrail->mPool[0]->Position().x << "   posY: " << mTrail->mPool[0]->Position().y << std::endl;
+	base::Update();
+	HandleCollisions();
+	//if (mAnimating)
+	//{
+	//	mDeathAnimation->Update();
+	//	//mAnimating = mDeathAnimation->IsAnimating(); 
+	//}
+	//else
+	//{
+	//	if (Active())
+	//	{
+	//		HandleP2Movement();
+	//	}
+	//}
 
 }
+
 void Player2Bike::AddScore(int change)
 {
 	mScore += change;
 }
-void Player2Bike::HandleP2Movement()
+void Player2Bike::HandleMovement()
 {
 	if (mInput->KeyDown(SDL_SCANCODE_SPACE))
 	{

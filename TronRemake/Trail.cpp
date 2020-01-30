@@ -25,7 +25,6 @@ void Trail::PlaceTrail(Vector2 pos)
 {
 	Texture* newTrail = GetTileFromPool();
 	newTrail->Position(pos);
-	//std::cout << "x: " << newTrail->Position().x << "    y: " << newTrail->Position().y << std::endl;
 }
 
 void Trail::SetSheetName(std::string name)

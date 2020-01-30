@@ -1,9 +1,5 @@
 #include "Bike.h"
 
-void Bike::HandleMovement()
-{
-	
-}
 
 Bike::Bike()
 {
@@ -97,4 +93,33 @@ void Bike::SetSprite(std::string sheet, int x, int y, int h, int w)
 {
 
 	mBike = new Texture(sheet, x, y, w, h);
+}
+
+void Bike::HandleCollisions()
+{
+	switch (currentDirection)
+	{
+	case UP:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.y -= 13;
+		break;
+	case RIGHT:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.x += 13;
+		break;
+	case DOWN:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.y += 13;
+		break;
+	case LEFT:
+		frontOfBike = mBike->Position(World);
+		frontOfBike.x -= 13;
+		break;
+	default:
+		break;
+	}
+	if (mTrail->CheckCollisions(frontOfBike))
+	{
+		HitWall();
+	}
 }

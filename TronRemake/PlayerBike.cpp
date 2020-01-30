@@ -234,31 +234,4 @@ int PlayerBike::Score()
 	return mScore;
 }
 
-void PlayerBike::HandleCollisions()
-{
-	switch (currentDirection)
-	{
-	case UP:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.y -= 13;
-		break;
-	case RIGHT:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.x += 13;
-		break;
-	case DOWN:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.y += 13;
-		break;
-	case LEFT:
-		frontOfBike = mBike->Position(World);
-		frontOfBike.x -= 13;
-		break;
-	default:
-		break;
-	}
-	if (mTrail->CheckCollisions(frontOfBike))
-	{
-		HitWall();
-	}
-}
+

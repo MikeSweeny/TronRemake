@@ -18,7 +18,7 @@ public:
 	~Player2Bike();
 	void Update();
 	void AddScore(int change);
-	void HandleP2Movement();
+	void HandleMovement() override;
 	void PlaceTrail();
 	void SetupPlayer() override;
 
