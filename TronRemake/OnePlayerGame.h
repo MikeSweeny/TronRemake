@@ -5,7 +5,7 @@
 #include "ScoreHud.h"
 #include "PlayerBike.h"
 #include "AIBike.h"
-#include "ScreenManager.h"
+//#include "ScreenManager.h"
 
 using namespace SDLFramework;
 
@@ -23,6 +23,7 @@ private:
 	int p1StartX = 405;
 	int p1StartY = 765;
 
+
 	// Player Bike
 	PlayerBike* playerBike;
 
@@ -30,13 +31,14 @@ private:
 	AIBike* aiBike;
 
 public:
+
+	bool isGameOver;
 	OnePlayerGame();
 	~OnePlayerGame();
 	void Render();
 	void Update();
 
 	void SetupGame();
-	void GameOver();
 
 };
 

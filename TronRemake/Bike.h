@@ -34,6 +34,7 @@ public:
 	int Lives();
 	void HitWall();
 	bool IsDead();
+	void AnimationDelay();
 
 	void Update();
 	void Render();
@@ -61,7 +62,7 @@ protected:
 	Vector2 mStartPos = 0;
 	Vector2 frontOfBike = 0;
 	Vector2 frontOfBike2 = 0;
-	bool isDead = false;
+	bool isDead;
 
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
 	void virtual HandleMovement() = 0;

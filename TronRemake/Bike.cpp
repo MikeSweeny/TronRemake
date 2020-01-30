@@ -61,6 +61,7 @@ int Bike::Lives()
 
 void Bike::HitWall()
 {
+	this->Active(false);
 	mLives -= 1;
   	mDeathAnimation->Position(mBike->Position(Space::Local));
 	mAnimating = true;
@@ -141,4 +142,18 @@ void Bike::HandleCollisions()
 bool Bike::IsDead()
 {
 	return isDead;
+}
+
+void Bike::AnimationDelay()
+{
+	if (mAnimating)
+	{
+		float tempTime;
+		tempTime += mTimer->GetDeltaTime();
+		if (tempTime >= 8 * 0.3f)
+		{
+			mAnimating = false;
+			this->Active(true);
+		}
+	}
 }

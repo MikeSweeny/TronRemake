@@ -41,6 +41,10 @@ void ScreenManager::Release()
 
 void ScreenManager::Update() 
 {
+	if (mOnePlayerGame->isGameOver)
+	{
+		mCurrentScreen = START;
+	}
 	switch (mCurrentScreen) 
 	{
 	case START:
