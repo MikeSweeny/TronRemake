@@ -25,6 +25,8 @@ public:
 	ScreenManager();
 	~ScreenManager();
 
+	void SetCurrentScreen(int screen);
+
 private:
 
 };

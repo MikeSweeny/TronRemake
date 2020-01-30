@@ -1,16 +1,18 @@
-#ifndef __ONEPLAYER_H
-#define __ONEPLAYER_H
+#ifndef __ONEPLAYERGAME_H
+#define __ONEPLAYERGAME_H
 #include "MainMenu.h"
 #include "Bike.h"
 #include "ScoreHud.h"
 #include "PlayerBike.h"
 #include "AIBike.h"
+#include "ScreenManager.h"
 
 using namespace SDLFramework;
 
 class OnePlayerGame : public GameEntity
 {
 private:
+
 	GameEntity* mOnePlayerGameScreen;
 	ScoreHud* mScoreHud;
 	// play area

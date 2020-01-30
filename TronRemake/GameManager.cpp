@@ -50,8 +50,8 @@ namespace SDLFramework
 		mInputManager->Update();
 		mScreenManager->Update();
 
-		PlayerOneInputUpdate();
-		PlayerTwoInputUpdate();
+		//PlayerOneInputUpdate();
+		//PlayerTwoInputUpdate();
 		
 		if (mInputManager->KeyDown(SDL_SCANCODE_1))
 		{
@@ -93,89 +93,83 @@ namespace SDLFramework
 		mGraphics->Render();
 	}
 
-	void GameManager::PlayerOneInputUpdate()
-	{
-		if (mInputManager->KeyDown(SDL_SCANCODE_W)) //Forward and Back
-		{
-			//->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_S))
-		{
-			//->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		if (mInputManager->KeyDown(SDL_SCANCODE_A)) //Left and Right
-		{
-			//->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_D))
-		{
-			//->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		if (mInputManager->KeyDown(SDL_SCANCODE_Q)) //Rotate Left and Right
-		{
-			//->Rotate((-25) * mTimer->GetDeltaTime());
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_E))
-		{
-			//->Rotate((25) * mTimer->GetDeltaTime());
-		}
-		if (mInputManager->KeyDown(SDL_SCANCODE_Z)) //Scale Up and Down
-		{
-			//Vector2 tempScale = mTex->Scale();
-			//tempScale += Vector2(0.1f, 0.1f);
-			//mTex->Scale(tempScale);
-			//mTex->Translate(Vector2(-120.0f, -120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_C))
-		{
-			//Vector2 tempScale = mTex->Scale();
-			//tempScale -= Vector2(0.1f, 0.1f);
-			//mTex->Scale(tempScale);
-			//mTex->Translate(Vector2(120.0f, 120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-	}
+	//void GameManager::PlayerOneInputUpdate()
+	//{
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_W)) //Forward and Back
+	//	{
+	//		//->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_S))
+	//	{
+	//		//->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_A)) //Left and Right
+	//	{
+	//		//->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_D))
+	//	{
+	//		//->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_Q)) //Rotate Left and Right
+	//	{
+	//		//->Rotate((-25) * mTimer->GetDeltaTime());
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_E))
+	//	{
+	//		//->Rotate((25) * mTimer->GetDeltaTime());
+	//	}
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_Z)) //Scale Up and Down
+	//	{
+	//		//Vector2 tempScale = mTex->Scale();
+	//		//tempScale += Vector2(0.1f, 0.1f);
+	//		//mTex->Scale(tempScale);
+	//		//mTex->Translate(Vector2(-120.0f, -120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_C))
+	//	{
+	//		//Vector2 tempScale = mTex->Scale();
+	//		//tempScale -= Vector2(0.1f, 0.1f);
+	//		//mTex->Scale(tempScale);
+	//		//mTex->Translate(Vector2(120.0f, 120.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//}
 
-	void GameManager::PlayerTwoInputUpdate()
-	{
-		if (mInputManager->KeyDown(SDL_SCANCODE_I)) //Forward and Back
-		{
-			//->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_K))
-		{
-			//->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		if (mInputManager->KeyDown(SDL_SCANCODE_J)) //Left and Right
-		{
-			//->Translate(Vector2(-80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_L))
-		{
-			//->Translate(Vector2(80.0f, 0) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		if (mInputManager->KeyDown(SDL_SCANCODE_U)) //Rotate Left and Right
-		{
-			//->Rotate((-25) * mTimer->GetDeltaTime());
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_O))
-		{
-			//->Rotate((25) * mTimer->GetDeltaTime());
-		}
-		if (mInputManager->KeyDown(SDL_SCANCODE_M)) //Scale Up and Down
-		{
-			//Vector2 tempScale = mTexTwo->Scale();
-			//tempScale += Vector2(0.1f, 0.1f);
-			//mTexTwo->Scale(tempScale);
-			//mTexTwo->Translate(Vector2(-55.0f, -55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-		else if (mInputManager->KeyDown(SDL_SCANCODE_PERIOD))
-		{
-			//Vector2 tempScale = mTexTwo->Scale();
-			//tempScale -= Vector2(0.1f, 0.1f);
-			//mTexTwo->Scale(tempScale);
-			//mTexTwo->Translate(Vector2(55.0f, 55.0f) * mTimer->GetDeltaTime(), GameEntity::World);
-		}
-	}
+	//void GameManager::PlayerTwoInputUpdate()
+	//{
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_I)) //Forward and Back
+	//	{
+	//		//->Translate(Vector2(0, -80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_K))
+	//	{
+	//		//->Translate(Vector2(0, 80.0f) * mTimer->GetDeltaTime(), GameEntity::World);
+	//	}
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_J)) //Left and Right
+	//	{
+
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_L))
+	//	{
+
+	//	}
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_U)) //Rotate Left and Right
+	//	{
+
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_O))
+	//	{
+
+	//	}
+	//	if (mInputManager->KeyDown(SDL_SCANCODE_M)) //Scale Up and Down
+	//	{
+
+	//	}
+	//	else if (mInputManager->KeyDown(SDL_SCANCODE_PERIOD))
+	//	{
+
+	//	}
+	//}
 
 	GameManager::GameManager() : mQuit(false) 
 	{
@@ -189,21 +183,6 @@ namespace SDLFramework
 			mQuit = true;
 		}
 		mAssetManager = AssetManager::Instance();
-
-		//mTex = new AnimatedTexture("SpriteSheet.png", // filename
-		//	204, // x clip
-		//	45, // y clip
-		//	40, // clip w
-		//	38, // clip h
-		//	4, // total frames
-		//	0.5f, // animation length in second
-		//	AnimatedTexture::Horizontal); //frame layout
-
-		//mTex->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.25f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
-		//mTexTwo = new Texture("SpriteSheet.png");
-		//mTexTwo = new Texture("SpriteSheet.png", 184, 76, 22, 22);
-		//mTexTwo->Position(Vector2(GraphicsManager::SCREEN_WIDTH * 0.75f, GraphicsManager::SCREEN_HEIGHT * 0.5f));
-
 		mInputManager = InputManager::Instance();
 		mAudioManager = AudioManager::Instance();
 

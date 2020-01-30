@@ -17,7 +17,7 @@ private:
 	AudioManager* mAudio;
 
 public:
-	bool mVisible; // to hide he avatars before we start a game
+	bool mVisible; // to hide the avatars before we start a game
 	bool mAnimating;
 
 	// ************* Functions ************* //
@@ -33,6 +33,7 @@ public:
 
 	int Lives();
 	void HitWall();
+	bool IsDead();
 
 	void Update();
 	void Render();
@@ -45,21 +46,22 @@ protected:
 	Vector2 mScreenBounds = Vector2(810.0f, 810.0f);
 	AnimatedTexture* mDeathAnimation;
 
-	Trail* mTrail;
+	Trail* mTrail = 0;
 	int mTrailSize = 6;
-	Texture* mBike;
-	int mLives;
-	bool mNewDirection;
-	int checkY;
-	int checkX;
-	float mMoveSpeed;
-	Direction currentDirection;
-	Direction previousDirection;
-	Direction queuedDirection;
-	float timeBetweenDirections;
-	Vector2 mStartPos;
-	Vector2 frontOfBike;
-	Vector2 frontOfBike2;
+	Texture* mBike = 0;
+	int mLives = 0;
+	bool mNewDirection = 0;
+	int checkY = 0;
+	int checkX = 0;
+	float mMoveSpeed = 0;
+	Direction currentDirection = UP;
+	Direction previousDirection = UP;
+	Direction queuedDirection = UP;
+	float timeBetweenDirections = 0;
+	Vector2 mStartPos = 0;
+	Vector2 frontOfBike = 0;
+	Vector2 frontOfBike2 = 0;
+	bool isDead = false;
 
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
 	void virtual HandleMovement() = 0;

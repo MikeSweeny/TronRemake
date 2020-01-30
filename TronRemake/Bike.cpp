@@ -8,8 +8,7 @@ Bike::Bike()
 	//mDeathAnimation = new AnimatedTexture("PlayerDeath.png", 0, 0, 128, 128, 4, 1.0f, AnimatedTexture::Horizontal);
 	//mDeathAnimation->Parent(this);
 	//mDeathAnimation->Position(Vec2_Zero);
-	mVisible = false;
-	mAnimating = false;
+
 
 	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 0.3f, AnimatedTexture::Horizontal);
 	mDeathAnimation->Parent(this);
@@ -65,6 +64,10 @@ void Bike::HitWall()
 	mLives -= 1;
   	mDeathAnimation->Position(mBike->Position(Space::Local));
 	mAnimating = true;
+	if (mLives <= 0)
+	{
+		isDead = true;
+	}
 	//mDeathAnimation->ResetAnimation();
 	//SetupPlayer();
 }
@@ -133,4 +136,9 @@ void Bike::HandleCollisions()
 	}
 	std::cout << "BikeX: " << this->Position(Local).x << "  BikeY: " << this->Position(Local).y << std::endl;
 	std::cout << "FrontX: " << frontOfBike.x << "  FrontY: " << frontOfBike.y << std::endl << std::endl;
+}
+
+bool Bike::IsDead()
+{
+	return isDead;
 }

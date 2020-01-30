@@ -4,7 +4,6 @@
 OnePlayerGame::OnePlayerGame()
 {
 	mOnePlayerGameScreen = new GameEntity(GraphicsManager::SCREEN_WIDTH * 0.5f, GraphicsManager::SCREEN_HEIGHT * 0.35f);
-
 	mScoreHud = new ScoreHud();
 	mScoreHud->Parent(this);
 	mScoreHud->Position(530, 325);
@@ -36,7 +35,10 @@ void OnePlayerGame::Update()
 	//UpdateScore();
 
 	aiBike->Update();
-
+	if (playerBike->IsDead())
+	{
+		GameOver();
+	}
 }
 
 void OnePlayerGame::Render()
@@ -63,5 +65,5 @@ void OnePlayerGame::SetupGame()
 
 void OnePlayerGame::GameOver()
 {
-
+	//ScreenManager::Instance()->SetCurrentScreen(0);
 }

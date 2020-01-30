@@ -41,8 +41,8 @@ namespace SDLFramework
 		AudioManager* mAudioManager;
 
 		const float scaleIncrement = 2.0f;
-		void PlayerOneInputUpdate();
-		void PlayerTwoInputUpdate();
+		//void PlayerOneInputUpdate();
+		//void PlayerTwoInputUpdate();
 
 		ScreenManager* mScreenManager;
 	};

@@ -42,9 +42,7 @@ void ScreenManager::Release()
 void ScreenManager::Update() 
 {
 	switch (mCurrentScreen) 
-
 	{
-
 	case START:
 		mMainMenu->Update();
 
@@ -98,3 +96,7 @@ void ScreenManager::Render()
 	}
 }
 
+void ScreenManager::SetCurrentScreen(int screen)
+{
+	mCurrentScreen = Screens(screen);
+}
