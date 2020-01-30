@@ -27,6 +27,9 @@ Bike::~Bike()
 	mBike = nullptr;
 	delete mDeathAnimation;
 	mDeathAnimation = nullptr;
+
+	delete mTrail;
+	mTrail = nullptr;
 }
 
 void Bike::Update()

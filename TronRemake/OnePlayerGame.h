@@ -4,6 +4,7 @@
 #include "Bike.h"
 #include "ScoreHud.h"
 #include "PlayerBike.h"
+#include "AIBike.h"
 
 using namespace SDLFramework;
 
@@ -20,6 +21,9 @@ private:
 
 	// Player Bike
 	PlayerBike* playerBike;
+
+	// AI Bike
+	AIBike* aiBike;
 
 public:
 	OnePlayerGame();

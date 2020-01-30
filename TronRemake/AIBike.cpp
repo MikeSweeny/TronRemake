@@ -25,6 +25,12 @@ void AIBike::Update()
 	HandleMovement();
 }
 
+void AIBike::AddScore(int change)
+{
+	mAIScore += change;
+
+}
+
 void AIBike::HandleMovement()
 {
 	mMoveSpeed = mBaseSpeed;
