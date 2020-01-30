@@ -21,11 +21,17 @@ TwoPlayerGame::TwoPlayerGame()
 	backGround->Position((imageSize / 2), (imageSize / 2));
 
 	// Bikes
-	playerBike = new Bike();
+	playerBike = new PlayerBike();
 	playerBike->Visible(true);
 	playerBike->Parent(mPlayArea);
 	playerBike->Position(405, 405);
 	playerBike->Active(true);
+
+	player2Bike = new Player2Bike();
+	player2Bike->Visible(true);
+	player2Bike->Parent(mPlayArea);
+	player2Bike->Position(405, 5);
+	player2Bike->Active(true);
 
 }
 
@@ -37,7 +43,7 @@ TwoPlayerGame::~TwoPlayerGame()
 void TwoPlayerGame::Update()
 {
 	playerBike->Update();
-
+	player2Bike->Update();
 	//UpdateScore();
 }
 
@@ -45,6 +51,7 @@ void TwoPlayerGame::Update()
 void TwoPlayerGame::Render()
 {
 	backGround->Render();
+	player2Bike->Render();
 	playerBike->Render();
 	mScoreHud->Render();
 	mP2ScoreHud->Render();

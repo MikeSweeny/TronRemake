@@ -20,6 +20,7 @@ public:
 	AIBike();
 	~AIBike();
 	void Update();
+	void AddScore(int change);
 
 	void HandleMovement() override;
 

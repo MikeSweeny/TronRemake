@@ -14,7 +14,6 @@ private:
 	Texture* mLives2;
 	Texture* mLives3;
 
-
 	Texture* mP2ScoreAmt;
 	Texture* mP2HiScoreAmt;
 	Texture* mP2Score;

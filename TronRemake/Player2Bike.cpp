@@ -1,99 +1,106 @@
-#include "AIBike.h"
+#include "Player2Bike.h"
 
-
-
-AIBike::AIBike()
+Player2Bike::Player2Bike()
 {
-	currentDirection = DOWN;
+	mInput = InputManager::Instance();
+	currentDirection = UP;
 	mVisible = false;
 	mAnimating = false;
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
-	mAIScore = 0;
+	mTrail = new Trail("aiBikeSheet.png");
+	mTrail->Parent(this->Parent());
+	mScore = 0;
 	mLives = 1;
 }
-
-AIBike::~AIBike()
+Player2Bike::~Player2Bike()
 {
-	//RandomPath() = nullptr;
+	mInput = nullptr;
 }
-
-void AIBike::Update()
+void Player2Bike::Update()
 {
 	base::Update();
-	HandleMovement();
-}
-
-void AIBike::AddScore(int change)
-{
-	mAIScore += change;
+	HandleP2Movement();
+	std::cout << "posX: " << mTrail->mPool[0]->Position().x << "   posY: " << mTrail->mPool[0]->Position().y << std::endl;
 
 }
-
-void AIBike::HandleMovement()
+void Player2Bike::AddScore(int change)
 {
-	mMoveSpeed = mBaseSpeed;
-	
+	mScore += change;
+}
+void Player2Bike::HandleP2Movement()
+{
+	if (mInput->KeyDown(SDL_SCANCODE_SPACE))
+	{
+		mMoveSpeed = mBaseSpeed * 4;
+		mBoosted = true;
+	}
+	else
+	{
+		mMoveSpeed = mBaseSpeed;
+		mBoosted = false;
+	}
 
 	Vector2 tempPos = mBike->Position(Local);
 	checkY = tempPos.y;
 	checkX = tempPos.x;
 
-	
-	if (RandomPath() == 1)
+	if (!mBoosted)
 	{
-		if (checkY % mGridSize == 0)
+		if (mInput->KeyDown(SDL_SCANCODE_D))
 		{
-			previousDirection = currentDirection;
-			currentDirection = Direction::RIGHT;
-			mNewDirection = true;
+			if (checkY % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::RIGHT;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::RIGHT;
+			}
 		}
-		else
+		else if (mInput->KeyDown(SDL_SCANCODE_A))
 		{
-			queuedDirection = Direction::RIGHT;
+			if (checkY % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::LEFT;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::LEFT;
+			}
+		}
+		else if (mInput->KeyDown(SDL_SCANCODE_W))
+		{
+			if (checkX % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::UP;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::UP;
+			}
+		}
+		else if (mInput->KeyDown(SDL_SCANCODE_S))
+		{
+			if (checkX % mGridSize == 0)
+			{
+				previousDirection = currentDirection;
+				currentDirection = Direction::DOWN;
+				mNewDirection = true;
+			}
+			else
+			{
+				queuedDirection = Direction::DOWN;
+			}
 		}
 	}
-	else if (RandomPath() == 3)
-	{
-		if (checkY % mGridSize == 0)
-		{
-			previousDirection = currentDirection;
-			currentDirection = Direction::LEFT;
-			mNewDirection = true;
-		}
-		else
-		{
-			queuedDirection = Direction::LEFT;
-		}
-	}
-	else if (RandomPath() == 0)
-	{
-		if (checkX % mGridSize == 0)
-		{
-			previousDirection = currentDirection;
-			currentDirection = Direction::UP;
-			mNewDirection = true;
-		}
-		else
-		{
-			queuedDirection = Direction::UP;
-		}
-	}
-	else if (RandomPath() == 2)
-	{
-		if (checkX % mGridSize == 0)
-		{
-			previousDirection = currentDirection;
-			currentDirection = Direction::DOWN;
-			mNewDirection = true;
-		}
-		else
-		{
-			queuedDirection = Direction::DOWN;
-		}
-	}
-	
 
 	switch (currentDirection)
 	{
@@ -195,34 +202,17 @@ void AIBike::HandleMovement()
 		tempPos.y = mScreenBounds.y;
 		HitWall();
 	}
+
+	if (checkX % mTrailSize == 0 || checkY % mTrailSize)
+	{
+		PlaceTrail();
+	}
+
 	mBike->Position(tempPos);
+
 }
-
-int AIBike::RandomPath()
+void Player2Bike::PlaceTrail()
 {
-	int path = rand() % 100;
+	mTrail->PlaceTrail(mBike->Position(World));
 
-	if (path <= 24)
-	{
-		path = 0;
-	}
-	else if (path > 24 && path <= 49)
-	{
-		path = 1;
-	}
-	else if (path > 49 && path <= 74)
-	{
-		path = 2;
-	}
-	else if (path < 74)
-	{
-		path = 3;
-	}
-
-	return path;
-}
-
-int AIBike::AIScore()
-{
-	return mAIScore;
 }

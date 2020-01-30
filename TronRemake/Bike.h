@@ -16,8 +16,6 @@ private:
 	Timer* mTimer;
 	AudioManager* mAudio;
 
-
-
 public:
 	bool mVisible; // to hide he avatars before we start a game
 	bool mAnimating;
@@ -34,8 +32,6 @@ public:
 	bool isAnimating();
 
 	int Lives();
-
-
 	void HitWall();
 
 	void Update();
