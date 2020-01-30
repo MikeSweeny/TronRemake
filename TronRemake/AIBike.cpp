@@ -12,8 +12,6 @@ AIBike::AIBike()
 	path = 2;
 	previouspath = 2;
 
-	Bvalidpath = false;
-
 
 	currentDirection = DOWN;
 	mVisible = false;
@@ -63,7 +61,8 @@ void AIBike::HandleMovement()
 			path = RandomPath();
 			ValidPath(path);
 		
-		} while (!Bvalidpath);
+		} while (!ValidPath(path));
+
 		if (path == 0)
 			std::cout << "Forward" << std::endl;
 		if (path == 1)
@@ -76,7 +75,6 @@ void AIBike::HandleMovement()
 
 		previouspath = path;
 
-		Bvalidpath = false;
 		currenttime = 0;
 	}
 	
@@ -281,30 +279,25 @@ int AIBike::RandomPath()
 	return newpath;
 }
 
-void AIBike::ValidPath(int path)
+bool AIBike::ValidPath(int path)
 {
-	if (previouspath == 0 && path == 2 )
+	bool BvalidPath;
+	if (previouspath == 0 && path == 2 || previouspath == 2 && path == 0)
 	{
-		Bvalidpath = false;
+		BvalidPath = false;
 		
 	}
-	else if (previouspath == 1 && path == 3)
+	else if (previouspath == 3 && path == 1 || previouspath == 1 && path == 3)
 	{
-		Bvalidpath = false;
-	}
-	else if (previouspath == 2 && path == 0)
-	{
-		Bvalidpath = false;
-	}
-	else if (previouspath == 3 && path == 1)
-	{
-		Bvalidpath = false;
-	}
-	else
-	{
-		Bvalidpath = true;
+		BvalidPath = false;
 	}
 
+	else
+	{
+		BvalidPath = true;
+	}
+
+	return BvalidPath;
 }
 
 void AIBike::PlaceTrail()
