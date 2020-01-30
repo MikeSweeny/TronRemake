@@ -43,7 +43,7 @@ void PlayerBike::HandleMovement()
 		mBoosted = false;
 	}
 
-	Vector2 tempPos = mBike->Position(Local);
+	Vector2 tempPos = this->Position(Local);
 	checkY = tempPos.y;
 	checkX = tempPos.x;
 
@@ -209,7 +209,8 @@ void PlayerBike::HandleMovement()
 		PlaceTrail();
 	}
 
-	mBike->Position(tempPos);
+	this->Position(tempPos);
+	std::cout << "x: " << this->Position(Local).x << "   y: " << this->Position(Local).y << std::endl;
 }
 
 

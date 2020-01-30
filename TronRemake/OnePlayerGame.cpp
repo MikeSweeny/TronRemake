@@ -22,7 +22,7 @@ OnePlayerGame::OnePlayerGame()
 	playerBike = new PlayerBike();
 	playerBike->Visible(true);
 	playerBike->Parent(mPlayArea);
-	playerBike->Position(*startPos);
+	playerBike->Position(p1StartX, p1StartY);
 	playerBike->Active(true);
 
 	aiBike = new AIBike();
@@ -39,7 +39,6 @@ OnePlayerGame::~OnePlayerGame()
 
 void OnePlayerGame::Update()
 {
-	//std::cout << "x: " << playerBike->Position().x << "   y: " << playerBike->Position().y << std::endl;
 	playerBike->Update();
 	//UpdateScore();
 

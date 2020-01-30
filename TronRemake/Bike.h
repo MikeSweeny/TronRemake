@@ -42,7 +42,7 @@ protected:
 
 	int mGridSize = 30.0f;
 	float mBaseSpeed = 1.0f;
-	Vector2 mScreenBounds = Vector2(405.0f, 405.0f);
+	Vector2 mScreenBounds = Vector2(810.0f, 810.0f);
 	AnimatedTexture* mDeathAnimation;
 
 	Trail* mTrail;
