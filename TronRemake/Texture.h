@@ -17,7 +17,7 @@ namespace SDLFramework
 		SDL_Rect mDestinationRect;
 
 	public:
-
+		bool isActive;
 
 	// ************* Functions ************* //
 	private:

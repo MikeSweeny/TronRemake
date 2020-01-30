@@ -10,13 +10,17 @@ class Trail : GameEntity
 public:
 	Trail();
 	~Trail();
-	void Update();
 	void Render();
+	void PlaceTrail(Vector2 pos);
+	void SetSheetName(std::string name);
 
 private:
 	Texture* trailBlock;
 	std::vector<Texture*> pool;
+	int mPoolSize = 50;
+	std::string mSheetName;
 
+	void AddToPool(int mPoolSize);
 	Texture* GetTileFromPool();
 };
 
