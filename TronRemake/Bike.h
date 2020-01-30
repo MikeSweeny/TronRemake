@@ -41,7 +41,7 @@ public:
 protected:
 
 	int mGridSize = 30.0f;
-	float mBaseSpeed = 1.0f;
+	float mBaseSpeed = 3.0f;
 	Vector2 mScreenBounds = Vector2(810.0f, 810.0f);
 	AnimatedTexture* mDeathAnimation;
 

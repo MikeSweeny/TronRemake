@@ -33,6 +33,9 @@ public:
 	void Render();
 	void Update();
 
+	void SetupGame();
+	void GameOver();
+
 };
 
 #endif
