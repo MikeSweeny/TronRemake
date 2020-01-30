@@ -35,7 +35,6 @@ AIBike::~AIBike()
 void AIBike::Update()
 {
 	base::Update();
-	HandleMovement();
 }
 
 void AIBike::AddScore(int change)

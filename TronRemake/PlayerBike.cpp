@@ -26,7 +26,6 @@ void PlayerBike::Update()
 {
 	base::Update();
 	HandleCollisions();
-	HandleMovement();
 }
 
 void PlayerBike::HandleMovement()
