@@ -13,7 +13,10 @@ private:
 	int mScore;
 	bool mBoosted;
 
+	Vector2 frontOfBike;
+
 	int Score();
+	void HandleCollisions();
 		
 public:
 	PlayerBike();
