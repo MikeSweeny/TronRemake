@@ -21,6 +21,7 @@ private:
 
 
 	int RandomPath();
+	bool ValidPath(int path);
 
 	int AIScore();
 

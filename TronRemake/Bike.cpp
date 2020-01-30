@@ -134,8 +134,8 @@ void Bike::HandleCollisions()
 	{
 		HitWall();
 	}
-	std::cout << "BikeX: " << this->Position(Local).x << "  BikeY: " << this->Position(Local).y << std::endl;
-	std::cout << "FrontX: " << frontOfBike.x << "  FrontY: " << frontOfBike.y << std::endl << std::endl;
+	//std::cout << "BikeX: " << this->Position(Local).x << "  BikeY: " << this->Position(Local).y << std::endl;
+	//std::cout << "FrontX: " << frontOfBike.x << "  FrontY: " << frontOfBike.y << std::endl << std::endl;
 }
 
 bool Bike::IsDead()

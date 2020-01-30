@@ -12,6 +12,7 @@ AIBike::AIBike()
 	path = 2;
 	previouspath = 2;
 
+
 	currentDirection = DOWN;
 	mVisible = false;
 	mAnimating = false;
@@ -53,14 +54,24 @@ void AIBike::HandleMovement()
 	
 	currenttime += mTimer->GetDeltaTime();
 	
-	if (currenttime >= 3.0f)
+	if (currenttime >= 1.5f)
 	{
-		path = RandomPath();
-		
-		if (path == previouspath)
+		do
 		{
-			path = path + 1;
-		}
+			path = RandomPath();
+			ValidPath(path);
+		
+		} while (!ValidPath(path));
+
+		if (path == 0)
+			std::cout << "Forward" << std::endl;
+		if (path == 1)
+			std::cout << "Right" << std::endl;
+		if (path == 2)
+			std::cout << "Down" << std::endl;
+		if (path == 3)
+			std::cout << "Left" << std::endl;
+
 
 		previouspath = path;
 
@@ -75,6 +86,7 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::RIGHT;
 			mNewDirection = true;
+			path = -1;
 		}
 		else
 		{
@@ -88,6 +100,8 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::LEFT;
 			mNewDirection = true;
+			path = -1;
+
 		}
 		else
 		{
@@ -101,6 +115,8 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::UP;
 			mNewDirection = true;
+			path = -1;
+
 		}
 		else
 		{
@@ -114,6 +130,8 @@ void AIBike::HandleMovement()
 			previousDirection = currentDirection;
 			currentDirection = Direction::DOWN;
 			mNewDirection = true;
+			path = -1;
+
 		}
 		else
 		{
@@ -122,7 +140,6 @@ void AIBike::HandleMovement()
 	}
 
 	
-
 	switch (currentDirection)
 	{
 	case Direction::UP:
@@ -260,6 +277,27 @@ int AIBike::RandomPath()
 	}
 
 	return newpath;
+}
+
+bool AIBike::ValidPath(int path)
+{
+	bool BvalidPath;
+	if (previouspath == 0 && path == 2 || previouspath == 2 && path == 0)
+	{
+		BvalidPath = false;
+		
+	}
+	else if (previouspath == 3 && path == 1 || previouspath == 1 && path == 3)
+	{
+		BvalidPath = false;
+	}
+
+	else
+	{
+		BvalidPath = true;
+	}
+
+	return BvalidPath;
 }
 
 void AIBike::PlaceTrail()
