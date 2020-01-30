@@ -3,6 +3,8 @@
 #include "MainMenu.h"
 #include "Bike.h"
 #include "ScoreHud.h"
+#include "PlayerBike.h"
+#include "Player2Bike.h"
 
 using namespace SDLFramework;
 
@@ -19,7 +21,8 @@ private:
 	float mGameBounds = 810;
 
 	// Player Bike
-	Bike* playerBike;
+	PlayerBike* playerBike;
+	Player2Bike* player2Bike;
 
 public:
 	TwoPlayerGame();

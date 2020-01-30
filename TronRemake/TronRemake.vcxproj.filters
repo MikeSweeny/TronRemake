@@ -96,6 +96,9 @@
     <ClCompile Include="ScoreHud.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
+    <ClCompile Include="Player2Bike.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Timer.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="ScoreHud.h">
       <Filter>Header Files\TRON</Filter>
+    </ClInclude>
+    <ClInclude Include="Player2Bike.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
