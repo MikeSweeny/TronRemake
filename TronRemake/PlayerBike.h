@@ -10,17 +10,23 @@ private:
 
 	typedef Bike base;
 	InputManager* mInput;
-	int mScore;
+	int mLives;
 	bool mBoosted;
 
-
-	int Score();
 		
 public:
+	int mScore;
+
+	int Lives();
+	int Score();
+
 	PlayerBike();
 	~PlayerBike();
+
 	void Update();
+	void SetLives(int value);
 	void AddScore(int change);
+	void SetHighScore(int value);
 	void HandleMovement() override;
 	void PlaceTrail();
 	void SetupPlayer() override;

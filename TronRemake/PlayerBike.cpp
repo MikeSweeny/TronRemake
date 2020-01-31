@@ -12,7 +12,7 @@ PlayerBike::PlayerBike()
 
 	mTrail = new Trail("bikeSheet.png");
 	mTrail->Parent(this->Parent());
-	mScore = 0;
+	SetHighScore(1);
 	mLives = 3;
 	SetupPlayer();
 }
@@ -227,9 +227,24 @@ void PlayerBike::AddScore(int change)
 	mScore += change;
 }
 
+void PlayerBike::SetHighScore(int value)
+{
+	mScore = value;
+}
+
+int PlayerBike::Lives()
+{
+	return mLives;
+}
+
 int PlayerBike::Score()
 {
+	// Where this function is being called, we have to check if it has a value, then if not, set it to 0
+
 	return mScore;
 }
 
-
+void PlayerBike::SetLives(int value)
+{
+	mLives = value;
+}

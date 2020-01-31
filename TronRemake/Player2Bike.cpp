@@ -1,5 +1,6 @@
 #include "Player2Bike.h"
 
+
 Player2Bike::Player2Bike()
 {
 	mInput = InputManager::Instance();
@@ -12,36 +13,28 @@ Player2Bike::Player2Bike()
 
 	mTrail = new Trail("aiBikeSheet.png");
 	mTrail->Parent(this->Parent());
-	mScore = 0;
-	mLives = 1;
+
+	mLives = 3;
+
 }
+
 Player2Bike::~Player2Bike()
 {
 	mInput = nullptr;
 }
+
 void Player2Bike::Update()
 {
 	base::Update();
 	HandleCollisions();
-	//if (mAnimating)
-	//{
-	//	mDeathAnimation->Update();
-	//	//mAnimating = mDeathAnimation->IsAnimating(); 
-	//}
-	//else
-	//{
-	//	if (Active())
-	//	{
-	//		HandleP2Movement();
-	//	}
-	//}
 
 }
 
-void Player2Bike::AddScore(int change)
+int Player2Bike::Lives()
 {
-	mScore += change;
+	return mLives;
 }
+
 void Player2Bike::HandleMovement()
 {
 	if (mInput->KeyDown(SDL_SCANCODE_SPACE))
@@ -223,6 +216,7 @@ void Player2Bike::HandleMovement()
 
 	mBike->Position(tempPos);
 }
+
 void Player2Bike::PlaceTrail()
 {
 	mTrail->PlaceTrail(mBike->Position(World));

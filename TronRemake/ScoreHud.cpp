@@ -1,19 +1,21 @@
 #include "ScoreHud.h"
 #include "OnePlayerGame.h"
-#include "Bike.h"
+#include <iostream>
+#include <string>
 
+using namespace std;
 ScoreHud::ScoreHud()
 {
+
+
 	mScore = new Texture("HISCORE", "Computerfont.ttf", 32, { 0, 68, 240 });
 	mScoreAmt = new Texture("0", "Computerfont.ttf", 32, { 0, 68, 240 });
-	mHiScoreAmt = new Texture("00000", "Computerfont.ttf", 32, { 0, 68, 240 });
+	mHiScoreAmt = new Texture("0000", "Computerfont.ttf", 32, { 0, 68, 240 });
+
 	mLives1 = new Texture("&", "Computerfont.ttf", 32, { 0, 68, 240 });
 	mLives2 = new Texture("&", "Computerfont.ttf", 32, { 0, 68, 240 });
 	mLives3 = new Texture("&", "Computerfont.ttf", 32, { 0, 68, 240 });
 
-	mP2Score = new Texture("HISCORE", "Computerfont.ttf", 32, { 0, 68, 240 });
-	mP2ScoreAmt = new Texture("0", "Computerfont.ttf", 32, { 0, 68, 240 });
-	mP2HiScoreAmt = new Texture("00000", "Computerfont.ttf", 32, { 0, 68, 240 });
 
 	mScore->Position(45.0f, -300.0f);
 	mScoreAmt->Position(-128.0f, -270.0f);
@@ -28,6 +30,7 @@ ScoreHud::ScoreHud()
 	mLives1->Parent(this);
 	mLives2->Parent(this);
 	mLives3->Parent(this);
+
 }
 
 ScoreHud::~ScoreHud()
@@ -49,20 +52,21 @@ ScoreHud::~ScoreHud()
 
 void ScoreHud::SetHighScore(int score)
 {
-
 }
 
 void ScoreHud::SetPlayerScore(int score)
 {
-
 }
 
 void ScoreHud::SetLives(int lives)
 {
-
 }
 
+void ScoreHud::Update()
+{
+	int ScoreValue = mPlayerBike->Score();
 
+}
 
 void ScoreHud::Render()
 {

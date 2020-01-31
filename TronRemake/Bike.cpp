@@ -148,7 +148,7 @@ void Bike::AnimationDelay()
 {
 	if (mAnimating)
 	{
-		float tempTime;
+		float tempTime = 0;
 		tempTime += mTimer->GetDeltaTime();
 		if (tempTime >= 8 * 0.3f)
 		{

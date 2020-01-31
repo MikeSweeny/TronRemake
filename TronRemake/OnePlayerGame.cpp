@@ -56,6 +56,8 @@ void OnePlayerGame::SetupGame()
 	playerBike->Parent(mPlayArea);
 	playerBike->Position(p1StartX, p1StartY);
 	playerBike->Active(true);
+	playerBike->Score();
+	playerBike->Lives();
 
 	aiBike->Visible(true);
 	aiBike->Parent(mPlayArea);
