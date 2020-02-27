@@ -157,3 +157,8 @@ void Bike::AnimationDelay()
 		}
 	}
 }
+
+void Bike::PlaceTrail()
+{
+	mTrail->PlaceTrail(mBike->Position());
+}

@@ -19,7 +19,6 @@ public:
 	~Player2Bike();
 	void Update();
 	void HandleMovement() override;
-	void PlaceTrail();
 	void SetupPlayer() override;
 
 

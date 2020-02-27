@@ -217,12 +217,6 @@ void Player2Bike::HandleMovement()
 	mBike->Position(tempPos);
 }
 
-void Player2Bike::PlaceTrail()
-{
-	mTrail->PlaceTrail(mBike->Position(World));
-
-}
-
 void Player2Bike::SetupPlayer()
 {
 

@@ -272,31 +272,26 @@ int AIBike::RandomPath()
 
 bool AIBike::ValidPath(int path)
 {
-	bool BvalidPath;
+	bool bValidPath;
 	if (previouspath == 0 && path == 2 || previouspath == 2 && path == 0)
 	{
-		BvalidPath = false;
+		bValidPath = false;
 		
 	}
 	else if (previouspath == 3 && path == 1 || previouspath == 1 && path == 3)
 	{
-		BvalidPath = false;
+		bValidPath = false;
 	}
 
 	else
 	{
-		BvalidPath = true;
+		bValidPath = true;
 	}
 
-	return BvalidPath;
+	return bValidPath;
 }
 
-void AIBike::PlaceTrail()
-{
-	mTrail->PlaceTrail(mBike->Position(World));
-}
-
-int AIBike::AIScore()
+int AIBike::GetAIScore()
 {
 	return mAIScore;
 }

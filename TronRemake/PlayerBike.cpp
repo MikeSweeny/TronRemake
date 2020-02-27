@@ -210,12 +210,6 @@ void PlayerBike::HandleMovement()
 	this->Position(tempPos);
 }
 
-
-void PlayerBike::PlaceTrail()
-{
-	mTrail->PlaceTrail(this->Position());
-}
-
 void PlayerBike::SetupPlayer()
 {
 	Position(mStartPos);

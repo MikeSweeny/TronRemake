@@ -28,7 +28,6 @@ public:
 	void AddScore(int change);
 	void SetHighScore(int value);
 	void HandleMovement() override;
-	void PlaceTrail();
 	void SetupPlayer() override;
 };
 

@@ -25,7 +25,7 @@ private:
 	int RandomPath();
 	bool ValidPath(int path);
 
-	int AIScore();
+	int GetAIScore();
 
 public:
 	AIBike();
@@ -34,7 +34,6 @@ public:
 	void AddScore(int change);
 
 	void HandleMovement() override;
-	void PlaceTrail();
 
 	void SetupPlayer() override;
 

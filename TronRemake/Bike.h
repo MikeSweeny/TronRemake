@@ -68,6 +68,7 @@ protected:
 	void virtual HandleMovement() = 0;
 	void HandleCollisions();
 	void virtual SetupPlayer() = 0;
+	void PlaceTrail();
 
 };
 
