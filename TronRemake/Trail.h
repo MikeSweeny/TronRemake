@@ -1,6 +1,7 @@
 #ifndef __TRAIL_H
 #define __TRAIL_H
 #include "Texture.h"
+#include "Pool.h"
 #include <vector>
 
 using namespace SDLFramework;
@@ -8,22 +9,20 @@ using namespace SDLFramework;
 class Trail : public GameEntity
 {
 public:
+
 	Trail();
 	Trail(std::string sheetName);
 	~Trail();
 	void Render();
+	std::vector<Texture*>* mPool;
 	void PlaceTrail(Vector2 pos);
-	void SetSheetName(std::string name);
-	std::vector<Texture*> mPool;
-
-	bool CheckCollisions(Vector2 pos1, Vector2 pos2);
-
-private:
-	int mPoolSize = 50;
+	std::vector<Texture*>* GetPool();
 	std::string mSheetName;
 
-	void AddToPool(int mPoolSize);
-	Texture* GetTileFromPool();
+private:
+
+	Pool* sPool;
+
 };
 
 

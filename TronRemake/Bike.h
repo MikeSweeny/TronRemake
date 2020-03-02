@@ -15,6 +15,7 @@ private:
 
 	Timer* mTimer;
 	AudioManager* mAudio;
+	int offset = 5;
 
 public:
 	bool mVisible; // to hide the avatars before we start a game
@@ -67,6 +68,7 @@ protected:
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
 	void virtual HandleMovement() = 0;
 	void HandleCollisions();
+	bool CheckCollisions(Vector2 pos1, Vector2 pos2);
 	void virtual SetupPlayer() = 0;
 	void PlaceTrail();
 

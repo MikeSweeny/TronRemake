@@ -5,11 +5,6 @@ Bike::Bike()
 {
 	mAudio = AudioManager::Instance();
 
-	//mDeathAnimation = new AnimatedTexture("PlayerDeath.png", 0, 0, 128, 128, 4, 1.0f, AnimatedTexture::Horizontal);
-	//mDeathAnimation->Parent(this);
-	//mDeathAnimation->Position(Vec2_Zero);
-
-
 	mDeathAnimation = new AnimatedTexture("explosionSprites.png", 0, 0, 32, 32, 8, 0.3f, AnimatedTexture::Horizontal);
 	mDeathAnimation->Parent(this);
 }
@@ -32,7 +27,6 @@ void Bike::Update()
 	if (mAnimating)
 	{ 
   		mDeathAnimation->Update();        
-		//mAnimating = mDeathAnimation->IsAnimating(); 
 	}
 	else
 	{
@@ -64,6 +58,7 @@ void Bike::HitWall()
 	this->Active(false);
 	mLives -= 1;
   	mDeathAnimation->Position(mBike->Position(Space::Local));
+	mDeathAnimation->SetWrapMode(mDeathAnimation->Once);
 	mAnimating = true;
 	if (mLives <= 0)
 	{
@@ -77,8 +72,7 @@ void Bike::Render()
 {
 	if (mAnimating)
 	{ 
-       	mDeathAnimation->Render();       
-		//mAnimating = mDeathAnimation->IsAnimating(); 
+       	mDeathAnimation->Render();
 	}
 	else
 	{ 
@@ -131,12 +125,29 @@ void Bike::HandleCollisions()
 		break;
 	}
 
-	if (mTrail->CheckCollisions(frontOfBike, frontOfBike2))
+	if (CheckCollisions(frontOfBike, frontOfBike2))
 	{
 		HitWall();
 	}
-	//std::cout << "BikeX: " << this->Position(Local).x << "  BikeY: " << this->Position(Local).y << std::endl;
-	//std::cout << "FrontX: " << frontOfBike.x << "  FrontY: " << frontOfBike.y << std::endl << std::endl;
+}
+
+bool Bike::CheckCollisions(Vector2 pos1, Vector2 pos2)
+{
+	std::vector<Texture*> mPool = mTrail->GetPool();
+	for (int i = 0; i < mPool.size() - 1; i++)
+	{
+		if ((pos1.x < mPool[i]->Position().x + offset && pos1.x > mPool[i]->Position().x - offset
+			&& pos1.y < mPool[i]->Position().y + offset && pos1.y > mPool[i]->Position().y - offset))
+		{
+			return true;
+		}
+		if ((pos2.x < mPool[i]->Position().x + offset && pos2.x > mPool[i]->Position().x - offset
+			&& pos2.y < mPool[i]->Position().y + offset && pos2.y > mPool[i]->Position().y - offset))
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 bool Bike::IsDead()

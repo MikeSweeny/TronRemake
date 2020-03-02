@@ -34,11 +34,11 @@ namespace SDLFramework
 
 	// ************* Functions ************* //
 	private:
-		void SetWrapMode(WrapMode mode);
 		void ResetAnimation();
 		bool IsAnimating();
 
 	public:
+		void SetWrapMode(WrapMode mode);
 
 	// ************* Protected ************* //
 	protected:

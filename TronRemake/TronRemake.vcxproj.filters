@@ -37,14 +37,14 @@
     <Filter Include="Source Files\TRON">
       <UniqueIdentifier>{b605da28-3785-490f-8f2c-fe2af2c018a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Other">
+      <UniqueIdentifier>{3564f34d-66d5-4f87-8fdc-9bf41ee7b2f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Other">
+      <UniqueIdentifier>{653c1f12-fa58-48a4-b1a8-adc9228d9862}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameEntity.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
@@ -90,23 +90,26 @@
     <ClCompile Include="Trail.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
-    <ClCompile Include="AIBike.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ScoreHud.cpp">
       <Filter>Source Files\TRON</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\Other</Filter>
+    </ClCompile>
+    <ClCompile Include="AIBike.cpp">
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
     <ClCompile Include="Player2Bike.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\TRON</Filter>
+    </ClCompile>
+    <ClCompile Include="Pool.cpp">
+      <Filter>Source Files\Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MathHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameEntity.h">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
@@ -143,9 +146,6 @@
     <ClInclude Include="OnePlayerGame.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
-    <ClInclude Include="Types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Bike.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
@@ -155,14 +155,26 @@
     <ClInclude Include="Trail.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
-    <ClInclude Include="AIBike.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ScoreHud.h">
       <Filter>Header Files\TRON</Filter>
     </ClInclude>
+    <ClInclude Include="MathHelper.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="AIBike.h">
+      <Filter>Header Files\TRON</Filter>
+    </ClInclude>
     <ClInclude Include="Player2Bike.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\TRON</Filter>
+    </ClInclude>
+    <ClInclude Include="Pool.h">
+      <Filter>Header Files\Other</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
