@@ -14,9 +14,11 @@ public:
 	Trail(std::string sheetName);
 	~Trail();
 	void Render();
-	std::vector<Texture*>* mPool;
+	std::vector<Texture*> mBPool;
+	std::vector<Texture*> mOPool;
 	void PlaceTrail(Vector2 pos);
-	std::vector<Texture*>* GetPool();
+	std::vector<Texture*> GetBPool();
+	std::vector<Texture*> GetOPool();
 	std::string mSheetName;
 
 private:

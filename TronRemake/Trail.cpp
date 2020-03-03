@@ -4,9 +4,16 @@ Trail::Trail() {}
 
 Trail::Trail(std::string sheetName)
 {
-	mPool = sPool->GetPool();
+	sPool = new Pool();
 	mSheetName = sheetName;
-	sPool = new Pool(mSheetName);
+	if (mSheetName == "bikeSheet.png")
+	{
+		mBPool = sPool->GetBPool();
+	}
+	if (mSheetName == "aiBikeSheet.png")
+	{
+		mOPool = sPool->GetOPool();
+	}
 }
 
 Trail::~Trail()
@@ -16,21 +23,31 @@ Trail::~Trail()
 
 void Trail::Render()
 {
-	for (int i = 0; i < mPool->size() - 1; i++)
-	{
-		//mPool[i]->Render();
-		//mPool[i]->Render();
-	}
+	sPool->Render();
 }
 
 
 void Trail::PlaceTrail(Vector2 pos)
 {
-	Texture* newTrail = sPool->GetTileFromPool();
+	Texture* newTrail = 0;
+	if (mSheetName == "bikeSheet.png")
+	{
+		newTrail = sPool->GetTileFromBPool();
+	}
+	if (mSheetName == "aiBikeSheet.png")
+	{
+		newTrail = sPool->GetTileFromOPool();
+	}
+	
 	newTrail->Position(pos);
 }
 
-std::vector<Texture*>* Trail::GetPool()
+std::vector<Texture*> Trail::GetBPool()
 {
-	return mPool;
+	return mBPool;
+}
+
+std::vector<Texture*> Trail::GetOPool()
+{
+	return mOPool;
 }

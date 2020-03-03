@@ -70,7 +70,8 @@ protected:
 	void HandleCollisions();
 	bool CheckCollisions(Vector2 pos1, Vector2 pos2);
 	void virtual SetupPlayer() = 0;
-	void PlaceTrail();
+	void PlaceBTrail();
+	void PlaceOTrail();
 
 };
 

@@ -20,7 +20,7 @@ AIBike::AIBike()
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
-	mTrail = new Trail("bikeSheet.png");
+	mTrail = new Trail("aiBikeSheet.png");
 	mTrail->Parent(this->Parent());
 	mAIScore = 0;
 	mLives = 1;
@@ -221,22 +221,22 @@ void AIBike::HandleMovement()
 		break;
 	}
 
-	if (tempPos.x > mScreenBounds.x)
+	if (tempPos.x >= mScreenBounds.x)
 	{
 		tempPos.x = mScreenBounds.x;
 		HitWall();
 	}
-	else if (tempPos.x < -mScreenBounds.x)
+	else if (tempPos.x < 0)
 	{
 		tempPos.x = -mScreenBounds.x;
 		HitWall();
 	}
-	if (tempPos.y < -mScreenBounds.y)
+	if (tempPos.y >= mScreenBounds.y)
 	{
-		tempPos.y = -mScreenBounds.y;
+		tempPos.y = mScreenBounds.y;
 		HitWall();
 	}
-	else if (tempPos.y > mScreenBounds.y)
+	else if (tempPos.y < 0)
 	{
 		tempPos.y = mScreenBounds.y;
 		HitWall();
@@ -244,7 +244,7 @@ void AIBike::HandleMovement()
 
 	if (checkX % mTrailSize == 0 || checkY % mTrailSize)
 	{
-		PlaceTrail();
+		PlaceOTrail();
 	}
 
 	mBike->Position(tempPos);

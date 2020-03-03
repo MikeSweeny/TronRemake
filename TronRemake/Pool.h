@@ -10,24 +10,28 @@ static class Pool
 {
 public:
 
-	std::vector<Texture*> mPool;
+	std::vector<Texture*> mBluePool;
+	std::vector<Texture*> mOrangePool;
 
 private:
 
 	static Pool* sInstance;
-	int mPoolSize = 150;
-	std::string mSheetName;
-	void SetSheetName(std::string name);
-	void AddToPool(int mPoolSize);
+	int mPoolSize = 500;
+	std::string mBSheetName = "bikeSheet.png";
+	std::string mOSheetName = "aiBikeSheet.png";
+	void AddToBPool(int mPoolSize);
+	void AddToOPool(int mPoolSize);
 
 public:
 
 	Pool();
-	Pool(std::string sheetName);
 	~Pool();
 	static Pool* Instance();
-	Texture* GetTileFromPool();
-	std::vector<Texture*>* GetPool();
+	Texture* GetTileFromBPool();
+	Texture* GetTileFromOPool();
+	std::vector<Texture*> GetBPool();
+	std::vector<Texture*> GetOPool();
+	void Render();
 
 };
 

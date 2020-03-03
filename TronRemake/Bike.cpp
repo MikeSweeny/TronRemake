@@ -133,18 +133,38 @@ void Bike::HandleCollisions()
 
 bool Bike::CheckCollisions(Vector2 pos1, Vector2 pos2)
 {
-	std::vector<Texture*> mPool = mTrail->GetPool();
-	for (int i = 0; i < mPool.size() - 1; i++)
+	std::vector<Texture*> tempPool = mTrail->GetBPool();
+	if (!tempPool.empty())
 	{
-		if ((pos1.x < mPool[i]->Position().x + offset && pos1.x > mPool[i]->Position().x - offset
-			&& pos1.y < mPool[i]->Position().y + offset && pos1.y > mPool[i]->Position().y - offset))
+		for (int i = 0; i < tempPool.size() - 1; i++)
 		{
-			return true;
+			if ((pos1.x < tempPool[i]->Position().x + offset && pos1.x > tempPool[i]->Position().x - offset
+				&& pos1.y > tempPool[i]->Position().y + offset && pos1.y < tempPool[i]->Position().y - offset))
+			{
+				return true;
+			}
+			if ((pos2.x < tempPool[i]->Position().x + offset && pos2.x > tempPool[i]->Position().x - offset
+				&& pos2.y > tempPool[i]->Position().y + offset && pos2.y < tempPool[i]->Position().y - offset))
+			{
+				return true;
+			}
 		}
-		if ((pos2.x < mPool[i]->Position().x + offset && pos2.x > mPool[i]->Position().x - offset
-			&& pos2.y < mPool[i]->Position().y + offset && pos2.y > mPool[i]->Position().y - offset))
+	}
+	tempPool = mTrail->GetOPool();
+	if (!tempPool.empty())
+	{
+		for (int i = 0; i < tempPool.size() - 1; i++)
 		{
-			return true;
+			if ((pos1.x < tempPool[i]->Position().x + offset && pos1.x > tempPool[i]->Position().x - offset
+				&& pos1.y > tempPool[i]->Position().y + offset && pos1.y < tempPool[i]->Position().y - offset))
+			{
+				return true;
+			}
+			if ((pos2.x < tempPool[i]->Position().x + offset && pos2.x > tempPool[i]->Position().x - offset
+				&& pos2.y > tempPool[i]->Position().y + offset && pos2.y < tempPool[i]->Position().y - offset))
+			{
+				return true;
+			}
 		}
 	}
 	return false;
@@ -169,7 +189,12 @@ void Bike::AnimationDelay()
 	}
 }
 
-void Bike::PlaceTrail()
+void Bike::PlaceBTrail()
 {
-	mTrail->PlaceTrail(mBike->Position());
+	mTrail->PlaceTrail(mBike->Position(World));
+}
+
+void Bike::PlaceOTrail()
+{
+	mTrail->PlaceTrail(mBike->Position(World));
 }
