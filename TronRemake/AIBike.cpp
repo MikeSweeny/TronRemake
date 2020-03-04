@@ -13,6 +13,7 @@ AIBike::AIBike()
 	previouspath = 2;
 
 
+	mMoveSpeed = mBaseSpeed;
 	currentDirection = DOWN;
 	queuedDirection = DOWN;
 	mVisible = false;
@@ -44,11 +45,8 @@ void AIBike::AddScore(int change)
 
 void AIBike::HandleMovement()
 {
-	mMoveSpeed = mBaseSpeed;
 	
-	
-
-	Vector2 tempPos = mBike->Position(Local);
+	Vector2 tempPos = this->Position(Local);
 	checkY = tempPos.y;
 	checkX = tempPos.x;
 
@@ -60,22 +58,10 @@ void AIBike::HandleMovement()
 		do
 		{
 			path = RandomPath();
-			ValidPath(path);
 		
 		} while (!ValidPath(path));
 
-		if (path == 0)
-			std::cout << "Forward" << std::endl;
-		if (path == 1)
-			std::cout << "Right" << std::endl;
-		if (path == 2)
-			std::cout << "Down" << std::endl;
-		if (path == 3)
-			std::cout << "Left" << std::endl;
-
-
 		previouspath = path;
-
 		currenttime = 0;
 	}
 	
@@ -221,33 +207,12 @@ void AIBike::HandleMovement()
 		break;
 	}
 
-	if (tempPos.x >= mScreenBounds.x)
-	{
-		tempPos.x = mScreenBounds.x;
-		HitWall();
-	}
-	else if (tempPos.x < 0)
-	{
-		tempPos.x = -mScreenBounds.x;
-		HitWall();
-	}
-	if (tempPos.y >= mScreenBounds.y)
-	{
-		tempPos.y = mScreenBounds.y;
-		HitWall();
-	}
-	else if (tempPos.y < 0)
-	{
-		tempPos.y = mScreenBounds.y;
-		HitWall();
-	}
-
-	if (checkX % mTrailSize == 0 || checkY % mTrailSize)
+	if (checkX % mTrailSize == 0 || checkY % mTrailSize == 0)
 	{
 		PlaceOTrail();
 	}
 
-	mBike->Position(tempPos);
+	this->Position(tempPos);
 }
 
 void AIBike::SetupPlayer()

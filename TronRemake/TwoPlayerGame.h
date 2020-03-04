@@ -18,7 +18,7 @@ private:
 	float imageSize;
 	GameEntity* mPlayArea;
 	Texture* backGround;
-	float mGameBounds = 810;
+	float mGameBounds = 780;
 
 	// Player Bike
 	PlayerBike* playerBike;

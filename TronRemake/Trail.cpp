@@ -4,7 +4,7 @@ Trail::Trail() {}
 
 Trail::Trail(std::string sheetName)
 {
-	sPool = new Pool();
+	sPool = Pool::Instance();
 	mSheetName = sheetName;
 	if (mSheetName == "bikeSheet.png")
 	{

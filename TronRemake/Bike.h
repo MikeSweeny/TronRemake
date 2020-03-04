@@ -15,7 +15,7 @@ private:
 
 	Timer* mTimer;
 	AudioManager* mAudio;
-	int offset = 5;
+	int offset = 15;
 
 public:
 	bool mVisible; // to hide the avatars before we start a game
@@ -45,7 +45,7 @@ protected:
 
 	int mGridSize = 30.0f;
 	float mBaseSpeed = 3.0f;
-	Vector2 mScreenBounds = Vector2(810.0f, 810.0f);
+	Vector2 mScreenBounds = Vector2(780.0f, 780.0f);
 	AnimatedTexture* mDeathAnimation;
 
 	Trail* mTrail = 0;
@@ -61,14 +61,12 @@ protected:
 	Direction queuedDirection = UP;
 	float timeBetweenDirections = 0;
 	Vector2 mStartPos = 0;
-	Vector2 frontOfBike = 0;
-	Vector2 frontOfBike2 = 0;
 	bool isDead;
 
 	void SetSprite(std::string sheet, int x, int y, int h, int w);
 	void virtual HandleMovement() = 0;
 	void HandleCollisions();
-	bool CheckCollisions(Vector2 pos1, Vector2 pos2);
+	bool CheckCollisions(Vector2 pos);
 	void virtual SetupPlayer() = 0;
 	void PlaceBTrail();
 	void PlaceOTrail();

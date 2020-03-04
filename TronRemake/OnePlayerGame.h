@@ -19,9 +19,11 @@ private:
 	float imageSize;
 	GameEntity* mPlayArea;
 	Texture* backGround;
-	float mGameBounds = 810;
-	int p1StartX = 405;
-	int p1StartY = 765;
+	float mGameBounds = 780;
+	int p1StartX = 390;
+	int p1StartY = 750;
+	int p2StartX = 390;
+	int p2StartY = 30;
 
 
 	// Player Bike

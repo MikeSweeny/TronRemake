@@ -61,6 +61,6 @@ void OnePlayerGame::SetupGame()
 
 	aiBike->Visible(true);
 	aiBike->Parent(mPlayArea);
-	aiBike->Position(205, 205);
+	aiBike->Position(p2StartX, p2StartY);
 	aiBike->Active(true);
 }

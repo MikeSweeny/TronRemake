@@ -181,27 +181,6 @@ void PlayerBike::HandleMovement()
 		break;
 	}
 
-	if (tempPos.x >= mScreenBounds.x)
-	{
-		tempPos.x = mScreenBounds.x;
-		HitWall();
-	}
-	else if (tempPos.x < 0)
-	{
-		tempPos.x = -mScreenBounds.x;
-		HitWall();
-	}
-	if (tempPos.y >= mScreenBounds.y)
-	{
-		tempPos.y = mScreenBounds.y;
-		HitWall();
-	}
-	else if (tempPos.y < 0)
-	{
-		tempPos.y = mScreenBounds.y;
-		HitWall();
-	}
-
 	if (checkX % mTrailSize == 0 || checkY % mTrailSize == 0)
 	{
 		PlaceBTrail();

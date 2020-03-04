@@ -95,58 +95,72 @@ void Bike::SetSprite(std::string sheet, int x, int y, int h, int w)
 
 void Bike::HandleCollisions()
 {
+	float tempCollider = 0;
 	switch (currentDirection)
 	{
 	case UP:
-		frontOfBike = mBike->Parent()->Position(Local);
-		frontOfBike2 = frontOfBike;
-		frontOfBike.y -= 16;
-		frontOfBike2.y -= 13;
+		tempCollider = mBike->Parent()->Position(Local).y - 16;
 		break;
 	case RIGHT:
-		frontOfBike = mBike->Parent()->Position(Local);
-		frontOfBike2 = frontOfBike;
-		frontOfBike.x += 16;
-		frontOfBike2.x += 13;
+		tempCollider = mBike->Parent()->Position(Local).x + 16;
 		break;
 	case DOWN:
-		frontOfBike = mBike->Parent()->Position(Local);
-		frontOfBike2 = frontOfBike;
-		frontOfBike.y += 16;
-		frontOfBike2.y += 13;
+		tempCollider = mBike->Parent()->Position(Local).y + 16;
 		break;
 	case LEFT:
-		frontOfBike = mBike->Parent()->Position(Local);
-		frontOfBike2 = frontOfBike;
-		frontOfBike.x -= 16;
-		frontOfBike2.x -= 13;
+		tempCollider = mBike->Parent()->Position(Local).x - 16;
 		break;
 	default:
 		break;
 	}
 
-	if (CheckCollisions(frontOfBike, frontOfBike2))
+	if (CheckCollisions(tempCollider))
 	{
+		HitWall();
+	}
+
+	Vector2 tempPos = this->Position(Local);
+	float tempX = mScreenBounds.x + 16;
+	float tempY = mScreenBounds.y + 16;
+
+
+	if (tempPos.x >= tempX)
+	{
+		tempPos.x = tempX;
+		HitWall();
+	}
+	else if (tempPos.x < 16)
+	{
+		tempPos.x = 16;
+		HitWall();
+	}
+	if (tempPos.y >= tempY)
+	{
+		tempPos.y = tempY;
+		HitWall();
+	}
+	else if (tempPos.y < 16)
+	{
+		tempPos.y = 16;
 		HitWall();
 	}
 }
 
-bool Bike::CheckCollisions(Vector2 pos1, Vector2 pos2)
+bool Bike::CheckCollisions(Vector2 pos)
 {
 	std::vector<Texture*> tempPool = mTrail->GetBPool();
 	if (!tempPool.empty())
 	{
 		for (int i = 0; i < tempPool.size() - 1; i++)
 		{
-			if ((pos1.x < tempPool[i]->Position().x + offset && pos1.x > tempPool[i]->Position().x - offset
-				&& pos1.y > tempPool[i]->Position().y + offset && pos1.y < tempPool[i]->Position().y - offset))
+			if (tempPool[i]->isActive)
 			{
-				return true;
-			}
-			if ((pos2.x < tempPool[i]->Position().x + offset && pos2.x > tempPool[i]->Position().x - offset
-				&& pos2.y > tempPool[i]->Position().y + offset && pos2.y < tempPool[i]->Position().y - offset))
-			{
-				return true;
+				Vector2 tempPos = tempPool[i]->Position(Local);
+				if ((pos.x + offset < tempPos.x && pos.x - offset > tempPos.x
+					&& pos.y + offset < tempPos.y&& pos.y - offset > tempPos.y))
+				{
+					return true;
+				}
 			}
 		}
 	}
@@ -155,15 +169,14 @@ bool Bike::CheckCollisions(Vector2 pos1, Vector2 pos2)
 	{
 		for (int i = 0; i < tempPool.size() - 1; i++)
 		{
-			if ((pos1.x < tempPool[i]->Position().x + offset && pos1.x > tempPool[i]->Position().x - offset
-				&& pos1.y > tempPool[i]->Position().y + offset && pos1.y < tempPool[i]->Position().y - offset))
+			if (tempPool[i]->isActive)
 			{
-				return true;
-			}
-			if ((pos2.x < tempPool[i]->Position().x + offset && pos2.x > tempPool[i]->Position().x - offset
-				&& pos2.y > tempPool[i]->Position().y + offset && pos2.y < tempPool[i]->Position().y - offset))
-			{
-				return true;
+				Vector2 tempPos = tempPool[i]->Position(Local);
+				if ((pos.x + offset < tempPos.x && pos.x - offset > tempPos.x
+					&& pos.y + offset < tempPos.y && pos.y - offset > tempPos.y))
+				{
+					return true;
+				}
 			}
 		}
 	}
