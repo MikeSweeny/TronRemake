@@ -29,7 +29,7 @@ AIBike::AIBike()
 
 AIBike::~AIBike()
 {
-	//RandomPath() = nullptr;
+
 }
 
 void AIBike::Update()
@@ -46,7 +46,6 @@ void AIBike::AddScore(int change)
 
 void AIBike::HandleMovement()
 {
-	
 	Vector2 tempPos = this->Position(Local);
 	checkY = tempPos.y;
 	checkX = tempPos.x;

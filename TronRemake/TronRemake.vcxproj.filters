@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Other">
       <UniqueIdentifier>{653c1f12-fa58-48a4-b1a8-adc9228d9862}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\TRON\AIStates">
+      <UniqueIdentifier>{8e8a12d8-4659-4a9d-aadf-d521fc8a85ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TRON\AIStates">
+      <UniqueIdentifier>{e6cdee62-f141-46f0-9957-02c10bf3a986}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameEntity.cpp">
@@ -108,7 +114,19 @@
     <ClCompile Include="Pool.cpp">
       <Filter>Source Files\Other</Filter>
     </ClCompile>
-    <ClCompile Include="OTrail.cpp">
+    <ClCompile Include="AiFSM.cpp">
+      <Filter>Source Files\TRON\AIStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStateBase.cpp">
+      <Filter>Source Files\TRON\AIStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStateMoving.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStateDeciding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStateDead.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -179,7 +197,19 @@
     <ClInclude Include="Pool.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
-    <ClInclude Include="OTrail.h">
+    <ClInclude Include="AiFSM.h">
+      <Filter>Header Files\TRON\AIStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AiStateBase.h">
+      <Filter>Header Files\TRON\AIStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AiStateMoving.h">
+      <Filter>Header Files\TRON\AIStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AiStateDeciding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AiStateDead.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
