@@ -35,6 +35,7 @@ AIBike::~AIBike()
 void AIBike::Update()
 {
 	base::Update();
+	HandleCollisions();
 }
 
 void AIBike::AddScore(int change)
@@ -47,6 +48,7 @@ void AIBike::HandleMovement()
 {
 	
 	Vector2 tempPos = this->Position(Local);
+	std::cout << "aiPos: " << tempPos.x << " " << tempPos.y << std::endl;
 	checkY = tempPos.y;
 	checkX = tempPos.x;
 

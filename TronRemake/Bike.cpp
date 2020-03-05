@@ -113,7 +113,7 @@ void Bike::HandleCollisions()
 	default:
 		break;
 	}
-
+	
 	if (CheckCollisions(tempCollider))
 	{
 		HitWall();

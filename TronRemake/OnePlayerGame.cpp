@@ -20,6 +20,8 @@ OnePlayerGame::OnePlayerGame()
 	// Bikes
 	playerBike = new PlayerBike();
 	aiBike = new AIBike();
+	playerBike->Parent(mPlayArea);
+	aiBike->Parent(mPlayArea);
 
 	SetupGame();
 }
@@ -53,14 +55,14 @@ void OnePlayerGame::Render()
 void OnePlayerGame::SetupGame()
 {
 	playerBike->Visible(true);
-	playerBike->Parent(mPlayArea);
-	playerBike->Position(p1StartX, p1StartY);
+	playerBike->Position(p1Start);
 	playerBike->Active(true);
 	playerBike->Score();
 	playerBike->Lives();
 
 	aiBike->Visible(true);
-	aiBike->Parent(mPlayArea);
-	aiBike->Position(p2StartX, p2StartY);
+	aiBike->Position(p2Start);
 	aiBike->Active(true);
+	std::cout << playerBike->Position(Local).x << " " << playerBike->Position(Local).y << std::endl;
+	std::cout << aiBike->Position(Local).x << " " << aiBike->Position(Local).y << std::endl;
 }
