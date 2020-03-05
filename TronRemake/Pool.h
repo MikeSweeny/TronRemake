@@ -6,7 +6,7 @@
 
 using namespace SDLFramework;
 
-static class Pool
+static class Pool : public GameEntity
 {
 public:
 

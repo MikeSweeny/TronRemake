@@ -27,6 +27,7 @@ void Pool::AddToBPool(int mPoolSize)
 	for (int i = 0; i < mPoolSize; i++)
 	{
 		Texture* temp = new Texture(mBSheetName, 13, 25, 6, 6);
+		Parent(this->Parent());
 		temp->Position(-100, -100);
 		temp->isActive = false;
 		mBluePool.push_back(temp);
@@ -38,6 +39,7 @@ void Pool::AddToOPool(int mPoolSize)
 	for (int i = 0; i < mPoolSize; i++)
 	{
 		Texture* temp = new Texture(mOSheetName, 13, 25, 6, 6);
+		Parent(this->Parent());
 		temp->Position(-100, -100);
 		temp->isActive = false;
 		mOrangePool.push_back(temp);

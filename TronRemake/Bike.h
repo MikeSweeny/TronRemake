@@ -15,7 +15,7 @@ private:
 
 	Timer* mTimer;
 	AudioManager* mAudio;
-	int offset = 15;
+	int offset = 5;
 
 public:
 	bool mVisible; // to hide the avatars before we start a game

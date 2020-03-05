@@ -14,8 +14,8 @@ AIBike::AIBike()
 
 
 	mMoveSpeed = mBaseSpeed;
-	currentDirection = DOWN;
-	queuedDirection = DOWN;
+	currentDirection = LEFT;
+	queuedDirection = LEFT;
 	mVisible = false;
 	mAnimating = false;
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);

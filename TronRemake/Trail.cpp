@@ -5,15 +5,10 @@ Trail::Trail() {}
 Trail::Trail(std::string sheetName)
 {
 	sPool = Pool::Instance();
+	sPool->Parent(this->Parent());
 	mSheetName = sheetName;
-	if (mSheetName == "bikeSheet.png")
-	{
-		mBPool = sPool->GetBPool();
-	}
-	if (mSheetName == "aiBikeSheet.png")
-	{
-		mOPool = sPool->GetOPool();
-	}
+	mBPool = sPool->GetBPool();
+	mOPool = sPool->GetOPool();
 }
 
 Trail::~Trail()

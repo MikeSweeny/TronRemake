@@ -95,20 +95,20 @@ void Bike::SetSprite(std::string sheet, int x, int y, int h, int w)
 
 void Bike::HandleCollisions()
 {
-	float tempCollider = 0;
+	Vector2 tempCollider = mBike->Parent()->Position(World);
 	switch (currentDirection)
 	{
 	case UP:
-		tempCollider = mBike->Parent()->Position(Local).y - 16;
+		tempCollider.y = mBike->Parent()->Position(World).y - 16;
 		break;
 	case RIGHT:
-		tempCollider = mBike->Parent()->Position(Local).x + 16;
+		tempCollider.x = mBike->Parent()->Position(World).x + 16;
 		break;
 	case DOWN:
-		tempCollider = mBike->Parent()->Position(Local).y + 16;
+		tempCollider.y = mBike->Parent()->Position(World).y + 16;
 		break;
 	case LEFT:
-		tempCollider = mBike->Parent()->Position(Local).x - 16;
+		tempCollider.x = mBike->Parent()->Position(World).x - 16;
 		break;
 	default:
 		break;
@@ -155,9 +155,9 @@ bool Bike::CheckCollisions(Vector2 pos)
 		{
 			if (tempPool[i]->isActive)
 			{
-				Vector2 tempPos = tempPool[i]->Position(Local);
-				if ((pos.x + offset < tempPos.x && pos.x - offset > tempPos.x
-					&& pos.y + offset < tempPos.y&& pos.y - offset > tempPos.y))
+				Vector2 tempPos = tempPool[i]->Position(World);
+				if ((pos.x + offset > tempPos.x&& pos.x - offset < tempPos.x
+					&& pos.y + offset > tempPos.y && pos.y - offset < tempPos.y))
 				{
 					return true;
 				}
@@ -171,9 +171,9 @@ bool Bike::CheckCollisions(Vector2 pos)
 		{
 			if (tempPool[i]->isActive)
 			{
-				Vector2 tempPos = tempPool[i]->Position(Local);
-				if ((pos.x + offset < tempPos.x && pos.x - offset > tempPos.x
-					&& pos.y + offset < tempPos.y && pos.y - offset > tempPos.y))
+				Vector2 tempPos = tempPool[i]->Position(World);
+				if ((pos.x + offset > tempPos.x && pos.x - offset < tempPos.x
+					&& pos.y + offset > tempPos.y && pos.y - offset < tempPos.y))
 				{
 					return true;
 				}
