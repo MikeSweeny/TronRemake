@@ -3,5 +3,6 @@
 
 enum Direction {UP, RIGHT, DOWN, LEFT};
 enum CollisionMask {WALL, PLAYER, ENEMY};
+enum AiStates {MOVING, TURNING, DEAD};
 
 #endif

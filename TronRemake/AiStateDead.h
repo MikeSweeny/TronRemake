@@ -7,9 +7,9 @@
 class AiStateDead : public AiStateBase
 {
 private:
-	typedef AiStateBase base;
+
 public:
-	AiStateDead(AiFSM* fsm);
+	AiStateDead();
 	~AiStateDead();
 	void StateEnter();
 	void StateExit();

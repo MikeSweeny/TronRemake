@@ -20,8 +20,6 @@ private:
 	GameEntity* mPlayArea;
 	Texture* backGround;
 	float mGameBounds = 780;
-	Vector2 p1Start = Vector2(390.0f, 750.0f);
-	Vector2 p2Start = Vector2(390.0f, 60.0f);
 
 
 	// Player Bike

@@ -57,15 +57,7 @@ void OnePlayerGame::Render()
 void OnePlayerGame::SetupGame()
 {
 	isGameOver = false;
-	playerBike->Visible(true);
-	playerBike->Position(p1Start);
-	playerBike->Active(true);
-	playerBike->Score();
-	playerBike->Lives();
 
-	aiBike->Visible(true);
-	aiBike->Position(p2Start);
-	aiBike->Active(true);
-	std::cout << playerBike->Position(Local).x << " " << playerBike->Position(Local).y << std::endl;
-	std::cout << aiBike->Position(Local).x << " " << aiBike->Position(Local).y << std::endl;
+	playerBike->SetupPlayer();
+	aiBike->SetupPlayer();
 }

@@ -4,7 +4,6 @@
 PlayerBike::PlayerBike()
 {
 	mInput = InputManager::Instance();
-	currentDirection = UP;
 	mVisible = false;
 	mAnimating = false;
 	SetSprite("bikeSheet.png", 0, 0, 32, 32);
@@ -191,8 +190,17 @@ void PlayerBike::HandleMovement()
 
 void PlayerBike::SetupPlayer()
 {
+	currentDirection = UP;
+	queuedDirection = UP;
+	mStartPos = Vector2(390.0f, 750.0f);
+	Visible(true);
+	Active(true);
 	Position(mStartPos);
+	Score();
+	Lives();
+	ResetBike();
 	mAnimating = false;
+	isDead = false;
 }
 
 void PlayerBike::AddScore(int change)

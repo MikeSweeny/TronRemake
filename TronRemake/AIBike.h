@@ -2,6 +2,7 @@
 #define __AIBIKE_H
 #include "Bike.h"
 #include "Timer.h"
+#include "AiFSM.h"
 #include <cstdlib>
 #include <stdlib.h>
 #include <time.h>
@@ -21,6 +22,7 @@ private:
 	typedef Bike base;
 	int mAIScore;
 
+
 	float ChangePathInterval();
 	int RandomPath();
 	bool ValidPath(int path);
@@ -30,11 +32,11 @@ private:
 public:
 	AIBike();
 	~AIBike();
+	AiFSM* aiBrain;
+
 	void Update();
 	void AddScore(int change);
-
 	void HandleMovement() override;
-
 	void SetupPlayer() override;
 
 	

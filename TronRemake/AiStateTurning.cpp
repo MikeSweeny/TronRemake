@@ -1,8 +1,7 @@
 #include "AiStateTurning.h"
 
-AiStateTurning::AiStateTurning(AiFSM* fsm)
+AiStateTurning::AiStateTurning()
 {
-	mFSM = fsm;
 }
 
 AiStateTurning::~AiStateTurning()

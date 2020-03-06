@@ -1,6 +1,6 @@
 #ifndef __AIFSM_H
 #define __AIFSM_H
-#include "AiStateBase.h"
+#include "Types.h"
 #include "AiStateDead.h"
 #include "AiStateMoving.h"
 #include "AiStateTurning.h"
@@ -15,15 +15,18 @@ private:
 
 	static AiFSM* mInstance;
 	AiStateBase* currentState;
-
+	AiStateMoving* movingState = new AiStateMoving();
+	AiStateTurning* turnState = new AiStateTurning();
+	AiStateDead* deadState = new AiStateDead();
 
 
 public:
+
 	AiFSM();
 	~AiFSM();
-	AiFSM* Instance();
+	static AiFSM* Instance();
 	void Update();
-	void SetState(AiStateBase* state);
+	void SetState(AiStates state);
 
 };
 

@@ -6,9 +6,9 @@
 class AiStateMoving : public AiStateBase
 {
 private:
-	typedef AiStateBase base;
+
 public:
-	AiStateMoving(AiFSM* fsm);
+	AiStateMoving();
 	~AiStateMoving();
 	void StateEnter();
 	void StateExit();

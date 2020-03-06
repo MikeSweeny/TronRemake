@@ -7,9 +7,9 @@
 class AiStateTurning : public AiStateBase
 {
 private:
-	typedef AiStateBase base;
+
 public:
-	AiStateTurning(AiFSM* fsm);
+	AiStateTurning();
 	~AiStateTurning();
 	void StateEnter();
 	void StateExit();

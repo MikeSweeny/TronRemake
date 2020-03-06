@@ -29,6 +29,9 @@ public:
 	Bike();
 	~Bike();
 
+	Direction currentDirection = UP;
+	Direction previousDirection = UP;
+	Direction queuedDirection = UP;
 	void Visible(bool visible);
 	bool isAnimating();
 
@@ -37,6 +40,7 @@ public:
 	bool IsDead();
 	void AnimationDelay();
 	void ResetBike();
+	void SetLives(int lives);
 
 	void Update();
 	void Render();
@@ -57,9 +61,6 @@ protected:
 	int checkY = 0;
 	int checkX = 0;
 	float mMoveSpeed = 0;
-	Direction currentDirection = UP;
-	Direction previousDirection = UP;
-	Direction queuedDirection = UP;
 	float timeBetweenDirections = 0;
 	Vector2 mStartPos = 0;
 	bool isDead;

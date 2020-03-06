@@ -39,9 +39,12 @@ void Trail::PlaceTrail(Vector2 pos)
 
 void Trail::ResetTrail()
 {
-	for (int i = 0; i < mTrail.size() - 1; i++)
+	if (!mTrail.empty())
 	{
-		sPool->ReturnToPool(mTrail[i]);
+		for (int i = 0; i < mTrail.size() - 1; i++)
+		{
+			sPool->ReturnToPool(mTrail[i]);
+		}
 	}
 }
 

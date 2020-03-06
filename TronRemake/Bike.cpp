@@ -204,7 +204,6 @@ void Bike::ResetBike()
 {
 	mTrail->ResetTrail();
 	mAnimating = false;
-	mBike->Active(true);
 }
 
 void Bike::PlaceBTrail()
@@ -215,5 +214,10 @@ void Bike::PlaceBTrail()
 void Bike::PlaceOTrail()
 {
 	mTrail->PlaceTrail(mBike->Position(World));
+}
+
+void Bike::SetLives(int lives)
+{
+	mLives = lives;
 }
 

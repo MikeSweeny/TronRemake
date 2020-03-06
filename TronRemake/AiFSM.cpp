@@ -16,9 +16,22 @@ void AiFSM::Update()
 	currentState->StateUpdate();
 }
 
-void AiFSM::SetState(AiStateBase* state)
+void AiFSM::SetState(AiStates state)
 {
-	currentState = state;
+	switch (state)
+	{
+	case MOVING:
+		currentState = movingState;
+		break;
+	case TURNING:
+		currentState = turnState;
+		break;
+	case DEAD:
+		currentState = deadState;
+		break;
+	default:
+		break;
+	}
 }
 
 AiFSM::AiFSM()

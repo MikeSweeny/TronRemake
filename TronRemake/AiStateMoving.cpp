@@ -1,8 +1,7 @@
 #include "AiStateMoving.h"
 
-AiStateMoving::AiStateMoving(AiFSM* fsm)
+AiStateMoving::AiStateMoving()
 {
-	mFSM = fsm;
 }
 
 AiStateMoving::~AiStateMoving()

@@ -5,14 +5,10 @@
 AIBike::AIBike()
 {
 	mTimer = Timer::GetInstance();
-	
+
 	currenttime = 0;
-
-
 	path = 2;
 	previouspath = 2;
-
-
 	mMoveSpeed = mBaseSpeed;
 	currentDirection = LEFT;
 	queuedDirection = LEFT;
@@ -21,10 +17,14 @@ AIBike::AIBike()
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
+	aiBrain = AiFSM::Instance();
+	aiBrain->SetState(AiStates::MOVING);
+
 	mTrail = new Trail("aiBikeSheet.png");
 	mTrail->Parent(this->Parent());
 	mAIScore = 0;
 	mLives = 1;
+	SetupPlayer();
 }
 
 AIBike::~AIBike()
@@ -217,6 +217,16 @@ void AIBike::HandleMovement()
 
 void AIBike::SetupPlayer()
 {
+	currentDirection = LEFT;
+	queuedDirection = LEFT;
+	mStartPos = Vector2(390.0f, 60.0f);
+	Visible(true);
+	Position(mStartPos);
+	Active(true);
+	ResetBike();
+	aiBrain->SetState(AiStates::MOVING);
+	SetLives(1);
+	isDead = false;
 }
 
 float AIBike::ChangePathInterval()

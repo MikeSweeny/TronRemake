@@ -1,8 +1,7 @@
 #include "AiStateDead.h"
 
-AiStateDead::AiStateDead(AiFSM* fsm)
+AiStateDead::AiStateDead()
 {
-	mFSM = fsm;
 }
 
 AiStateDead::~AiStateDead()

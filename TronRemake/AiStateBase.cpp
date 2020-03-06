@@ -5,11 +5,6 @@ AiStateBase::AiStateBase()
 
 }
 
-AiStateBase::AiStateBase()
-{
-
-}
-
 AiStateBase::~AiStateBase()
 {
 
