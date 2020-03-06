@@ -90,6 +90,12 @@ Texture* Pool::GetTileFromOPool()
 	return mOrangePool[mOrangePool.size() - 1];
 }
 
+void Pool::ReturnToPool(Texture* tile)
+{
+	tile->Position(-100, -100);
+	tile->isActive = false;
+}
+
 std::vector<Texture*> Pool::GetBPool()
 {
 	return mBluePool;

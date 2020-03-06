@@ -33,8 +33,16 @@ void Trail::PlaceTrail(Vector2 pos)
 	{
 		newTrail = sPool->GetTileFromOPool();
 	}
-	
+	mTrail.push_back(newTrail);
 	newTrail->Position(pos);
+}
+
+void Trail::ResetTrail()
+{
+	for (int i = 0; i < mTrail.size() - 1; i++)
+	{
+		sPool->ReturnToPool(mTrail[i]);
+	}
 }
 
 std::vector<Texture*> Trail::GetBPool()

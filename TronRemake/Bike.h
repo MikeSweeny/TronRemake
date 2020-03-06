@@ -36,6 +36,7 @@ public:
 	void HitWall();
 	bool IsDead();
 	void AnimationDelay();
+	void ResetBike();
 
 	void Update();
 	void Render();

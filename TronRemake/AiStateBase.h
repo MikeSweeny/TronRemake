@@ -5,11 +5,13 @@
 class AiStateBase
 {
 protected:
+
 	AiFSM* mFSM;
 
 public:
+
 	AiStateBase();
-	AiStateBase(AiFSM* fsm);
+	AiStateBase();
 	~AiStateBase();
 
 	virtual void StateEnter() = 0;

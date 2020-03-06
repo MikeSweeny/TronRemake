@@ -141,7 +141,7 @@ xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
     <ClCompile Include="AiFSM.cpp" />
     <ClCompile Include="AiStateBase.cpp" />
     <ClCompile Include="AiStateDead.cpp" />
-    <ClCompile Include="AiStateDeciding.cpp" />
+    <ClCompile Include="AiStateTurning.cpp" />
     <ClCompile Include="AiStateMoving.cpp" />
     <ClCompile Include="AnimatedTexture.cpp" />
     <ClCompile Include="AssetManager.cpp" />
@@ -169,7 +169,7 @@ xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
     <ClInclude Include="AiFSM.h" />
     <ClInclude Include="AiStateBase.h" />
     <ClInclude Include="AiStateDead.h" />
-    <ClInclude Include="AiStateDeciding.h" />
+    <ClInclude Include="AiStateTurning.h" />
     <ClInclude Include="AiStateMoving.h" />
     <ClInclude Include="AnimatedTexture.h" />
     <ClInclude Include="AssetManager.h" />

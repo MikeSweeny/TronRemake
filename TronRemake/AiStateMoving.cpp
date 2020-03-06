@@ -2,9 +2,22 @@
 
 AiStateMoving::AiStateMoving(AiFSM* fsm)
 {
-	base::StateUpdate();
+	mFSM = fsm;
 }
 
 AiStateMoving::~AiStateMoving()
 {
+}
+
+void AiStateMoving::StateEnter()
+{
+}
+
+void AiStateMoving::StateExit()
+{
+}
+
+void AiStateMoving::StateUpdate()
+{
+
 }

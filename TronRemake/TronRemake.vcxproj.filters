@@ -120,14 +120,14 @@
     <ClCompile Include="AiStateBase.cpp">
       <Filter>Source Files\TRON\AIStates</Filter>
     </ClCompile>
-    <ClCompile Include="AiStateMoving.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AiStateDeciding.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AiStateDead.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\TRON\AIStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStateMoving.cpp">
+      <Filter>Source Files\TRON\AIStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AiStateTurning.cpp">
+      <Filter>Source Files\TRON\AIStates</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,11 +206,11 @@
     <ClInclude Include="AiStateMoving.h">
       <Filter>Header Files\TRON\AIStates</Filter>
     </ClInclude>
-    <ClInclude Include="AiStateDeciding.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AiStateDead.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\TRON\AIStates</Filter>
+    </ClInclude>
+    <ClInclude Include="AiStateTurning.h">
+      <Filter>Header Files\TRON\AIStates</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

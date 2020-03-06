@@ -16,7 +16,9 @@ public:
 	void Render();
 	std::vector<Texture*> mBPool;
 	std::vector<Texture*> mOPool;
+	std::vector<Texture*> mTrail;
 	void PlaceTrail(Vector2 pos);
+	void ResetTrail();
 	std::vector<Texture*> GetBPool();
 	std::vector<Texture*> GetOPool();
 	std::string mSheetName;

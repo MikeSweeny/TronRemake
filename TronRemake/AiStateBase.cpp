@@ -2,13 +2,15 @@
 
 AiStateBase::AiStateBase()
 {
+
 }
 
-AiStateBase::AiStateBase(AiFSM* fsm)
+AiStateBase::AiStateBase()
 {
-	mFSM = fsm;
+
 }
 
 AiStateBase::~AiStateBase()
 {
+
 }

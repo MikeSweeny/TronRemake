@@ -11,6 +11,16 @@ AiFSM* AiFSM::Instance()
 	return mInstance;
 }
 
+void AiFSM::Update()
+{
+	currentState->StateUpdate();
+}
+
+void AiFSM::SetState(AiStateBase* state)
+{
+	currentState = state;
+}
+
 AiFSM::AiFSM()
 {
 

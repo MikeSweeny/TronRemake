@@ -64,8 +64,6 @@ void Bike::HitWall()
 	{
 		isDead = true;
 	}
-	//mDeathAnimation->ResetAnimation();
-	//SetupPlayer();
 }
 
 void Bike::Render()
@@ -202,6 +200,13 @@ void Bike::AnimationDelay()
 	}
 }
 
+void Bike::ResetBike()
+{
+	mTrail->ResetTrail();
+	mAnimating = false;
+	mBike->Active(true);
+}
+
 void Bike::PlaceBTrail()
 {
 	mTrail->PlaceTrail(mBike->Position(World));
@@ -211,3 +216,4 @@ void Bike::PlaceOTrail()
 {
 	mTrail->PlaceTrail(mBike->Position(World));
 }
+

@@ -4,13 +4,13 @@
 
 
 
-class AiStateDeciding : public AiStateBase
+class AiStateTurning : public AiStateBase
 {
 private:
 	typedef AiStateBase base;
 public:
-	AiStateDeciding(AiFSM* fsm);
-	~AiStateDeciding();
+	AiStateTurning(AiFSM* fsm);
+	~AiStateTurning();
 	void StateEnter();
 	void StateExit();
 	void StateUpdate();

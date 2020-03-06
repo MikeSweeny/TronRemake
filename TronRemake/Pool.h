@@ -29,6 +29,7 @@ public:
 	static Pool* Instance();
 	Texture* GetTileFromBPool();
 	Texture* GetTileFromOPool();
+	void ReturnToPool(Texture* tile);
 	std::vector<Texture*> GetBPool();
 	std::vector<Texture*> GetOPool();
 	void Render();

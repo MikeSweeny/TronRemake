@@ -7,7 +7,6 @@ OnePlayerGame::OnePlayerGame()
 	mScoreHud = new ScoreHud();
 	mScoreHud->Parent(this);
 	mScoreHud->Position(530, 325);
-	isGameOver = false;
 	// Play Area
 	imageSize = 810;
 	mPlayArea = new GameEntity(107, 70);
@@ -34,12 +33,15 @@ OnePlayerGame::~OnePlayerGame()
 void OnePlayerGame::Update()
 {
 	playerBike->Update();
-	//UpdateScore();
 
 	aiBike->Update();
 	if (playerBike->IsDead())
 	{
 		isGameOver = true;
+	}
+	if (aiBike->IsDead())
+	{
+		SetupGame();
 	}
 }
 
@@ -54,6 +56,7 @@ void OnePlayerGame::Render()
 
 void OnePlayerGame::SetupGame()
 {
+	isGameOver = false;
 	playerBike->Visible(true);
 	playerBike->Position(p1Start);
 	playerBike->Active(true);
