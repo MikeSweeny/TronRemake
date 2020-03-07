@@ -17,8 +17,8 @@ AIBike::AIBike()
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
-	aiBrain = AiFSM::Instance();
-	aiBrain->SetState(AiStates::MOVING);
+	aiBrain = new AiFSM(this);
+	aiBrain->SetState(MOVING);
 
 	mTrail = new Trail("aiBikeSheet.png");
 	mTrail->Parent(this->Parent());

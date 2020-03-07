@@ -4,6 +4,7 @@
 #include "AiStateDead.h"
 #include "AiStateMoving.h"
 #include "AiStateTurning.h"
+#include "MainMenu.h"
 
 class AiFSM
 {
@@ -13,18 +14,18 @@ protected:
 
 private:
 
-	static AiFSM* mInstance;
+	GameEntity* mBike;
 	AiStateBase* currentState;
 	AiStateMoving* movingState = new AiStateMoving();
 	AiStateTurning* turnState = new AiStateTurning();
 	AiStateDead* deadState = new AiStateDead();
 
 
+
 public:
 
-	AiFSM();
+	AiFSM(GameEntity* bike);
 	~AiFSM();
-	static AiFSM* Instance();
 	void Update();
 	void SetState(AiStates state);
 
