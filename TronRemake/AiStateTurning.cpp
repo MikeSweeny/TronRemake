@@ -12,6 +12,7 @@ AiStateTurning::~AiStateTurning()
 
 void AiStateTurning::StateEnter()
 {
+
 }
 
 void AiStateTurning::StateExit()
@@ -20,5 +21,5 @@ void AiStateTurning::StateExit()
 
 void AiStateTurning::StateUpdate()
 {
-
+	mBike->Turn();
 }

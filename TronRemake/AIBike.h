@@ -16,27 +16,32 @@ private:
 	Timer* mTimer;
 	float currenttime;
 
-	int path;
-	int previouspath;
 
 	typedef Bike base;
 
 
 	float ChangePathInterval();
 	int RandomPath();
-	bool ValidPath(int path);
+	bool ValidPath(Direction dir);
 
 public:
 	AIBike();
 	~AIBike();
 
 	AiFSM* aiBrain;
-	Vector2 sightF = Vector2(0, 0);
-	Vector2 sightL = Vector2(0, 0);
-	Vector2 sightR = Vector2(0, 0);
+	float checkDistance = 35;
+	bool CollisionAvoidF(Vector2 pos);
+	bool CollisionAvoidL(Vector2 pos);
+	bool CollisionAvoidR(Vector2 pos);
+	void SetTriggerBoxes();
+	Vector2 topTriggerBoxPos;
+	Vector2 botTriggerBoxPos;
+	Vector2 leftTriggerBoxPos;
+	Vector2 rightTriggerBoxPos;
 	std::vector<Direction> validDirections = { LEFT, RIGHT };
 	void IncrementTimer();
 	Vector2 checkPos;
+	int path;
 
 	void Update();
 	void Move() override;

@@ -15,7 +15,6 @@ private:
 
 	Timer* mTimer;
 	AudioManager* mAudio;
-	int offset = 5;
 
 public:
 	bool mVisible; // to hide the avatars before we start a game
@@ -29,6 +28,7 @@ public:
 	Bike();
 	~Bike();
 
+	int offset = 5;
 	Direction currentDirection = UP;
 	Direction previousDirection = UP;
 	Direction queuedDirection = UP;
