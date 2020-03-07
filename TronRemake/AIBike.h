@@ -12,32 +12,38 @@ class AIBike : public Bike
 {
 
 private:
-	Timer* mTimer;
 
+	Timer* mTimer;
 	float currenttime;
 
 	int path;
 	int previouspath;
 
 	typedef Bike base;
-	int mAIScore;
 
 
 	float ChangePathInterval();
 	int RandomPath();
 	bool ValidPath(int path);
 
-	int GetAIScore();
-
 public:
 	AIBike();
 	~AIBike();
+
 	AiFSM* aiBrain;
+	Vector2 sightF = Vector2(0, 0);
+	Vector2 sightL = Vector2(0, 0);
+	Vector2 sightR = Vector2(0, 0);
+	std::vector<Direction> validDirections = { LEFT, RIGHT };
+	void IncrementTimer();
+	Vector2 checkPos;
 
 	void Update();
-	void AddScore(int change);
 	void Move() override;
+	void Turn() override;
 	void SetupPlayer() override;
+
+
 	void HandleMovement() override;
 
 	

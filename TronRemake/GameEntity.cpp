@@ -129,4 +129,7 @@ namespace SDLFramework
 	void GameEntity::Move()
 	{
 	}
+	void GameEntity::Turn()
+	{
+	}
 }

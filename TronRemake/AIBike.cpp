@@ -10,19 +10,15 @@ AIBike::AIBike()
 	path = 2;
 	previouspath = 2;
 	mMoveSpeed = mBaseSpeed;
-	currentDirection = LEFT;
-	queuedDirection = LEFT;
 	mVisible = false;
 	mAnimating = false;
 	SetSprite("aiBikeSheet.png", 0, 0, 32, 32);
 	mBike->Parent(this);
 
 	aiBrain = new AiFSM(this);
-	aiBrain->SetState(MOVING);
 
 	mTrail = new Trail("aiBikeSheet.png");
 	mTrail->Parent(this->Parent());
-	mAIScore = 0;
 	mLives = 1;
 	SetupPlayer();
 }
@@ -32,6 +28,11 @@ AIBike::~AIBike()
 
 }
 
+void AIBike::IncrementTimer()
+{
+	currenttime += mTimer->GetDeltaTime();
+}
+
 void AIBike::Update()
 {
 	base::Update();
@@ -39,34 +40,60 @@ void AIBike::Update()
 	HandleCollisions();
 }
 
-void AIBike::AddScore(int change)
-{
-	mAIScore += change;
-
-}
-
 void AIBike::Move()
 {
-	Vector2 tempPos = this->Position(Local);
-	checkY = tempPos.y;
-	checkX = tempPos.x;
+	checkPos = this->Position(Local);
+	checkY = checkPos.y;
+	checkX = checkPos.x;
 
-	
-	currenttime += mTimer->GetDeltaTime();
-	
-	if (currenttime >= ChangePathInterval())
+	switch (currentDirection)
 	{
-		do
+	case Direction::UP:
+		if (mNewDirection)
 		{
-			path = RandomPath();
-		
-		} while (!ValidPath(path));
-
-		previouspath = path;
-		currenttime = 0;
+			mBike->Rotation(0);
+			mNewDirection = false;
+		}
+		checkPos.y -= mMoveSpeed;
+		break;
+	case Direction::RIGHT:
+		if (mNewDirection)
+		{
+			mBike->Rotation(90);
+			mNewDirection = false;
+		}
+		checkPos.x += mMoveSpeed;
+		break;
+	case Direction::DOWN:
+		if (mNewDirection)
+		{
+			mBike->Rotation(180);
+			mNewDirection = false;
+		}
+		checkPos.y += mMoveSpeed;
+		break;
+	case Direction::LEFT:
+		if (mNewDirection)
+		{
+			mBike->Rotation(270);
+			mNewDirection = false;
+		}
+		checkPos.x -= mMoveSpeed;
+		break;
+	default:
+		break;
 	}
-	
 
+	if (checkX % mTrailSize == 0 || checkY % mTrailSize == 0)
+	{
+		PlaceOTrail();
+	}
+
+	this->Position(checkPos);
+}
+
+void AIBike::Turn()
+{
 	if (path == 1)
 	{
 		if (checkY % mGridSize == 0)
@@ -127,44 +154,8 @@ void AIBike::Move()
 		}
 	}
 
-	
-	switch (currentDirection)
-	{
-	case Direction::UP:
-		if (mNewDirection)
-		{
-			mBike->Rotation(0);
-			mNewDirection = false;
-		}
-		tempPos.y -= mMoveSpeed;
-		break;
-	case Direction::RIGHT:
-		if (mNewDirection)
-		{
-			mBike->Rotation(90);
-			mNewDirection = false;
-		}
-		tempPos.x += mMoveSpeed;
-		break;
-	case Direction::DOWN:
-		if (mNewDirection)
-		{
-			mBike->Rotation(180);
-			mNewDirection = false;
-		}
-		tempPos.y += mMoveSpeed;
-		break;
-	case Direction::LEFT:
-		if (mNewDirection)
-		{
-			mBike->Rotation(270);
-			mNewDirection = false;
-		}
-		tempPos.x -= mMoveSpeed;
-		break;
-	default:
-		break;
-	}
+
+	/*
 
 	switch (queuedDirection)
 	{
@@ -206,20 +197,14 @@ void AIBike::Move()
 		break;
 	default:
 		break;
-	}
-
-	if (checkX % mTrailSize == 0 || checkY % mTrailSize == 0)
-	{
-		PlaceOTrail();
-	}
-
-	this->Position(tempPos);
+	}*/
 }
 
 void AIBike::SetupPlayer()
 {
-	currentDirection = LEFT;
-	queuedDirection = LEFT;
+	checkPos = this->Position(Local);
+	currentDirection = DOWN;
+	queuedDirection = DOWN;
 	mStartPos = Vector2(390.0f, 60.0f);
 	Visible(true);
 	Position(mStartPos);
@@ -271,7 +256,3 @@ bool AIBike::ValidPath(int path)
 	return bValidPath;
 }
 
-int AIBike::GetAIScore()
-{
-	return mAIScore;
-}

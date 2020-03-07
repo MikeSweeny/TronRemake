@@ -32,6 +32,7 @@ namespace SDLFramework
 
 		// AI inherited functions to avoid circular references
 		virtual void Move();
+		virtual void Turn();
 
 	private:
 		Vector2 mPosition;

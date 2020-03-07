@@ -31,11 +31,9 @@ void AiFSM::SetState(AiStates state)
 
 AiFSM::AiFSM(GameEntity* bike)
 {
-	mBike = bike;
-
-	movingState = new AiStateMoving(mBike);
-	turnState = new AiStateTurning(mBike);
-	deadState = new AiStateDead(mBike);
+	movingState = new AiStateMoving(bike);
+	turnState = new AiStateTurning(bike);
+	deadState = new AiStateDead(bike);
 
 	currentState = movingState;
 }

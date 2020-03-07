@@ -13,7 +13,6 @@ protected:
 
 private:
 
-	GameEntity* mBike;
 	AiStateBase* currentState;
 	AiStateMoving* movingState;
 	AiStateTurning* turnState;
