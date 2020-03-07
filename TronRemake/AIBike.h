@@ -36,8 +36,9 @@ public:
 
 	void Update();
 	void AddScore(int change);
-	void HandleMovement() override;
+	void Move() override;
 	void SetupPlayer() override;
+	void HandleMovement() override;
 
 	
 };

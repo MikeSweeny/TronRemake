@@ -9,7 +9,7 @@ class AiStateDead : public AiStateBase
 private:
 
 public:
-	AiStateDead();
+	AiStateDead(GameEntity* bike);
 	~AiStateDead();
 	void StateEnter();
 	void StateExit();

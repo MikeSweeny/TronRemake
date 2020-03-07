@@ -1,10 +1,13 @@
 #ifndef __AISTATEBASE_H
 #define __AISTATEBASE_H
+#include "GameEntity.h"
+
+using namespace SDLFramework;
 
 class AiStateBase
 {
 protected:
-
+	GameEntity* mBike;
 
 public:
 

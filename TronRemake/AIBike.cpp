@@ -35,6 +35,7 @@ AIBike::~AIBike()
 void AIBike::Update()
 {
 	base::Update();
+	aiBrain->Update();
 	HandleCollisions();
 }
 
@@ -44,7 +45,7 @@ void AIBike::AddScore(int change)
 
 }
 
-void AIBike::HandleMovement()
+void AIBike::Move()
 {
 	Vector2 tempPos = this->Position(Local);
 	checkY = tempPos.y;
@@ -227,6 +228,10 @@ void AIBike::SetupPlayer()
 	aiBrain->SetState(AiStates::MOVING);
 	SetLives(1);
 	isDead = false;
+}
+
+void AIBike::HandleMovement()
+{
 }
 
 float AIBike::ChangePathInterval()

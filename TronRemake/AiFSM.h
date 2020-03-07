@@ -4,7 +4,6 @@
 #include "AiStateDead.h"
 #include "AiStateMoving.h"
 #include "AiStateTurning.h"
-#include "MainMenu.h"
 
 class AiFSM
 {
@@ -16,9 +15,9 @@ private:
 
 	GameEntity* mBike;
 	AiStateBase* currentState;
-	AiStateMoving* movingState = new AiStateMoving();
-	AiStateTurning* turnState = new AiStateTurning();
-	AiStateDead* deadState = new AiStateDead();
+	AiStateMoving* movingState;
+	AiStateTurning* turnState;
+	AiStateDead* deadState;
 
 
 

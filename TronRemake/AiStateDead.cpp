@@ -1,7 +1,8 @@
 #include "AiStateDead.h"
 
-AiStateDead::AiStateDead()
+AiStateDead::AiStateDead(GameEntity* bike)
 {
+	mBike = bike;
 }
 
 AiStateDead::~AiStateDead()

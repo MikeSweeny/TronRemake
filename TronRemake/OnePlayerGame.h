@@ -1,7 +1,6 @@
 #ifndef __ONEPLAYERGAME_H
 #define __ONEPLAYERGAME_H
 #include "MainMenu.h"
-#include "Bike.h"
 #include "ScoreHud.h"
 #include "PlayerBike.h"
 #include "AIBike.h"

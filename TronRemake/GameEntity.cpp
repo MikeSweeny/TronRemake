@@ -126,4 +126,7 @@ namespace SDLFramework
 	{
 		mRotation += amount;
 	}
+	void GameEntity::Move()
+	{
+	}
 }

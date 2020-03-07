@@ -9,7 +9,7 @@ class AiStateTurning : public AiStateBase
 private:
 
 public:
-	AiStateTurning();
+	AiStateTurning(GameEntity* bike);
 	~AiStateTurning();
 	void StateEnter();
 	void StateExit();

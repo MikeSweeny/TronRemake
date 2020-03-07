@@ -1,7 +1,8 @@
 #include "AiStateTurning.h"
 
-AiStateTurning::AiStateTurning()
+AiStateTurning::AiStateTurning(GameEntity* bike)
 {
+	mBike = bike;
 }
 
 AiStateTurning::~AiStateTurning()

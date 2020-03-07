@@ -1,7 +1,8 @@
 #include "AiStateMoving.h"
 
-AiStateMoving::AiStateMoving()
+AiStateMoving::AiStateMoving(GameEntity* bike)
 {
+	mBike = bike;
 }
 
 AiStateMoving::~AiStateMoving()
@@ -18,5 +19,5 @@ void AiStateMoving::StateExit()
 
 void AiStateMoving::StateUpdate()
 {
-
+	mBike->Move();
 }

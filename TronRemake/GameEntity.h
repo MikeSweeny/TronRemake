@@ -30,6 +30,9 @@ namespace SDLFramework
 		virtual void Update() {};
 		virtual void Render() {};
 
+		// AI inherited functions to avoid circular references
+		virtual void Move();
+
 	private:
 		Vector2 mPosition;
 		float mRotation;

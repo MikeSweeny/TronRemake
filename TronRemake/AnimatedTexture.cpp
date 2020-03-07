@@ -22,6 +22,7 @@ namespace SDLFramework
 	{ 
 	}
 
+
 	void AnimatedTexture::SetWrapMode(WrapMode wrapMode) 
 	{
 		mWrapMode = wrapMode;
